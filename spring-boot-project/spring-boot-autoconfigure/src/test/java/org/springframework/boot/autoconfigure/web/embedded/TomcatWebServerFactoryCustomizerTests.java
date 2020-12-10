@@ -256,7 +256,7 @@ public class TomcatWebServerFactoryCustomizerTests {
 
 	@Test
 	public void testCustomizeMinSpareThreads() {
-		bind("server.tomcat.min-spare-threads=10");
+		bind("server.tomcat.min-spare-com.shirc.redis.delay.queue.threads=10");
 		assertThat(this.serverProperties.getTomcat().getMinSpareThreads()).isEqualTo(10);
 	}
 

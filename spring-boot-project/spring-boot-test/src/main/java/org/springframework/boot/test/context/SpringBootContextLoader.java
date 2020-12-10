@@ -145,7 +145,7 @@ public class SpringBootContextLoader extends AbstractContextLoader {
 
 	protected String[] getInlinedProperties(MergedContextConfiguration config) {
 		ArrayList<String> properties = new ArrayList<>();
-		// JMX bean names will clash if the same bean is used in multiple contexts
+		// JMX cluster names will clash if the same cluster is used in multiple contexts
 		disableJmx(properties);
 		properties.addAll(Arrays.asList(config.getPropertySourceProperties()));
 		if (!isEmbeddedWebEnvironment(config) && !hasCustomServerPort(properties)) {

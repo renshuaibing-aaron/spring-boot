@@ -48,7 +48,7 @@ import org.springframework.util.ClassUtils;
  */
 public class EndpointMBean implements DynamicMBean {
 
-	private static final boolean REACTOR_PRESENT = ClassUtils.isPresent("reactor.core.publisher.Mono",
+	private static final boolean REACTOR_PRESENT = ClassUtils.isPresent("reactor.com.shirc.redis.delay.queue.core.publisher.Mono",
 			EndpointMBean.class.getClassLoader());
 
 	private final JmxOperationResponseMapper responseMapper;

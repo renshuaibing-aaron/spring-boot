@@ -81,16 +81,16 @@
 								<pathconvert refid="taskpath" />
 								<typedef resource="org/springframework/boot/ant/antlib.xml" classpathref="taskpath" uri="antlib:org.springframework.boot.ant" />
 								<property name="build.compiler" value="${antBuildCompiler}" />
-								<antunit xmlns="antlib:org.apache.ant.antunit">
+							<!--	<antunit xmlns="antlib:org.apache.ant.antunit">
 									<propertyset>
 										<propertyref name="build.compiler" />
 									</propertyset>
 									<plainlistener />
 									<fileset xmlns="antlib:org.apache.tools.ant" dir="${project.build.directory}/it"
 										includes="**/build.xml" />
-								</antunit>
+								</antunit>-->
 							</target>
-							<skip>${skipTests}</skip>
+							<!--<skip>${skipTests}</skip>-->
 						</configuration>
 						<goals>
 							<goal>run</goal>

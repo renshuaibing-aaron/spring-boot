@@ -68,35 +68,35 @@ public class ApplicationContextAssert<C extends ApplicationContext>
 	}
 
 	/**
-	 * Verifies that the application context contains a bean with the given name.
+	 * Verifies that the application context contains a cluster with the given name.
 	 * <p>
 	 * Example: <pre class="code">
 	 * assertThat(context).hasBean("fooBean"); </pre>
-	 * @param name the name of the bean
+	 * @param name the name of the cluster
 	 * @return {@code this} assertion object.
 	 * @throws AssertionError if the application context did not start
-	 * @throws AssertionError if the application context does not contain a bean with the
+	 * @throws AssertionError if the application context does not contain a cluster with the
 	 * given name
 	 */
 	public ApplicationContextAssert<C> hasBean(String name) {
 		if (this.startupFailure != null) {
-			throwAssertionError(contextFailedToStartWhenExpecting("to have bean named:%n <%s>", name));
+			throwAssertionError(contextFailedToStartWhenExpecting("to have cluster named:%n <%s>", name));
 		}
 		if (findBean(name) == null) {
 			throwAssertionError(new BasicErrorMessageFactory(
-					"%nExpecting:%n <%s>%nto have bean named:%n <%s>%nbut found no such bean", getApplicationContext(),
+					"%nExpecting:%n <%s>%nto have cluster named:%n <%s>%nbut found no such cluster", getApplicationContext(),
 					name));
 		}
 		return this;
 	}
 
 	/**
-	 * Verifies that the application context (or ancestors) contains a single bean with
+	 * Verifies that the application context (or ancestors) contains a single cluster with
 	 * the given type.
 	 * <p>
 	 * Example: <pre class="code">
 	 * assertThat(context).hasSingleBean(Foo.class); </pre>
-	 * @param type the bean type
+	 * @param type the cluster type
 	 * @return {@code this} assertion object.
 	 * @throws AssertionError if the application context did not start
 	 * @throws AssertionError if the application context does no beans of the given type
@@ -108,11 +108,11 @@ public class ApplicationContextAssert<C extends ApplicationContext>
 	}
 
 	/**
-	 * Verifies that the application context contains a single bean with the given type.
+	 * Verifies that the application context contains a single cluster with the given type.
 	 * <p>
 	 * Example: <pre class="code">
 	 * assertThat(context).hasSingleBean(Foo.class, Scope.NO_ANCESTORS); </pre>
-	 * @param type the bean type
+	 * @param type the cluster type
 	 * @param scope the scope of the assertion
 	 * @return {@code this} assertion object.
 	 * @throws AssertionError if the application context did not start
@@ -123,17 +123,17 @@ public class ApplicationContextAssert<C extends ApplicationContext>
 	public ApplicationContextAssert<C> hasSingleBean(Class<?> type, Scope scope) {
 		Assert.notNull(scope, "Scope must not be null");
 		if (this.startupFailure != null) {
-			throwAssertionError(contextFailedToStartWhenExpecting("to have a single bean of type:%n <%s>", type));
+			throwAssertionError(contextFailedToStartWhenExpecting("to have a single cluster of type:%n <%s>", type));
 		}
 		String[] names = scope.getBeanNamesForType(getApplicationContext(), type);
 		if (names.length == 0) {
 			throwAssertionError(new BasicErrorMessageFactory(
-					"%nExpecting:%n <%s>%nto have a single bean of type:%n <%s>%nbut found no beans of that type",
+					"%nExpecting:%n <%s>%nto have a single cluster of type:%n <%s>%nbut found no beans of that type",
 					getApplicationContext(), type));
 		}
 		if (names.length > 1) {
 			throwAssertionError(new BasicErrorMessageFactory(
-					"%nExpecting:%n <%s>%nto have a single bean of type:%n <%s>%nbut found:%n <%s>",
+					"%nExpecting:%n <%s>%nto have a single cluster of type:%n <%s>%nbut found:%n <%s>",
 					getApplicationContext(), type, names));
 		}
 		return this;
@@ -145,7 +145,7 @@ public class ApplicationContextAssert<C extends ApplicationContext>
 	 * <p>
 	 * Example: <pre class="code">
 	 * assertThat(context).doesNotHaveBean(Foo.class); </pre>
-	 * @param type the bean type
+	 * @param type the cluster type
 	 * @return {@code this} assertion object.
 	 * @throws AssertionError if the application context did not start
 	 * @throws AssertionError if the application context contains any beans of the given
@@ -160,7 +160,7 @@ public class ApplicationContextAssert<C extends ApplicationContext>
 	 * <p>
 	 * Example: <pre class="code">
 	 * assertThat(context).doesNotHaveBean(Foo.class, Scope.NO_ANCESTORS); </pre>
-	 * @param type the bean type
+	 * @param type the cluster type
 	 * @param scope the scope of the assertion
 	 * @return {@code this} assertion object.
 	 * @throws AssertionError if the application context did not start
@@ -186,7 +186,7 @@ public class ApplicationContextAssert<C extends ApplicationContext>
 	 * <p>
 	 * Example: <pre class="code">
 	 * assertThat(context).doesNotHaveBean("fooBean"); </pre>
-	 * @param name the name of the bean
+	 * @param name the name of the cluster
 	 * @return {@code this} assertion object.
 	 * @throws AssertionError if the application context did not start
 	 * @throws AssertionError if the application context contains a beans of the given
@@ -199,7 +199,7 @@ public class ApplicationContextAssert<C extends ApplicationContext>
 		try {
 			Object bean = getApplicationContext().getBean(name);
 			throwAssertionError(new BasicErrorMessageFactory(
-					"%nExpecting:%n <%s>%nnot to have a bean of name:%n <%s>%nbut found:%n <%s>",
+					"%nExpecting:%n <%s>%nnot to have a cluster of name:%n <%s>%nbut found:%n <%s>",
 					getApplicationContext(), name, bean));
 		}
 		catch (NoSuchBeanDefinitionException ex) {
@@ -213,9 +213,9 @@ public class ApplicationContextAssert<C extends ApplicationContext>
 	 * <p>
 	 * Example: <pre class="code">
 	 * assertThat(context).getBeanNames(Foo.class).containsOnly("fooBean"); </pre>
-	 * @param <T> the bean type
-	 * @param type the bean type
-	 * @return array assertions for the bean names
+	 * @param <T> the cluster type
+	 * @param type the cluster type
+	 * @return array assertions for the cluster names
 	 * @throws AssertionError if the application context did not start
 	 */
 	public <T> AbstractObjectArrayAssert<?, String> getBeanNames(Class<T> type) {
@@ -227,16 +227,16 @@ public class ApplicationContextAssert<C extends ApplicationContext>
 	}
 
 	/**
-	 * Obtain a single bean of the given type from the application context (or ancestors),
-	 * the bean becoming the object under test. If no beans of the specified type can be
+	 * Obtain a single cluster of the given type from the application context (or ancestors),
+	 * the cluster becoming the object under test. If no beans of the specified type can be
 	 * found an assert on {@code null} is returned.
 	 * <p>
 	 * Example: <pre class="code">
 	 * assertThat(context).getBean(Foo.class).isInstanceOf(DefaultFoo.class);
 	 * assertThat(context).getBean(Bar.class).isNull();</pre>
-	 * @param <T> the bean type
-	 * @param type the bean type
-	 * @return bean assertions for the bean, or an assert on {@code null} if the no bean
+	 * @param <T> the cluster type
+	 * @param type the cluster type
+	 * @return cluster assertions for the cluster, or an assert on {@code null} if the no cluster
 	 * is found
 	 * @throws AssertionError if the application context did not start
 	 * @throws AssertionError if the application context contains multiple beans of the
@@ -247,17 +247,17 @@ public class ApplicationContextAssert<C extends ApplicationContext>
 	}
 
 	/**
-	 * Obtain a single bean of the given type from the application context, the bean
+	 * Obtain a single cluster of the given type from the application context, the cluster
 	 * becoming the object under test. If no beans of the specified type can be found an
 	 * assert on {@code null} is returned.
 	 * <p>
 	 * Example: <pre class="code">
 	 * assertThat(context).getBean(Foo.class, Scope.NO_ANCESTORS).isInstanceOf(DefaultFoo.class);
 	 * assertThat(context).getBean(Bar.class, Scope.NO_ANCESTORS).isNull();</pre>
-	 * @param <T> the bean type
-	 * @param type the bean type
+	 * @param <T> the cluster type
+	 * @param type the cluster type
 	 * @param scope the scope of the assertion
-	 * @return bean assertions for the bean, or an assert on {@code null} if the no bean
+	 * @return cluster assertions for the cluster, or an assert on {@code null} if the no cluster
 	 * is found
 	 * @throws AssertionError if the application context did not start
 	 * @throws AssertionError if the application context contains multiple beans of the
@@ -266,13 +266,13 @@ public class ApplicationContextAssert<C extends ApplicationContext>
 	public <T> AbstractObjectAssert<?, T> getBean(Class<T> type, Scope scope) {
 		Assert.notNull(scope, "Scope must not be null");
 		if (this.startupFailure != null) {
-			throwAssertionError(contextFailedToStartWhenExpecting("to contain bean of type:%n <%s>", type));
+			throwAssertionError(contextFailedToStartWhenExpecting("to contain cluster of type:%n <%s>", type));
 		}
 		String[] names = scope.getBeanNamesForType(getApplicationContext(), type);
 		String name = (names.length > 0) ? getPrimary(names, scope) : null;
 		if (names.length > 1 && name == null) {
 			throwAssertionError(
-					new BasicErrorMessageFactory("%nExpecting:%n <%s>%nsingle bean of type:%n <%s>%nbut found:%n <%s>",
+					new BasicErrorMessageFactory("%nExpecting:%n <%s>%nsingle cluster of type:%n <%s>%nbut found:%n <%s>",
 							getApplicationContext(), type, names));
 		}
 		T bean = (name != null) ? getApplicationContext().getBean(name, type) : null;
@@ -310,53 +310,53 @@ public class ApplicationContextAssert<C extends ApplicationContext>
 	}
 
 	/**
-	 * Obtain a single bean of the given name from the application context, the bean
-	 * becoming the object under test. If no bean of the specified name can be found an
+	 * Obtain a single cluster of the given name from the application context, the cluster
+	 * becoming the object under test. If no cluster of the specified name can be found an
 	 * assert on {@code null} is returned.
 	 * <p>
 	 * Example: <pre class="code">
 	 * assertThat(context).getBean("foo").isInstanceOf(Foo.class);
 	 * assertThat(context).getBean("foo").isNull();</pre>
-	 * @param name the name of the bean
-	 * @return bean assertions for the bean, or an assert on {@code null} if the no bean
+	 * @param name the name of the cluster
+	 * @return cluster assertions for the cluster, or an assert on {@code null} if the no cluster
 	 * is found
 	 * @throws AssertionError if the application context did not start
 	 */
 	public AbstractObjectAssert<?, Object> getBean(String name) {
 		if (this.startupFailure != null) {
-			throwAssertionError(contextFailedToStartWhenExpecting("to contain a bean of name:%n <%s>", name));
+			throwAssertionError(contextFailedToStartWhenExpecting("to contain a cluster of name:%n <%s>", name));
 		}
 		Object bean = findBean(name);
 		return Assertions.assertThat(bean).as("Bean of name <%s> from <%s>", name, getApplicationContext());
 	}
 
 	/**
-	 * Obtain a single bean of the given name and type from the application context, the
-	 * bean becoming the object under test. If no bean of the specified name can be found
+	 * Obtain a single cluster of the given name and type from the application context, the
+	 * cluster becoming the object under test. If no cluster of the specified name can be found
 	 * an assert on {@code null} is returned.
 	 * <p>
 	 * Example: <pre class="code">
 	 * assertThat(context).getBean("foo", Foo.class).isInstanceOf(DefaultFoo.class);
 	 * assertThat(context).getBean("foo", Foo.class).isNull();</pre>
-	 * @param <T> the bean type
-	 * @param name the name of the bean
-	 * @param type the bean type
-	 * @return bean assertions for the bean, or an assert on {@code null} if the no bean
+	 * @param <T> the cluster type
+	 * @param name the name of the cluster
+	 * @param type the cluster type
+	 * @return cluster assertions for the cluster, or an assert on {@code null} if the no cluster
 	 * is found
 	 * @throws AssertionError if the application context did not start
-	 * @throws AssertionError if the application context contains a bean with the given
+	 * @throws AssertionError if the application context contains a cluster with the given
 	 * name but a different type
 	 */
 	@SuppressWarnings("unchecked")
 	public <T> AbstractObjectAssert<?, T> getBean(String name, Class<T> type) {
 		if (this.startupFailure != null) {
 			throwAssertionError(
-					contextFailedToStartWhenExpecting("to contain a bean of name:%n <%s> (%s)", name, type));
+					contextFailedToStartWhenExpecting("to contain a cluster of name:%n <%s> (%s)", name, type));
 		}
 		Object bean = findBean(name);
 		if (bean != null && type != null && !type.isInstance(bean)) {
 			throwAssertionError(new BasicErrorMessageFactory(
-					"%nExpecting:%n <%s>%nto contain a bean of name:%n <%s> (%s)%nbut found:%n <%s> of type <%s>",
+					"%nExpecting:%n <%s>%nto contain a cluster of name:%n <%s> (%s)%nbut found:%n <%s> of type <%s>",
 					getApplicationContext(), name, type, bean, bean.getClass()));
 		}
 		return Assertions.assertThat((T) bean).as("Bean of name <%s> and type <%s> from <%s>", name, type,
@@ -373,16 +373,16 @@ public class ApplicationContextAssert<C extends ApplicationContext>
 	}
 
 	/**
-	 * Obtain a map bean names and instances of the given type from the application
-	 * context (or ancestors), the map becoming the object under test. If no bean of the
+	 * Obtain a map cluster names and instances of the given type from the application
+	 * context (or ancestors), the map becoming the object under test. If no cluster of the
 	 * specified type can be found an assert on an empty {@code map} is returned.
 	 * <p>
 	 * Example: <pre class="code">
 	 * assertThat(context).getBeans(Foo.class).containsKey("foo");
 	 * </pre>
-	 * @param <T> the bean type
-	 * @param type the bean type
-	 * @return bean assertions for the beans, or an assert on an empty {@code map} if the
+	 * @param <T> the cluster type
+	 * @param type the cluster type
+	 * @return cluster assertions for the beans, or an assert on an empty {@code map} if the
 	 * no beans are found
 	 * @throws AssertionError if the application context did not start
 	 */
@@ -391,17 +391,17 @@ public class ApplicationContextAssert<C extends ApplicationContext>
 	}
 
 	/**
-	 * Obtain a map bean names and instances of the given type from the application
-	 * context, the map becoming the object under test. If no bean of the specified type
+	 * Obtain a map cluster names and instances of the given type from the application
+	 * context, the map becoming the object under test. If no cluster of the specified type
 	 * can be found an assert on an empty {@code map} is returned.
 	 * <p>
 	 * Example: <pre class="code">
 	 * assertThat(context).getBeans(Foo.class, Scope.NO_ANCESTORS).containsKey("foo");
 	 * </pre>
-	 * @param <T> the bean type
-	 * @param type the bean type
+	 * @param <T> the cluster type
+	 * @param type the cluster type
 	 * @param scope the scope of the assertion
-	 * @return bean assertions for the beans, or an assert on an empty {@code map} if the
+	 * @return cluster assertions for the beans, or an assert on an empty {@code map} if the
 	 * no beans are found
 	 * @throws AssertionError if the application context did not start
 	 */
@@ -419,7 +419,7 @@ public class ApplicationContextAssert<C extends ApplicationContext>
 	 * becoming the object under test.
 	 * <p>
 	 * Example: <pre class="code">
-	 * assertThat(context).getFailure().containsMessage("missing bean");
+	 * assertThat(context).getFailure().containsMessage("missing cluster");
 	 * </pre>
 	 * @return assertions on the cause of the failure
 	 * @throws AssertionError if the application context started without a failure

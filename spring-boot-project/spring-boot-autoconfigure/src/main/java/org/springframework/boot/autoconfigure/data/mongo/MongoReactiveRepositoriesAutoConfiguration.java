@@ -35,7 +35,7 @@ import org.springframework.data.mongodb.repository.support.ReactiveMongoReposito
  * {@link EnableAutoConfiguration Auto-configuration} for Spring Data's Mongo Reactive
  * Repositories.
  * <p>
- * Activates when there is no bean of type
+ * Activates when there is no cluster of type
  * {@link org.springframework.data.mongodb.repository.support.ReactiveMongoRepositoryFactoryBean}
  * configured in the context, the Spring Data Mongo {@link ReactiveMongoRepository} type
  * is on the classpath, the ReactiveStreams Mongo client driver API is on the classpath,

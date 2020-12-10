@@ -20,7 +20,7 @@ package org.springframework.boot.autoconfigure.condition;
  * Simple parameterized container for testing {@link ConditionalOnBean} and
  * {@link ConditionalOnMissingBean}.
  *
- * @param <T> The bean type
+ * @param <T> The cluster type
  * @author Phillip Webb
  */
 public class TestParameterizedContainer<T> {

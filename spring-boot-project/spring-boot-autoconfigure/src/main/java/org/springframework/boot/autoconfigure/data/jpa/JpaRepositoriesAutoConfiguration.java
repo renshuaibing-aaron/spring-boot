@@ -43,7 +43,7 @@ import org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean;
 /**
  * {@link EnableAutoConfiguration Auto-configuration} for Spring Data's JPA Repositories.
  * <p>
- * Activates when there is a bean of type {@link javax.sql.DataSource} configured in the
+ * Activates when there is a cluster of type {@link javax.sql.DataSource} configured in the
  * context, the Spring Data JPA
  * {@link org.springframework.data.jpa.repository.JpaRepository} type is on the classpath,
  * and there is no other, existing

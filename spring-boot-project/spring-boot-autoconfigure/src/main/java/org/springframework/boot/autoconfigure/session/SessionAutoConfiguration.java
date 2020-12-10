@@ -293,7 +293,7 @@ public class SessionAutoConfiguration {
 	}
 
 	/**
-	 * Base class for validating that a (reactive) session repository bean exists.
+	 * Base class for validating that a (reactive) session repository cluster exists.
 	 */
 	abstract static class AbstractSessionRepositoryValidator {
 

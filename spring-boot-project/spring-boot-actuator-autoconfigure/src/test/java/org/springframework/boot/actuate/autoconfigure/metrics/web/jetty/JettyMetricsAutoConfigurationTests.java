@@ -57,7 +57,7 @@ public class JettyMetricsAutoConfigurationTests {
 							context.getSourceApplicationContext()));
 					assertThat(context).hasSingleBean(JettyServerThreadPoolMetricsBinder.class);
 					SimpleMeterRegistry registry = context.getBean(SimpleMeterRegistry.class);
-					assertThat(registry.find("jetty.threads.config.min").meter()).isNotNull();
+					assertThat(registry.find("jetty.com.shirc.redis.delay.queue.threads.config.min").meter()).isNotNull();
 				});
 	}
 
@@ -71,7 +71,7 @@ public class JettyMetricsAutoConfigurationTests {
 					context.publishEvent(new ApplicationStartedEvent(new SpringApplication(), null,
 							context.getSourceApplicationContext()));
 					SimpleMeterRegistry registry = context.getBean(SimpleMeterRegistry.class);
-					assertThat(registry.find("jetty.threads.config.min").meter()).isNotNull();
+					assertThat(registry.find("jetty.com.shirc.redis.delay.queue.threads.config.min").meter()).isNotNull();
 				});
 	}
 

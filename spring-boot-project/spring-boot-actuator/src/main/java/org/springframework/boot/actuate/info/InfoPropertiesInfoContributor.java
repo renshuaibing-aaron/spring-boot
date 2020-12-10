@@ -164,7 +164,7 @@ public abstract class InfoPropertiesInfoContributor<T extends InfoProperties> im
 		FULL,
 
 		/**
-		 * Expose a pre-defined set of core settings only.
+		 * Expose a pre-defined set of com.shirc.redis.delay.queue.core settings only.
 		 */
 		SIMPLE
 

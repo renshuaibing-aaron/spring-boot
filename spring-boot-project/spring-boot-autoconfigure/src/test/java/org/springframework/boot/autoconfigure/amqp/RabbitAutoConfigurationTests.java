@@ -354,12 +354,12 @@ public class RabbitAutoConfigurationTests {
 
 	@Test
 	public void testStaticQueues() {
-		// There should NOT be an AmqpAdmin bean when dynamic is switch to false
+		// There should NOT be an AmqpAdmin cluster when dynamic is switch to false
 		this.contextRunner.withUserConfiguration(TestConfiguration.class)
 				.withPropertyValues("spring.rabbitmq.dynamic:false")
 				.run((context) -> assertThatExceptionOfType(NoSuchBeanDefinitionException.class)
 						.isThrownBy(() -> context.getBean(AmqpAdmin.class))
-						.withMessageContaining("No qualifying bean of type '" + AmqpAdmin.class.getName() + "'"));
+						.withMessageContaining("No qualifying cluster of type '" + AmqpAdmin.class.getName() + "'"));
 	}
 
 	@Test

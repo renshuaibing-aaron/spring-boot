@@ -15,6 +15,6 @@
  */
 
 /**
- * Auto-configuration for core parts common to most Spring Boot applications.
+ * Auto-configuration for com.shirc.redis.delay.queue.core parts common to most Spring Boot applications.
  */
 package org.springframework.boot.test.autoconfigure.core;

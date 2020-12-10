@@ -128,7 +128,7 @@ public class ImportsContextCustomizerFactoryTests {
 
 		@Bean
 		public String bean() {
-			return "bean";
+			return "cluster";
 		}
 
 	}

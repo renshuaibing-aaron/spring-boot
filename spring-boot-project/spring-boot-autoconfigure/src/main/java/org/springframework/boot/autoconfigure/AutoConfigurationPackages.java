@@ -1,19 +1,3 @@
-/*
- * Copyright 2012-2019 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package org.springframework.boot.autoconfigure;
 
 import java.util.ArrayList;
@@ -39,6 +23,8 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.StringUtils;
 
 /**
+ * 简单来说，就是将使用 @AutoConfigurationPackage 注解的类所在的包（package），注册成一个 Spring IoC 容器中的 Bean 。
+ * 后续有其它模块需要使用，就可以通过获得该 Bean ，从而获得所在的包。例如说，JPA 模块，需要使用到
  * Class for storing auto-configuration packages for reference later (e.g. by JPA entity
  * scanner).
  *
@@ -54,9 +40,9 @@ public abstract class AutoConfigurationPackages {
 	private static final String BEAN = AutoConfigurationPackages.class.getName();
 
 	/**
-	 * Determine if the auto-configuration base packages for the given bean factory are
+	 * Determine if the auto-configuration base packages for the given cluster factory are
 	 * available.
-	 * @param beanFactory the source bean factory
+	 * @param beanFactory the source cluster factory
 	 * @return true if there are auto-config packages available
 	 */
 	public static boolean has(BeanFactory beanFactory) {
@@ -64,8 +50,8 @@ public abstract class AutoConfigurationPackages {
 	}
 
 	/**
-	 * Return the auto-configuration base packages for the given bean factory.
-	 * @param beanFactory the source bean factory
+	 * Return the auto-configuration base packages for the given cluster factory.
+	 * @param beanFactory the source cluster factory
 	 * @return a list of auto-configuration packages
 	 * @throws IllegalStateException if auto-configuration is not enabled
 	 */
@@ -86,7 +72,7 @@ public abstract class AutoConfigurationPackages {
 	 * you don't call this method directly, but instead rely on the default convention
 	 * where the package name is set from your {@code @EnableAutoConfiguration}
 	 * configuration class or classes.
-	 * @param registry the bean definition registry
+	 * @param registry the cluster definition registry
 	 * @param packageNames the package names to set
 	 */
 	public static void register(BeanDefinitionRegistry registry, String... packageNames) {

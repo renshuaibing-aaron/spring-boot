@@ -48,7 +48,7 @@ public class JestProperties {
 	private String password;
 
 	/**
-	 * Whether to enable connection requests from multiple execution threads.
+	 * Whether to enable connection requests from multiple execution com.shirc.redis.delay.queue.threads.
 	 */
 	private boolean multiThreaded = true;
 

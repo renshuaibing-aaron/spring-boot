@@ -47,7 +47,7 @@ class OnClassCondition extends FilteringSpringBootCondition {
 	protected final ConditionOutcome[] getOutcomes(String[] autoConfigurationClasses,
 			AutoConfigurationMetadata autoConfigurationMetadata) {
 		// Split the work and perform half in a background thread. Using a single
-		// additional thread seems to offer the best performance. More threads make
+		// additional thread seems to offer the best performance. More com.shirc.redis.delay.queue.threads make
 		// things worse
 		int split = autoConfigurationClasses.length / 2;
 		OutcomesResolver firstHalfResolver = createOutcomesResolver(autoConfigurationClasses, 0, split,

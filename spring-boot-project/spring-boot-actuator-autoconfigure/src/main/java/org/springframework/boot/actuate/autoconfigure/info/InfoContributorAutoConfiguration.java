@@ -48,7 +48,7 @@ import org.springframework.core.env.ConfigurableEnvironment;
 public class InfoContributorAutoConfiguration {
 
 	/**
-	 * The default order for the core {@link InfoContributor} beans.
+	 * The default order for thecore {@link InfoContributor} beans.
 	 */
 	public static final int DEFAULT_ORDER = Ordered.HIGHEST_PRECEDENCE + 10;
 

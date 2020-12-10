@@ -21,7 +21,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * Configuration for a factory bean produced by a bean method with arguments on a
+ * Configuration for a factory cluster produced by a cluster method with arguments on a
  * configuration class found via component scanning.
  *
  * @author Andy Wilkinson

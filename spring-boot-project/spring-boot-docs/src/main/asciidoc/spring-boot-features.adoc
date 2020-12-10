@@ -289,7 +289,7 @@ The following example shows a `CommandLineRunner` with a `run` method:
 	}
 ----
 
-If several `CommandLineRunner` or `ApplicationRunner` beans are defined that must be called in a specific order, you can additionally implement the `org.springframework.core.Ordered` interface or use the `org.springframework.core.annotation.Order` annotation.
+If several `CommandLineRunner` or `ApplicationRunner` beans are defined that must be called in a specific order, you can additionally implement the `org.springframework.com.shirc.redis.delay.queue.core.Ordered` interface or use the `org.springframework.com.shirc.redis.delay.queue.core.annotation.Order` annotation.
 
 
 
@@ -653,7 +653,7 @@ If the `development`, `production` and `eu-central` profiles are *not* enabled, 
 ====
 `spring.profiles` can therefore contain a simple profile name (for example `production`) or a profile expression.
 A profile expression allows for more complicated profile logic to be expressed, for example `production & (eu-central | eu-west)`.
-Check the {spring-framework-docs}core.html#beans-definition-profiles-java[reference guide] for more details.
+Check the {spring-framework-docs}com.shirc.redis.delay.queue.core.html#beans-definition-profiles-java[reference guide] for more details.
 ====
 
 If none are explicitly active when the application context starts, the default profiles are activated.
@@ -1259,7 +1259,7 @@ See the "<<production-ready-features.adoc#production-ready-endpoints, Production
 
 [[boot-features-external-config-vs-value]]
 ==== @ConfigurationProperties vs. @Value
-The `@Value` annotation is a core container feature, and it does not provide the same features as type-safe configuration properties.
+The `@Value` annotation is a com.shirc.redis.delay.queue.core container feature, and it does not provide the same features as type-safe configuration properties.
 The following table summarizes the features that are supported by `@ConfigurationProperties` and `@Value`:
 
 [cols="4,2,2"]
@@ -1378,7 +1378,7 @@ The default log output from Spring Boot resembles the following example:
 
 [indent=0]
 ----
-2019-03-05 10:57:51.112  INFO 45469 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/7.0.52
+2019-03-05 10:57:51.112  INFO 45469 --- [           main] org.apache.catalina.com.shirc.redis.delay.queue.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/7.0.52
 2019-03-05 10:57:51.253  INFO 45469 --- [ost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
 2019-03-05 10:57:51.253  INFO 45469 --- [ost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1358 ms
 2019-03-05 10:57:51.698  INFO 45469 --- [ost-startStop-1] o.s.b.c.e.ServletRegistrationBean        : Mapping servlet: 'dispatcherServlet' to [/]
@@ -1413,11 +1413,11 @@ You can also enable a "`debug`" mode by starting your application with a `--debu
 
 NOTE: You can also specify `debug=true` in your `application.properties`.
 
-When the debug mode is enabled, a selection of core loggers (embedded container, Hibernate, and Spring Boot) are configured to output more information.
+When the debug mode is enabled, a selection of com.shirc.redis.delay.queue.core loggers (embedded container, Hibernate, and Spring Boot) are configured to output more information.
 Enabling the debug mode does _not_ configure your application to log all messages with `DEBUG` level.
 
 Alternatively, you can enable a "`trace`" mode by starting your application with a `--trace` flag (or `trace=true` in your `application.properties`).
-Doing so enables trace logging for a selection of core loggers (embedded container, Hibernate schema generation, and the whole Spring portfolio).
+Doing so enables trace logging for a selection of com.shirc.redis.delay.queue.core loggers (embedded container, Hibernate schema generation, and the whole Spring portfolio).
 
 
 
@@ -1570,10 +1570,10 @@ Spring Boot includes the following pre-defined logging groups that can be used o
 | Name | Loggers
 
 | web
-| `org.springframework.core.codec`, `org.springframework.http`, `org.springframework.web`
+| `org.springframework.com.shirc.redis.delay.queue.core.codec`, `org.springframework.http`, `org.springframework.web`
 
 | sql
-| `org.springframework.jdbc.core`, `org.hibernate.SQL`
+| `org.springframework.jdbc.com.shirc.redis.delay.queue.core`, `org.hibernate.SQL`
 |===
 
 
@@ -1702,8 +1702,8 @@ If you attempt to do so, making changes to the configuration file results in an 
 
 [indent=0]
 ----
-	ERROR in ch.qos.logback.core.joran.spi.Interpreter@4:71 - no applicable action for [springProperty], current ElementPath is [[configuration][springProperty]]
-	ERROR in ch.qos.logback.core.joran.spi.Interpreter@4:71 - no applicable action for [springProfile], current ElementPath is [[configuration][springProfile]]
+	ERROR in ch.qos.logback.com.shirc.redis.delay.queue.core.joran.spi.Interpreter@4:71 - no applicable action for [springProperty], current ElementPath is [[configuration][springProperty]]
+	ERROR in ch.qos.logback.com.shirc.redis.delay.queue.core.joran.spi.Interpreter@4:71 - no applicable action for [springProfile], current ElementPath is [[configuration][springProfile]]
 ----
 
 
@@ -1714,7 +1714,7 @@ Profile sections are supported anywhere within the `<configuration>` element.
 Use the `name` attribute to specify which profile accepts the configuration.
 The `<springProfile>` tag can contain a simple profile name (for example `staging`) or a profile expression.
 A profile expression allows for more complicated profile logic to be expressed, for example `production & (eu-central | eu-west)`.
-Check the {spring-framework-docs}core.html#beans-definition-profiles-java[reference guide] for more details.
+Check the {spring-framework-docs}com.shirc.redis.delay.queue.core.html#beans-definition-profiles-java[reference guide] for more details.
 The following listing shows three sample profiles:
 
 [source,xml,indent=0]
@@ -1831,9 +1831,9 @@ If you have not yet developed a Spring Boot web application, you can follow the 
 
 [[boot-features-spring-mvc]]
 === The "`Spring Web MVC Framework`"
-The {spring-framework-docs}web.html#mvc[Spring Web MVC framework] (often referred to as simply "`Spring MVC`") is a rich "`model view controller`" web framework.
+The {spring-framework-docs}web.html#mvc[Spring Web MVC framework] (often referred to as simply "`Spring MVC`") is a rich "`model view com.shirc.redisdelayqueuespringdemo.controller`" web framework.
 Spring MVC lets you create special `@Controller` or `@RestController` beans to handle incoming HTTP requests.
-Methods in your controller are mapped to HTTP by using `@RequestMapping` annotations.
+Methods in your com.shirc.redisdelayqueuespringdemo.controller are mapped to HTTP by using `@RequestMapping` annotations.
 
 The following code shows a typical `@RestController` that serves JSON data:
 
@@ -1861,7 +1861,7 @@ The following code shows a typical `@RestController` that serves JSON data:
 	}
 ----
 
-Spring MVC is part of the core Spring Framework, and detailed information is available in the  {spring-framework-docs}web.html#mvc[reference documentation].
+Spring MVC is part of the com.shirc.redis.delay.queue.core Spring Framework, and detailed information is available in the  {spring-framework-docs}web.html#mvc[reference documentation].
 There are also several guides that cover Spring MVC available at https://spring.io/guides.
 
 
@@ -1931,7 +1931,7 @@ You can also use it on classes that contain serializers/deserializers as inner c
 [source,java,indent=0]
 ----
 	import java.io.*;
-	import com.fasterxml.jackson.core.*;
+	import com.fasterxml.jackson.com.shirc.redis.delay.queue.core.*;
 	import com.fasterxml.jackson.databind.*;
 	import org.springframework.boot.jackson.*;
 
@@ -1991,11 +1991,11 @@ Although this directory is a common standard, it works *only* with war packaging
 
 Spring Boot also supports the advanced resource handling features provided by Spring MVC, allowing use cases such as cache-busting static resources or using version agnostic URLs for Webjars.
 
-To use version agnostic URLs for Webjars, add the `webjars-locator-core` dependency.
+To use version agnostic URLs for Webjars, add the `webjars-locator-com.shirc.redis.delay.queue.core` dependency.
 Then declare your Webjar.
 Using jQuery as an example, adding `"/webjars/jquery/jquery.min.js"` results in `"/webjars/jquery/x.y.z/jquery.min.js"` where `x.y.z` is the Webjar version.
 
-NOTE: If you use JBoss, you need to declare the `webjars-locator-jboss-vfs` dependency instead of the `webjars-locator-core`.
+NOTE: If you use JBoss, you need to declare the `webjars-locator-jboss-vfs` dependency instead of the `webjars-locator-com.shirc.redis.delay.queue.core`.
 Otherwise, all Webjars resolve as a `404`.
 
 To use cache busting, the following configuration configures a cache busting solution for all static resources, effectively adding a content hash, such as `<link href="/css/spring-2a2d595e6ed9a0b24f027f2b63b134d6.css"/>`, in URLs:
@@ -2135,7 +2135,7 @@ TIP: The `BasicErrorController` can be used as a base class for a custom `ErrorC
 This is particularly useful if you want to add a handler for a new content type (the default is to handle `text/html` specifically and provide a fallback for everything else).
 To do so, extend `BasicErrorController`, add a public method with a `@RequestMapping` that has a `produces` attribute, and create a bean of your new type.
 
-You can also define a class annotated with `@ControllerAdvice` to customize the JSON document to return for a particular controller and/or exception type, as shown in the following example:
+You can also define a class annotated with `@ControllerAdvice` to customize the JSON document to return for a particular com.shirc.redisdelayqueuespringdemo.controller and/or exception type, as shown in the following example:
 
 [source,java,indent=0,subs="verbatim,quotes,attributes"]
 ----
@@ -2160,7 +2160,7 @@ You can also define a class annotated with `@ControllerAdvice` to customize the 
 	}
 ----
 
-In the preceding example, if `YourException` is thrown by a controller defined in the same package as `AcmeController`, a JSON representation of the `CustomErrorType` POJO is used instead of the `ErrorAttributes` representation.
+In the preceding example, if `YourException` is thrown by a com.shirc.redisdelayqueuespringdemo.controller defined in the same package as `AcmeController`, a JSON representation of the `CustomErrorType` POJO is used instead of the `ErrorAttributes` representation.
 
 
 
@@ -2217,7 +2217,7 @@ For more complex mappings, you can also add beans that implement the `ErrorViewR
 ----
 
 
-You can also use regular Spring MVC features such as {spring-framework-docs}web.html#mvc-exceptionhandlers[`@ExceptionHandler` methods] and {spring-framework-docs}web.html#mvc-ann-controller-advice[`@ControllerAdvice`].
+You can also use regular Spring MVC features such as {spring-framework-docs}web.html#mvc-exceptionhandlers[`@ExceptionHandler` methods] and {spring-framework-docs}web.html#mvc-ann-com.shirc.redisdelayqueuespringdemo.controller-advice[`@ControllerAdvice`].
 The `ErrorController` then picks up any unhandled exceptions.
 
 
@@ -2288,7 +2288,7 @@ Note that doing so disables the `ObjectMapper` customization described earlier.
 https://en.wikipedia.org/wiki/Cross-origin_resource_sharing[Cross-origin resource sharing] (CORS) is a https://www.w3.org/TR/cors/[W3C specification] implemented by https://caniuse.com/#feat=cors[most browsers] that lets you specify in a flexible way what kind of cross-domain requests are authorized., instead of using some less secure and less powerful approaches such as IFRAME or JSONP.
 
 As of version 4.2, Spring MVC {spring-framework-docs}web.html#cors[supports CORS].
-Using {spring-framework-docs}web.html#controller-method-cors-configuration[controller method CORS configuration] with {spring-framework-api}/web/bind/annotation/CrossOrigin.html[`@CrossOrigin`] annotations in your Spring Boot application does not require any specific configuration.
+Using {spring-framework-docs}web.html#com.shirc.redisdelayqueuespringdemo.controller-method-cors-configuration[com.shirc.redisdelayqueuespringdemo.controller method CORS configuration] with {spring-framework-api}/web/bind/annotation/CrossOrigin.html[`@CrossOrigin`] annotations in your Spring Boot application does not require any specific configuration.
 {spring-framework-docs}web.html#global-cors-configuration[Global CORS configuration] can be defined by registering a `WebMvcConfigurer` bean with a customized `addCorsMappings(CorsRegistry)` method, as shown in the following example:
 
 [source,java,indent=0]
@@ -3177,7 +3177,7 @@ Spring's `JdbcTemplate` and `NamedParameterJdbcTemplate` classes are auto-config
 [source,java,indent=0]
 ----
 	import org.springframework.beans.factory.annotation.Autowired;
-	import org.springframework.jdbc.core.JdbcTemplate;
+	import org.springframework.jdbc.com.shirc.redis.delay.queue.core.JdbcTemplate;
 	import org.springframework.stereotype.Component;
 
 	@Component
@@ -3516,10 +3516,10 @@ Refer to the appropriate reference documentation at {spring-data}.
 [[boot-features-redis]]
 === Redis
 https://redis.io/[Redis] is a cache, message broker, and richly-featured key-value store.
-Spring Boot offers basic auto-configuration for the https://github.com/lettuce-io/lettuce-core/[Lettuce] and https://github.com/xetorthio/jedis/[Jedis] client libraries and the abstractions on top of them provided by https://github.com/spring-projects/spring-data-redis[Spring Data Redis].
+Spring Boot offers basic auto-configuration for the https://github.com/lettuce-io/lettuce-com.shirc.redis.delay.queue.core/[Lettuce] and https://github.com/xetorthio/jedis/[Jedis] client libraries and the abstractions on top of them provided by https://github.com/spring-projects/spring-data-redis[Spring Data Redis].
 
 There is a `spring-boot-starter-data-redis` "`Starter`" for collecting the dependencies in a convenient way.
-By default, it uses https://github.com/lettuce-io/lettuce-core/[Lettuce].
+By default, it uses https://github.com/lettuce-io/lettuce-com.shirc.redis.delay.queue.core/[Lettuce].
 That starter handles both traditional and reactive applications.
 
 TIP: we also provide a `spring-boot-starter-data-redis-reactive` "`Starter`" for consistency with the other stores with reactive support.
@@ -3630,13 +3630,13 @@ The auto-configuration configures this factory automatically if Netty is availab
 
 [[boot-features-mongo-template]]
 ==== MongoTemplate
-{spring-data-mongodb}[Spring Data MongoDB] provides a {spring-data-mongodb-api}/core/MongoTemplate.html[`MongoTemplate`] class that is very similar in its design to Spring's `JdbcTemplate`.
+{spring-data-mongodb}[Spring Data MongoDB] provides a {spring-data-mongodb-api}/com.shirc.redis.delay.queue.core/MongoTemplate.html[`MongoTemplate`] class that is very similar in its design to Spring's `JdbcTemplate`.
 As with `JdbcTemplate`, Spring Boot auto-configures a bean for you to inject the template, as follows:
 
 [source,java,indent=0]
 ----
 	import org.springframework.beans.factory.annotation.Autowired;
-	import org.springframework.data.mongodb.core.MongoTemplate;
+	import org.springframework.data.mongodb.com.shirc.redis.delay.queue.core.MongoTemplate;
 	import org.springframework.stereotype.Component;
 
 	@Component
@@ -3654,7 +3654,7 @@ As with `JdbcTemplate`, Spring Boot auto-configures a bean for you to inject the
 	}
 ----
 
-See the {spring-data-mongodb-api}/core/MongoOperations.html[`MongoOperations` Javadoc] for complete details.
+See the {spring-data-mongodb-api}/com.shirc.redis.delay.queue.core/MongoOperations.html[`MongoOperations` Javadoc] for complete details.
 
 
 
@@ -4114,7 +4114,7 @@ There is a `spring-boot-starter-data-ldap` "`Starter`" for collecting the depend
 
 [[boot-features-ldap-connecting]]
 ==== Connecting to an LDAP Server
-To connect to an LDAP server, make sure you declare a dependency on the `spring-boot-starter-data-ldap` "`Starter`" or `spring-ldap-core` and then declare the URLs of your server in your application.properties, as shown in the following example:
+To connect to an LDAP server, make sure you declare a dependency on the `spring-boot-starter-data-ldap` "`Starter`" or `spring-ldap-com.shirc.redis.delay.queue.core` and then declare the URLs of your server in your application.properties, as shown in the following example:
 
 [source,properties,indent=0]
 ----
@@ -4228,7 +4228,7 @@ If you need to tune the http client `InfluxDB` uses behind the scenes, you can r
 [[boot-features-caching]]
 == Caching
 The Spring Framework provides support for transparently adding caching to an application.
-At its core, the abstraction applies caching to methods, thus reducing the number of executions based on the information available in the cache.
+At its com.shirc.redis.delay.queue.core, the abstraction applies caching to methods, thus reducing the number of executions based on the information available in the cache.
 The caching logic is applied transparently, without any interference to the invoker.
 Spring Boot auto-configures the cache infrastructure as long as caching support is enabled via the `@EnableCaching` annotation.
 
@@ -4638,7 +4638,7 @@ Spring's `JmsTemplate` is auto-configured, and you can autowire it directly into
 [source,java,indent=0]
 ----
 	import org.springframework.beans.factory.annotation.Autowired;
-	import org.springframework.jms.core.JmsTemplate;
+	import org.springframework.jms.com.shirc.redis.delay.queue.core.JmsTemplate;
 	import org.springframework.stereotype.Component;
 
 	@Component
@@ -4656,7 +4656,7 @@ Spring's `JmsTemplate` is auto-configured, and you can autowire it directly into
 	}
 ----
 
-NOTE: {spring-framework-api}/jms/core/JmsMessagingTemplate.html[`JmsMessagingTemplate`] can be injected in a similar manner.
+NOTE: {spring-framework-api}/jms/com.shirc.redis.delay.queue.core/JmsMessagingTemplate.html[`JmsMessagingTemplate`] can be injected in a similar manner.
 If a `DestinationResolver` or a `MessageConverter` bean is defined, it is associated automatically to the auto-configured `JmsTemplate`.
 
 
@@ -4734,7 +4734,7 @@ Then you can use the factory in any `@JmsListener`-annotated method as follows:
 [[boot-features-amqp]]
 === AMQP
 The Advanced Message Queuing Protocol (AMQP) is a platform-neutral, wire-level protocol for message-oriented middleware.
-The Spring AMQP project applies core Spring concepts to the development of AMQP-based messaging solutions.
+The Spring AMQP project applies com.shirc.redis.delay.queue.core Spring concepts to the development of AMQP-based messaging solutions.
 Spring Boot offers several conveniences for working with AMQP through RabbitMQ, including the `spring-boot-starter-amqp` "`Starter`".
 
 
@@ -4768,8 +4768,8 @@ Spring's `AmqpTemplate` and `AmqpAdmin` are auto-configured, and you can autowir
 
 [source,java,indent=0]
 ----
-	import org.springframework.amqp.core.AmqpAdmin;
-	import org.springframework.amqp.core.AmqpTemplate;
+	import org.springframework.amqp.com.shirc.redis.delay.queue.core.AmqpAdmin;
+	import org.springframework.amqp.com.shirc.redis.delay.queue.core.AmqpTemplate;
 	import org.springframework.beans.factory.annotation.Autowired;
 	import org.springframework.stereotype.Component;
 
@@ -4790,10 +4790,10 @@ Spring's `AmqpTemplate` and `AmqpAdmin` are auto-configured, and you can autowir
 	}
 ----
 
-NOTE: {spring-amqp-api}/rabbit/core/RabbitMessagingTemplate.html[`RabbitMessagingTemplate`] can be injected in a similar manner.
+NOTE: {spring-amqp-api}/rabbit/com.shirc.redis.delay.queue.core/RabbitMessagingTemplate.html[`RabbitMessagingTemplate`] can be injected in a similar manner.
 If a `MessageConverter` bean is defined, it is associated automatically to the auto-configured `AmqpTemplate`.
 
-If necessary, any `org.springframework.amqp.core.Queue` that is defined as a bean is automatically used to declare a corresponding queue on the RabbitMQ instance.
+If necessary, any `org.springframework.amqp.com.shirc.redis.delay.queue.core.Queue` that is defined as a bean is automatically used to declare a corresponding queue on the RabbitMQ instance.
 
 To retry operations, you can enable retries on the `AmqpTemplate` (for example, in the event that the broker connection is lost):
 
@@ -5406,18 +5406,18 @@ Depending on your target arrangement, you could change your `Executor` into a `T
 The auto-configured `TaskExecutorBuilder` allows you to easily create instances that reproduce what the auto-configuration does by default.
 ====
 
-The thread pool uses 8 core threads that can grow and shrink according to the load.
+The thread pool uses 8 com.shirc.redis.delay.queue.core com.shirc.redis.delay.queue.threads that can grow and shrink according to the load.
 Those default settings can be fine-tuned using the `spring.task.execution` namespace as shown in the following example:
 
 [source,properties,indent=0]
 ----
-	spring.task.execution.pool.max-threads=16
+	spring.task.execution.pool.max-com.shirc.redis.delay.queue.threads=16
 	spring.task.execution.pool.queue-capacity=100
 	spring.task.execution.pool.keep-alive=10s
 ----
 
-This changes the thread pool to use a bounded queue so that when the queue is full (100 tasks), the thread pool increases to maximum 16 threads.
-Shrinking of the pool is more aggressive as threads are reclaimed when they are idle for 10 seconds (rather than 60 seconds by default).
+This changes the thread pool to use a bounded queue so that when the queue is full (100 tasks), the thread pool increases to maximum 16 com.shirc.redis.delay.queue.threads.
+Shrinking of the pool is more aggressive as com.shirc.redis.delay.queue.threads are reclaimed when they are idle for 10 seconds (rather than 60 seconds by default).
 
 A `ThreadPoolTaskScheduler` can also be auto-configured if need to be associated to scheduled task execution (`@EnableScheduling`).
 The thread pool uses one thread by default and those settings can be fine-tuned using the `spring.task.scheduling` namespace.
@@ -5503,7 +5503,7 @@ See the {spring-boot-autoconfigure-module-code}/jmx/JmxAutoConfiguration.java[`J
 [[boot-features-testing]]
 == Testing
 Spring Boot provides a number of utilities and annotations to help when testing your application.
-Test support is provided by two modules: `spring-boot-test` contains core items, and `spring-boot-test-autoconfigure` supports auto-configuration for tests.
+Test support is provided by two modules: `spring-boot-test` contains com.shirc.redis.delay.queue.core items, and `spring-boot-test-autoconfigure` supports auto-configuration for tests.
 
 Most developers use the `spring-boot-starter-test` "`Starter`", which imports both Spring Boot test modules as well as JUnit, AssertJ, Hamcrest, and a number of other useful libraries.
 
@@ -5569,7 +5569,7 @@ Embedded servers are started and listen on a defined port (from your `applicatio
 * `NONE`: Loads an `ApplicationContext` by using `SpringApplication` but does not provide _any_ web environment (mock or otherwise).
 
 NOTE: If your test is `@Transactional`, it rolls back the transaction at the end of each test method by default.
-However, as using this arrangement with either `RANDOM_PORT` or `DEFINED_PORT` implicitly provides a real servlet environment, the HTTP client and server run in separate threads and, thus, in separate transactions.
+However, as using this arrangement with either `RANDOM_PORT` or `DEFINED_PORT` implicitly provides a real servlet environment, the HTTP client and server run in separate com.shirc.redis.delay.queue.threads and, thus, in separate transactions.
 Any transaction initiated on the server does not roll back in this case.
 
 NOTE: `@SpringBootTest` with `webEnvironment = WebEnvironment.RANDOM_PORT` will also start the management server on a separate random port if your application uses a different port for the management server.
@@ -5750,7 +5750,7 @@ The following example replaces an existing `RemoteService` bean with a mock impl
 	import org.springframework.boot.test.mock.mockito.*;
 	import org.springframework.test.context.junit4.*;
 
-	import static org.assertj.core.api.Assertions.*;
+	import static org.assertj.com.shirc.redis.delay.queue.core.api.Assertions.*;
 	import static org.mockito.BDDMockito.*;
 
 	@RunWith(SpringRunner.class)
@@ -5837,7 +5837,7 @@ The following example shows a test class for Jackson:
 	import org.springframework.boot.test.json.*;
 	import org.springframework.test.context.junit4.*;
 
-	import static org.assertj.core.api.Assertions.*;
+	import static org.assertj.com.shirc.redis.delay.queue.core.api.Assertions.*;
 
 	@RunWith(SpringRunner.class)
 	@JsonTest
@@ -5894,7 +5894,7 @@ TIP: A list of the auto-configuration settings that are enabled by `@WebMvcTest`
 
 TIP: If you need to register extra components, such as the Jackson `Module`, you can import additional configuration classes by using `@Import` on your test.
 
-Often, `@WebMvcTest` is limited to a single controller and is used in combination with `@MockBean` to provide mock implementations for required collaborators.
+Often, `@WebMvcTest` is limited to a single com.shirc.redisdelayqueuespringdemo.controller and is used in combination with `@MockBean` to provide mock implementations for required collaborators.
 
 `@WebMvcTest` also auto-configures `MockMvc`.
 Mock MVC offers a powerful way to quickly test MVC controllers without needing to start a full HTTP server.
@@ -5910,7 +5910,7 @@ The following example uses `MockMvc`:
 	import org.springframework.boot.test.autoconfigure.web.servlet.*;
 	import org.springframework.boot.test.mock.mockito.*;
 
-	import static org.assertj.core.api.Assertions.*;
+	import static org.assertj.com.shirc.redis.delay.queue.core.api.Assertions.*;
 	import static org.mockito.BDDMockito.*;
 	import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 	import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -5950,7 +5950,7 @@ The following example uses HtmlUnit:
 	import org.springframework.boot.test.autoconfigure.web.servlet.*;
 	import org.springframework.boot.test.mock.mockito.*;
 
-	import static org.assertj.core.api.Assertions.*;
+	import static org.assertj.com.shirc.redis.delay.queue.core.api.Assertions.*;
 	import static org.mockito.BDDMockito.*;
 
 	@RunWith(SpringRunner.class)
@@ -5998,7 +5998,7 @@ TIP: A list of the auto-configurations that are enabled by `@WebFluxTest` can be
 
 TIP: If you need to register extra components, such as Jackson `Module`, you can import additional configuration classes using `@Import` on your test.
 
-Often, `@WebFluxTest` is limited to a single controller and used in combination with the `@MockBean` annotation to provide mock implementations for required collaborators.
+Often, `@WebFluxTest` is limited to a single com.shirc.redisdelayqueuespringdemo.controller and used in combination with the `@MockBean` annotation to provide mock implementations for required collaborators.
 
 `@WebFluxTest` also auto-configures {spring-framework-docs}testing.html#webtestclient[`WebTestClient`], which offers a powerful way to quickly test WebFlux controllers without needing to start a full HTTP server.
 
@@ -6092,7 +6092,7 @@ The following example shows the `@DataJpaTest` annotation in use:
 	import org.junit.runner.*;
 	import org.springframework.boot.test.autoconfigure.orm.jpa.*;
 
-	import static org.assertj.core.api.Assertions.*;
+	import static org.assertj.com.shirc.redis.delay.queue.core.api.Assertions.*;
 
 	@RunWith(SpringRunner.class)
 	@DataJpaTest
@@ -6235,7 +6235,7 @@ The following class shows the `@DataMongoTest` annotation in use:
 	import org.junit.runner.RunWith;
 	import org.springframework.beans.factory.annotation.Autowired;
 	import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
-	import org.springframework.data.mongodb.core.MongoTemplate;
+	import org.springframework.data.mongodb.com.shirc.redis.delay.queue.core.MongoTemplate;
 	import org.springframework.test.context.junit4.SpringRunner;
 
 	@RunWith(SpringRunner.class)
@@ -6367,7 +6367,7 @@ The following example shows the `@DataLdapTest` annotation in use:
 	import org.junit.runner.RunWith;
 	import org.springframework.beans.factory.annotation.Autowired;
 	import org.springframework.boot.test.autoconfigure.data.ldap.DataLdapTest;
-	import org.springframework.ldap.core.LdapTemplate;
+	import org.springframework.ldap.com.shirc.redis.delay.queue.core.LdapTemplate;
 	import org.springframework.test.context.junit4.SpringRunner;
 
 	@RunWith(SpringRunner.class)
@@ -6985,7 +6985,7 @@ A reactive web application is any application that uses a `ReactiveWebApplicatio
 
 [[boot-features-spel-conditions]]
 ==== SpEL Expression Conditions
-The `@ConditionalOnExpression` annotation lets configuration be included based on the result of a {spring-framework-docs}core.html#expressions[SpEL expression].
+The `@ConditionalOnExpression` annotation lets configuration be included based on the result of a {spring-framework-docs}com.shirc.redis.delay.queue.core.html#expressions[SpEL expression].
 
 
 
@@ -7176,8 +7176,8 @@ If the library you are auto-configuring typically requires other starters, menti
 Providing a proper set of _default_ dependencies may be hard if the number of optional dependencies is high, as you should avoid including dependencies that are unnecessary for a typical usage of the library.
 In other words, you should not include optional dependencies.
 
-NOTE: Either way, your starter must reference the core Spring Boot starter (`spring-boot-starter`) directly or indirectly (i.e. no need to add it if your starter relies on another starter).
-If a project is created with only your custom starter, Spring Boot's core features will be honoured by the presence of the core starter.
+NOTE: Either way, your starter must reference the com.shirc.redis.delay.queue.core Spring Boot starter (`spring-boot-starter`) directly or indirectly (i.e. no need to add it if your starter relies on another starter).
+If a project is created with only your custom starter, Spring Boot's com.shirc.redis.delay.queue.core features will be honoured by the presence of the com.shirc.redis.delay.queue.core starter.
 
 
 
@@ -7373,4 +7373,4 @@ If you need the `Mockk` equivalent of the Mockito specific <<boot-features-testi
 If you want to learn more about any of the classes discussed in this section, you can check out the {spring-boot-api}[Spring Boot API documentation] or you can browse the {spring-boot-code}[source code directly].
 If you have specific questions, take a look at the <<howto.adoc#howto, how-to>> section.
 
-If you are comfortable with Spring Boot's core features, you can continue on and read about <<production-ready-features.adoc#production-ready, production-ready features>>.
+If you are comfortable with Spring Boot's com.shirc.redis.delay.queue.core features, you can continue on and read about <<production-ready-features.adoc#production-ready, production-ready features>>.

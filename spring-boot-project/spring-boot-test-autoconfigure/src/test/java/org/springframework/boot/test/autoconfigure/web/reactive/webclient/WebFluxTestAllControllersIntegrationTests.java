@@ -26,7 +26,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 /**
- * Tests for {@link WebFluxTest} when no explicit controller is defined.
+ * Tests for {@link WebFluxTest} when no explicit com.shirc.redisdelayqueuespringdemo.controller is defined.
  *
  * @author Stephane Nicoll
  */

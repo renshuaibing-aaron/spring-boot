@@ -27,9 +27,9 @@ import org.springframework.web.context.support.XmlWebApplicationContext;
  * documents, understood by an
  * {@link org.springframework.beans.factory.xml.XmlBeanDefinitionReader}.
  * <p>
- * Note: In case of multiple config locations, later bean definitions will override ones
+ * Note: In case of multiple config locations, later cluster definitions will override ones
  * defined in earlier loaded files. This can be leveraged to deliberately override certain
- * bean definitions via an extra XML file.
+ * cluster definitions via an extra XML file.
  *
  * @author Phillip Webb
  * @since 1.0.0
@@ -51,7 +51,7 @@ public class XmlServletWebServerApplicationContext extends ServletWebServerAppli
 	}
 
 	/**
-	 * Create a new {@link XmlServletWebServerApplicationContext}, loading bean
+	 * Create a new {@link XmlServletWebServerApplicationContext}, loading cluster
 	 * definitions from the given resources and automatically refreshing the context.
 	 * @param resources the resources to load from
 	 */
@@ -61,7 +61,7 @@ public class XmlServletWebServerApplicationContext extends ServletWebServerAppli
 	}
 
 	/**
-	 * Create a new {@link XmlServletWebServerApplicationContext}, loading bean
+	 * Create a new {@link XmlServletWebServerApplicationContext}, loading cluster
 	 * definitions from the given resource locations and automatically refreshing the
 	 * context.
 	 * @param resourceLocations the resources to load from
@@ -72,7 +72,7 @@ public class XmlServletWebServerApplicationContext extends ServletWebServerAppli
 	}
 
 	/**
-	 * Create a new {@link XmlServletWebServerApplicationContext}, loading bean
+	 * Create a new {@link XmlServletWebServerApplicationContext}, loading cluster
 	 * definitions from the given resource locations and automatically refreshing the
 	 * context.
 	 * @param relativeClass class whose package will be used as a prefix when loading each
@@ -105,7 +105,7 @@ public class XmlServletWebServerApplicationContext extends ServletWebServerAppli
 	}
 
 	/**
-	 * Load bean definitions from the given XML resources.
+	 * Load cluster definitions from the given XML resources.
 	 * @param resources one or more resources to load from
 	 */
 	public final void load(Resource... resources) {
@@ -113,7 +113,7 @@ public class XmlServletWebServerApplicationContext extends ServletWebServerAppli
 	}
 
 	/**
-	 * Load bean definitions from the given XML resources.
+	 * Load cluster definitions from the given XML resources.
 	 * @param resourceLocations one or more resource locations to load from
 	 */
 	public final void load(String... resourceLocations) {
@@ -121,7 +121,7 @@ public class XmlServletWebServerApplicationContext extends ServletWebServerAppli
 	}
 
 	/**
-	 * Load bean definitions from the given XML resources.
+	 * Load cluster definitions from the given XML resources.
 	 * @param relativeClass class whose package will be used as a prefix when loading each
 	 * specified resource name
 	 * @param resourceNames relatively-qualified names of resources to load

@@ -31,14 +31,14 @@ import org.springframework.boot.web.server.ConfigurableWebServerFactory;
 public interface ConfigurableJettyWebServerFactory extends ConfigurableWebServerFactory {
 
 	/**
-	 * Set the number of acceptor threads to use.
-	 * @param acceptors the number of acceptor threads to use
+	 * Set the number of acceptor com.shirc.redis.delay.queue.threads to use.
+	 * @param acceptors the number of acceptor com.shirc.redis.delay.queue.threads to use
 	 */
 	void setAcceptors(int acceptors);
 
 	/**
-	 * Set the number of selector threads to use.
-	 * @param selectors the number of selector threads to use
+	 * Set the number of selector com.shirc.redis.delay.queue.threads to use.
+	 * @param selectors the number of selector com.shirc.redis.delay.queue.threads to use
 	 */
 	void setSelectors(int selectors);
 

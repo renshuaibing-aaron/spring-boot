@@ -94,7 +94,7 @@ public class MappingsEndpointServletDocumentationTests extends AbstractEndpointD
 				parentIdField());
 		List<FieldDescriptor> dispatcherServletFields = new ArrayList<>(Arrays.asList(
 				fieldWithPath("*").description(
-						"Dispatcher servlet mappings, if any, keyed by " + "dispatcher servlet bean name."),
+						"Dispatcher servlet mappings, if any, keyed by " + "dispatcher servlet cluster name."),
 				fieldWithPath("*.[].details").optional().type(JsonFieldType.OBJECT)
 						.description("Additional implementation-specific " + "details about the mapping. Optional."),
 				fieldWithPath("*.[].handler").description("Handler for the mapping."),

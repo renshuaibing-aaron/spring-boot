@@ -28,7 +28,7 @@ import org.springframework.core.type.AnnotationMetadata;
  * Interface that can be implemented by {@link ImportSelector} and
  * {@link ImportBeanDefinitionRegistrar} implementations when they can determine imports
  * early. The {@link ImportSelector} and {@link ImportBeanDefinitionRegistrar} interfaces
- * are quite flexible which can make it hard to tell exactly what bean definitions they
+ * are quite flexible which can make it hard to tell exactly what cluster definitions they
  * will add. This interface should be used when an implementation consistently results in
  * the same imports, given the same source.
  * <p>

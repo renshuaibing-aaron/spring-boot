@@ -44,8 +44,8 @@ class TypeExcludeFilter {
 		add("javax.sql.XADataSource");
 		add("org.apache.tomcat.jdbc.pool.PoolConfiguration");
 		add("org.apache.tomcat.jdbc.pool.Validator");
-		add("org.flywaydb.core.api.callback.FlywayCallback");
-		add("org.flywaydb.core.api.resolver.MigrationResolver");
+		add("org.flywaydb.com.shirc.redis.delay.queue.core.api.callback.FlywayCallback");
+		add("org.flywaydb.com.shirc.redis.delay.queue.core.api.resolver.MigrationResolver");
 	}
 
 	private void add(String className) {

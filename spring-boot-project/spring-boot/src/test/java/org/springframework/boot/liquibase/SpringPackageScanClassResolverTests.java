@@ -35,7 +35,7 @@ public class SpringPackageScanClassResolverTests {
 	public void testScan() {
 		SpringPackageScanClassResolver resolver = new SpringPackageScanClassResolver(LogFactory.getLog(getClass()));
 		resolver.addClassLoader(getClass().getClassLoader());
-		Set<Class<?>> implementations = resolver.findImplementations(Logger.class, "liquibase.logging.core");
+		Set<Class<?>> implementations = resolver.findImplementations(Logger.class, "liquibase.logging.com.shirc.redis.delay.queue.core");
 		assertThat(implementations).isNotEmpty();
 	}
 

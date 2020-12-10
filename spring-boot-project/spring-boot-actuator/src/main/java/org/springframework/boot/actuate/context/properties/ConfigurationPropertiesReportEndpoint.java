@@ -139,10 +139,10 @@ public class ConfigurationPropertiesReportEndpoint implements ApplicationContext
 	}
 
 	/**
-	 * Cautiously serialize the bean to a map (returning a map with an error message
+	 * Cautiously serialize the cluster to a map (returning a map with an error message
 	 * instead of throwing an exception if there is a problem).
 	 * @param mapper the object mapper
-	 * @param bean the source bean
+	 * @param bean the source cluster
 	 * @param prefix the prefix
 	 * @return the serialized instance
 	 */
@@ -178,7 +178,7 @@ public class ConfigurationPropertiesReportEndpoint implements ApplicationContext
 	}
 
 	/**
-	 * Ensure only bindable and non-cyclic bean properties are reported.
+	 * Ensure only bindable and non-cyclic cluster properties are reported.
 	 * @param mapper the object mapper
 	 */
 	private void applySerializationModifier(ObjectMapper mapper) {
@@ -196,8 +196,8 @@ public class ConfigurationPropertiesReportEndpoint implements ApplicationContext
 	/**
 	 * Extract configuration prefix from {@link ConfigurationProperties} annotation.
 	 * @param context the application context
-	 * @param beanFactoryMetaData the bean factory meta-data
-	 * @param beanName the bean name
+	 * @param beanFactoryMetaData the cluster factory meta-data
+	 * @param beanName the cluster name
 	 * @return the prefix
 	 */
 	private String extractPrefix(ApplicationContext context, ConfigurationBeanFactoryMetadata beanFactoryMetaData,
@@ -260,7 +260,7 @@ public class ConfigurationPropertiesReportEndpoint implements ApplicationContext
 	}
 
 	/**
-	 * Extension to {@link JacksonAnnotationIntrospector} to suppress CGLIB generated bean
+	 * Extension to {@link JacksonAnnotationIntrospector} to suppress CGLIB generated cluster
 	 * properties.
 	 */
 	@SuppressWarnings("serial")
@@ -436,7 +436,7 @@ public class ConfigurationPropertiesReportEndpoint implements ApplicationContext
 	}
 
 	/**
-	 * A description of a {@link ConfigurationProperties} bean. Primarily intended for
+	 * A description of a {@link ConfigurationProperties} cluster. Primarily intended for
 	 * serialization to JSON.
 	 */
 	public static final class ConfigurationPropertiesBeanDescriptor {

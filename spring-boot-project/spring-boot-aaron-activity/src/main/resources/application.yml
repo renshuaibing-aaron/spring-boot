@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@10.1.168.5:1521:PAUAT
+    username: pfm_test
+    password: pfm_test
+  activiti:
+    db-history-used: true

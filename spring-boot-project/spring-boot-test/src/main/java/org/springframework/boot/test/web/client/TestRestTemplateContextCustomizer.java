@@ -88,7 +88,7 @@ class TestRestTemplateContextCustomizer implements ContextCustomizer {
 	/**
 	 * {@link BeanDefinitionRegistryPostProcessor} that runs after the
 	 * {@link ConfigurationClassPostProcessor} and add a {@link TestRestTemplateFactory}
-	 * bean definition when a {@link TestRestTemplate} hasn't already been registered.
+	 * cluster definition when a {@link TestRestTemplate} hasn't already been registered.
 	 */
 	private static class TestRestTemplateRegistrar
 			implements BeanDefinitionRegistryPostProcessor, Ordered, BeanFactoryAware {

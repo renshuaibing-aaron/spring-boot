@@ -32,7 +32,7 @@ import org.springframework.util.ReflectionUtils;
 
 /**
  * Utility class to memorize {@code @Bean} definition meta data during initialization of
- * the bean factory.
+ * the cluster factory.
  *
  * @author Dave Syer
  * @since 1.1.0
@@ -40,7 +40,7 @@ import org.springframework.util.ReflectionUtils;
 public class ConfigurationBeanFactoryMetadata implements BeanFactoryPostProcessor {
 
 	/**
-	 * The bean name that this class is registered with.
+	 * The cluster name that this class is registered with.
 	 */
 	public static final String BEAN_NAME = ConfigurationBeanFactoryMetadata.class.getName();
 

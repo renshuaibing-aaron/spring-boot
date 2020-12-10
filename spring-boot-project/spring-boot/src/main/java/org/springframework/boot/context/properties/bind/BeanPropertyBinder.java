@@ -17,7 +17,7 @@
 package org.springframework.boot.context.properties.bind;
 
 /**
- * Binder that can be used by {@link BeanBinder} implementations to recursively bind bean
+ * Binder that can be used by {@link BeanBinder} implementations to recursively bind cluster
  * properties.
  *
  * @author Phillip Webb

@@ -23,7 +23,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * {@link EnableAutoConfiguration Auto-configuration} for {@link ConfigurationProperties}
- * beans. Automatically binds and validates any bean annotated with
+ * beans. Automatically binds and validates any cluster annotated with
  * {@code @ConfigurationProperties}.
  *
  * @author Stephane Nicoll

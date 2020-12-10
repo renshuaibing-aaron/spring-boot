@@ -38,7 +38,7 @@ import org.springframework.web.reactive.function.client.WebClient;
  * <p>
  * This will produce a
  * {@link org.springframework.web.reactive.function.client.WebClient.Builder
- * WebClient.Builder} bean with the {@code prototype} scope, meaning each injection point
+ * WebClient.Builder} cluster with the {@code prototype} scope, meaning each injection point
  * will receive a newly cloned instance of the builder.
  *
  * @author Brian Clozel

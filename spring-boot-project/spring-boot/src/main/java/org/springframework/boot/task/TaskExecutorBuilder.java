@@ -37,7 +37,7 @@ import org.springframework.util.CollectionUtils;
  * {@link TaskExecutorCustomizer}.
  * <p>
  * In a typical auto-configured Spring Boot application this builder is available as a
- * bean and can be injected whenever a {@link TaskExecutor} is needed.
+ * cluster and can be injected whenever a {@link TaskExecutor} is needed.
  *
  * @author Stephane Nicoll
  * @since 2.1.0
@@ -96,12 +96,12 @@ public class TaskExecutorBuilder {
 	}
 
 	/**
-	 * Set the core number of threads. Effectively that maximum number of threads as long
+	 * Set the com.shirc.redis.delay.queue.core number of com.shirc.redis.delay.queue.threads. Effectively that maximum number of com.shirc.redis.delay.queue.threads as long
 	 * as the queue is not full.
 	 * <p>
-	 * Core threads can grow and shrink if {@link #allowCoreThreadTimeOut(boolean)} is
+	 * Core com.shirc.redis.delay.queue.threads can grow and shrink if {@link #allowCoreThreadTimeOut(boolean)} is
 	 * enabled.
-	 * @param corePoolSize the core pool size to set
+	 * @param corePoolSize the com.shirc.redis.delay.queue.core pool size to set
 	 * @return a new builder instance
 	 */
 	public TaskExecutorBuilder corePoolSize(int corePoolSize) {
@@ -110,7 +110,7 @@ public class TaskExecutorBuilder {
 	}
 
 	/**
-	 * Set the maximum allowed number of threads. When the {@link #queueCapacity(int)
+	 * Set the maximum allowed number of com.shirc.redis.delay.queue.threads. When the {@link #queueCapacity(int)
 	 * queue} is full, the pool can expand up to that size to accommodate the load.
 	 * <p>
 	 * If the {@link #queueCapacity(int) queue capacity} is unbounded, this setting is
@@ -124,9 +124,9 @@ public class TaskExecutorBuilder {
 	}
 
 	/**
-	 * Set whether core threads are allow to time out. When enabled, this enables dynamic
+	 * Set whether com.shirc.redis.delay.queue.core com.shirc.redis.delay.queue.threads are allow to time out. When enabled, this enables dynamic
 	 * growing and shrinking of the pool.
-	 * @param allowCoreThreadTimeOut if core threads are allowed to time out
+	 * @param allowCoreThreadTimeOut if com.shirc.redis.delay.queue.core com.shirc.redis.delay.queue.threads are allowed to time out
 	 * @return a new builder instance
 	 */
 	public TaskExecutorBuilder allowCoreThreadTimeOut(boolean allowCoreThreadTimeOut) {
@@ -135,7 +135,7 @@ public class TaskExecutorBuilder {
 	}
 
 	/**
-	 * Set the time limit for which threads may remain idle before being terminated.
+	 * Set the time limit for which com.shirc.redis.delay.queue.threads may remain idle before being terminated.
 	 * @param keepAlive the keep alive to set
 	 * @return a new builder instance
 	 */
@@ -145,7 +145,7 @@ public class TaskExecutorBuilder {
 	}
 
 	/**
-	 * Set the prefix to use for the names of newly created threads.
+	 * Set the prefix to use for the names of newly created com.shirc.redis.delay.queue.threads.
 	 * @param threadNamePrefix the thread name prefix to set
 	 * @return a new builder instance
 	 */

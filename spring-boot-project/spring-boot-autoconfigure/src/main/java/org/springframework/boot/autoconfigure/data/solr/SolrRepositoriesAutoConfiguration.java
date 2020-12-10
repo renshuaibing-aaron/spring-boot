@@ -30,7 +30,7 @@ import org.springframework.data.solr.repository.support.SolrRepositoryFactoryBea
 /**
  * Enables auto configuration for Spring Data Solr repositories.
  * <p>
- * Activates when there is no bean of type {@link SolrRepositoryFactoryBean} found in
+ * Activates when there is no cluster of type {@link SolrRepositoryFactoryBean} found in
  * context, and both {@link SolrRepository} and {@link SolrClient} can be found on
  * classpath.
  * </p>

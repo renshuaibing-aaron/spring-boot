@@ -44,7 +44,7 @@ public class JdbcCompilerAutoConfiguration extends CompilerAutoConfiguration {
 
 	@Override
 	public void applyImports(ImportCustomizer imports) {
-		imports.addStarImports("org.springframework.jdbc.core", "org.springframework.jdbc.core.namedparam");
+		imports.addStarImports("org.springframework.jdbc.core", "org.springframework.jdbc.com.shirc.redis.delay.queue.core.namedparam");
 		imports.addImports("javax.sql.DataSource");
 	}
 

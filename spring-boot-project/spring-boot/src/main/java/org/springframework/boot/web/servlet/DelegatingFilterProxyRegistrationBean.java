@@ -1,19 +1,3 @@
-/*
- * Copyright 2012-2019 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package org.springframework.boot.web.servlet;
 
 import javax.servlet.Filter;
@@ -33,9 +17,9 @@ import org.springframework.web.filter.DelegatingFilterProxy;
  * registration} features provided by {@link ServletContext} but with a Spring Bean
  * friendly design.
  * <p>
- * The bean name of the actual delegate {@link Filter} should be specified using the
+ * The cluster name of the actual delegate {@link Filter} should be specified using the
  * {@code targetBeanName} constructor argument. Unlike the {@link FilterRegistrationBean},
- * referenced filters are not instantiated early. In fact, if the delegate filter bean is
+ * referenced filters are not instantiated early. In fact, if the delegate filter cluster is
  * marked {@code @Lazy} it won't be instantiated at all until the filter is called.
  * <p>
  * Registrations can be associated with {@link #setUrlPatterns URL patterns} and/or
@@ -61,7 +45,7 @@ public class DelegatingFilterProxyRegistrationBean extends AbstractFilterRegistr
 	/**
 	 * Create a new {@link DelegatingFilterProxyRegistrationBean} instance to be
 	 * registered with the specified {@link ServletRegistrationBean}s.
-	 * @param targetBeanName name of the target filter bean to look up in the Spring
+	 * @param targetBeanName name of the target filter cluster to look up in the Spring
 	 * application context (must not be {@code null}).
 	 * @param servletRegistrationBeans associate {@link ServletRegistrationBean}s
 	 */
@@ -88,7 +72,7 @@ public class DelegatingFilterProxyRegistrationBean extends AbstractFilterRegistr
 
 			@Override
 			protected void initFilterBean() throws ServletException {
-				// Don't initialize filter bean on init()
+				// Don't initialize filter cluster on init()
 			}
 
 		};

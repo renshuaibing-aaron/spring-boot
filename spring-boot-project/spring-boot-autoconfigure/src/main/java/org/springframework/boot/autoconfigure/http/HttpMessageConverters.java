@@ -39,7 +39,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
  * application. Provides a convenient way to add and merge additional
  * {@link HttpMessageConverter}s to a web application.
  * <p>
- * An instance of this bean can be registered with specific
+ * An instance of this cluster can be registered with specific
  * {@link #HttpMessageConverters(HttpMessageConverter...) additional converters} if
  * needed, otherwise default converters will be used.
  * <p>

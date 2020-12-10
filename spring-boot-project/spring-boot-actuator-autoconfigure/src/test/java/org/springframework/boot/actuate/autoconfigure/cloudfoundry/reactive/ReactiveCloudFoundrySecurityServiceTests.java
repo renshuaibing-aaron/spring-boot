@@ -41,7 +41,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class ReactiveCloudFoundrySecurityServiceTests {
 
-	private static final String CLOUD_CONTROLLER = "/my-cloud-controller.com";
+	private static final String CLOUD_CONTROLLER = "/my-cloud-com.shirc.redisdelayqueuespringdemo.controller.com";
 
 	private static final String CLOUD_CONTROLLER_PERMISSIONS = CLOUD_CONTROLLER + "/v2/apps/my-app-id/permissions";
 
@@ -159,7 +159,7 @@ public class ReactiveCloudFoundrySecurityServiceTests {
 		StepVerifier.create(this.securityService.fetchTokenKeys())
 				.consumeNextWith((tokenKeys) -> assertThat(tokenKeys.get("test-key")).isEqualTo(tokenKeyValue))
 				.expectComplete().verify();
-		expectRequest((request) -> assertThat(request.getPath()).isEqualTo("/my-cloud-controller.com/info"));
+		expectRequest((request) -> assertThat(request.getPath()).isEqualTo("/my-cloud-com.shirc.redisdelayqueuespringdemo.controller.com/info"));
 		expectRequest((request) -> assertThat(request.getPath()).isEqualTo("/my-uaa.com/token_keys"));
 	}
 
@@ -176,7 +176,7 @@ public class ReactiveCloudFoundrySecurityServiceTests {
 		});
 		StepVerifier.create(this.securityService.fetchTokenKeys())
 				.consumeNextWith((tokenKeys) -> assertThat(tokenKeys).hasSize(0)).expectComplete().verify();
-		expectRequest((request) -> assertThat(request.getPath()).isEqualTo("/my-cloud-controller.com/info"));
+		expectRequest((request) -> assertThat(request.getPath()).isEqualTo("/my-cloud-com.shirc.redisdelayqueuespringdemo.controller.com/info"));
 		expectRequest((request) -> assertThat(request.getPath()).isEqualTo("/my-uaa.com/token_keys"));
 	}
 
@@ -192,7 +192,7 @@ public class ReactiveCloudFoundrySecurityServiceTests {
 						(throwable) -> assertThat(((CloudFoundryAuthorizationException) throwable).getReason())
 								.isEqualTo(Reason.SERVICE_UNAVAILABLE))
 				.verify();
-		expectRequest((request) -> assertThat(request.getPath()).isEqualTo("/my-cloud-controller.com/info"));
+		expectRequest((request) -> assertThat(request.getPath()).isEqualTo("/my-cloud-com.shirc.redisdelayqueuespringdemo.controller.com/info"));
 		expectRequest((request) -> assertThat(request.getPath()).isEqualTo("/my-uaa.com/token_keys"));
 	}
 

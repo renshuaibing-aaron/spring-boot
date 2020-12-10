@@ -53,7 +53,7 @@ import static org.mockito.Mockito.mock;
  * @author Andy Wilkinson
  */
 @RunWith(ModifiedClassPathRunner.class)
-@ClassPathOverrides("org.apache.logging.log4j:log4j-core:2.10.0")
+@ClassPathOverrides("org.apache.logging.log4j:log4j-com.shirc.redis.delay.queue.core:2.10.0")
 public class JestAutoConfigurationTests {
 
 	private ApplicationContextRunner contextRunner = new ApplicationContextRunner()

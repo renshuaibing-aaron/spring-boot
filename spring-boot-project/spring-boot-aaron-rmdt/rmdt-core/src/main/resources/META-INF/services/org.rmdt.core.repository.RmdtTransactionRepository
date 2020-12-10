@@ -1,0 +1,2 @@
+core.repository.impl.JdbcTransactionRepository
+core.repository.impl.RedisTransactionRepository

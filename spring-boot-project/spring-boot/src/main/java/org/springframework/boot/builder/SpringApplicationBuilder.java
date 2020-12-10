@@ -466,7 +466,7 @@ public class SpringApplicationBuilder {
 	}
 
 	/**
-	 * Bean name generator for automatically generated bean names in the application
+	 * Bean name generator for automatically generated cluster names in the application
 	 * context.
 	 * @param beanNameGenerator the generator to set.
 	 * @return the current builder
@@ -500,7 +500,7 @@ public class SpringApplicationBuilder {
 
 	/**
 	 * Add some initializers to the application (applied to the {@link ApplicationContext}
-	 * before any bean definitions are loaded).
+	 * before any cluster definitions are loaded).
 	 * @param initializers some initializers to add
 	 * @return the current builder
 	 */

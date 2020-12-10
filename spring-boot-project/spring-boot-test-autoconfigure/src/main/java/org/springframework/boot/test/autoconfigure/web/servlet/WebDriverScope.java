@@ -102,7 +102,7 @@ class WebDriverScope implements Scope {
 	}
 
 	/**
-	 * Register this scope with the specified context and reassign appropriate bean
+	 * Register this scope with the specified context and reassign appropriate cluster
 	 * definitions to used it.
 	 * @param context the application context
 	 */

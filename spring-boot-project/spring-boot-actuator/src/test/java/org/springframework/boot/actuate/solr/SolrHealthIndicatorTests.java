@@ -84,7 +84,7 @@ public class SolrHealthIndicatorTests {
 				.willThrow(new RemoteSolrException("mock", 404, "", null));
 		given(solrClient.ping()).willReturn(mockPingResponse(0));
 		SolrHealthIndicator healthIndicator = new SolrHealthIndicator(solrClient);
-		assertHealth(healthIndicator, Status.UP, 0, "particular core");
+		assertHealth(healthIndicator, Status.UP, 0, "particular com.shirc.redis.delay.queue.core");
 		verify(solrClient, times(1)).request(any(CoreAdminRequest.class), isNull());
 		verify(solrClient, times(1)).ping();
 		verifyNoMoreInteractions(solrClient);
@@ -97,7 +97,7 @@ public class SolrHealthIndicatorTests {
 				.willThrow(new RemoteSolrException("mock", 404, "", null));
 		given(solrClient.ping()).willReturn(mockPingResponse(400));
 		SolrHealthIndicator healthIndicator = new SolrHealthIndicator(solrClient);
-		assertHealth(healthIndicator, Status.DOWN, 400, "particular core");
+		assertHealth(healthIndicator, Status.DOWN, 400, "particular com.shirc.redis.delay.queue.core");
 		verify(solrClient, times(1)).request(any(CoreAdminRequest.class), isNull());
 		verify(solrClient, times(1)).ping();
 		verifyNoMoreInteractions(solrClient);

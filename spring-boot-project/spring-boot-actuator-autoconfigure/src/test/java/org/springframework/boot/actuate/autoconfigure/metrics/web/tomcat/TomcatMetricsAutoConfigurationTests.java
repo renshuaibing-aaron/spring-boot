@@ -61,7 +61,7 @@ public class TomcatMetricsAutoConfigurationTests {
 					assertThat(context).hasSingleBean(TomcatMetricsBinder.class);
 					SimpleMeterRegistry registry = context.getBean(SimpleMeterRegistry.class);
 					assertThat(registry.find("tomcat.sessions.active.max").meter()).isNotNull();
-					assertThat(registry.find("tomcat.threads.current").meter()).isNotNull();
+					assertThat(registry.find("tomcat.com.shirc.redis.delay.queue.threads.current").meter()).isNotNull();
 				});
 	}
 
@@ -76,7 +76,7 @@ public class TomcatMetricsAutoConfigurationTests {
 							context.getSourceApplicationContext()));
 					SimpleMeterRegistry registry = context.getBean(SimpleMeterRegistry.class);
 					assertThat(registry.find("tomcat.sessions.active.max").meter()).isNotNull();
-					assertThat(registry.find("tomcat.threads.current").meter()).isNotNull();
+					assertThat(registry.find("tomcat.com.shirc.redis.delay.queue.threads.current").meter()).isNotNull();
 				});
 	}
 

@@ -32,7 +32,7 @@ import org.springframework.boot.diagnostics.FailureAnalysis;
 class BeanDefinitionOverrideFailureAnalyzer extends AbstractFailureAnalyzer<BeanDefinitionOverrideException> {
 
 	private static final String ACTION = "Consider renaming one of the beans or enabling "
-			+ "overriding by setting spring.main.allow-bean-definition-overriding=true";
+			+ "overriding by setting spring.main.allow-cluster-definition-overriding=true";
 
 	@Override
 	protected FailureAnalysis analyze(Throwable rootFailure, BeanDefinitionOverrideException cause) {
@@ -43,7 +43,7 @@ class BeanDefinitionOverrideFailureAnalyzer extends AbstractFailureAnalyzer<Bean
 		StringWriter description = new StringWriter();
 		PrintWriter printer = new PrintWriter(description);
 		printer.printf(
-				"The bean '%s', defined in %s, could not be registered. A bean with that "
+				"The cluster '%s', defined in %s, could not be registered. A cluster with that "
 						+ "name has already been defined in %s and overriding is disabled.",
 				ex.getBeanName(), ex.getBeanDefinition().getResourceDescription(),
 				ex.getExistingDefinition().getResourceDescription());

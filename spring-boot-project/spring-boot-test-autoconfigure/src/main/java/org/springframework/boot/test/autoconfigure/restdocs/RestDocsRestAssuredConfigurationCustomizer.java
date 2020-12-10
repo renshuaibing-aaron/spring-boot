@@ -20,7 +20,7 @@ import org.springframework.restdocs.restassured3.RestAssuredRestDocumentationCon
 
 /**
  * A customizer for {@link RestAssuredRestDocumentationConfigurer}. If a
- * {@code RestDocsRestAssuredConfigurationCustomizer} bean is found in the application
+ * {@code RestDocsRestAssuredConfigurationCustomizer} cluster is found in the application
  * context it will be {@link #customize called} to customize the
  * {@code RestAssuredRestDocumentationConfigurer} before it is applied. Intended for use
  * only when the attributes on {@link AutoConfigureRestDocs} do not provide sufficient

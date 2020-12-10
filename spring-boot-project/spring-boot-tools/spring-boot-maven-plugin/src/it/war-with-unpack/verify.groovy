@@ -22,7 +22,7 @@ new Verify.WarArchiveVerification(f) {
 	@Override
 	protected void verifyZipEntries(Verify.ArchiveVerifier verifier) throws Exception {
 		super.verifyZipEntries(verifier)
-		verifier.assertHasUnpackEntry("WEB-INF/lib/spring-core-")
+		verifier.assertHasUnpackEntry("WEB-INF/lib/spring-com.shirc.redis.delay.queue.core-")
 		verifier.assertHasNonUnpackEntry("WEB-INF/lib/spring-context-")
 	}
 }.verify()

@@ -78,7 +78,7 @@ public class RepositoryRestMvcAutoConfigurationTests {
 		URI expectedUri = URI.create("/foo");
 		assertThat(bean.getBaseUri()).as("Custom basePath not set").isEqualTo(expectedUri);
 		BaseUri baseUri = this.context.getBean(BaseUri.class);
-		assertThat(expectedUri).as("Custom basePath has not been applied to BaseUri bean").isEqualTo(baseUri.getUri());
+		assertThat(expectedUri).as("Custom basePath has not been applied to BaseUri cluster").isEqualTo(baseUri.getUri());
 	}
 
 	@Test

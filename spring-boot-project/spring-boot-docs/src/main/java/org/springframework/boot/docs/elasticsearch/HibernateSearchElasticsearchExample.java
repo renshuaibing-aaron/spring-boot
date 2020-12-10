@@ -32,7 +32,7 @@ public class HibernateSearchElasticsearchExample {
 	// tag::configuration[]
 	/**
 	 * {@link EntityManagerFactoryDependsOnPostProcessor} that ensures that
-	 * {@link EntityManagerFactory} beans depend on the {@code elasticsearchClient} bean.
+	 * {@link EntityManagerFactory} beans depend on the {@code elasticsearchClient} cluster.
 	 */
 	@Configuration
 	static class ElasticsearchJpaDependencyConfiguration extends EntityManagerFactoryDependsOnPostProcessor {

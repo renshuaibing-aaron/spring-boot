@@ -64,8 +64,8 @@ public class TaskExecutionAutoConfigurationTests {
 	public void taskExecutorBuilderShouldApplyCustomSettings() {
 		this.contextRunner
 				.withPropertyValues("spring.task.execution.pool.queue-capacity=10",
-						"spring.task.execution.pool.core-size=2", "spring.task.execution.pool.max-size=4",
-						"spring.task.execution.pool.allow-core-thread-timeout=true",
+						"spring.task.execution.pool.com.shirc.redis.delay.queue.core-size=2", "spring.task.execution.pool.max-size=4",
+						"spring.task.execution.pool.allow-com.shirc.redis.delay.queue.core-thread-timeout=true",
 						"spring.task.execution.pool.keep-alive=5s", "spring.task.execution.thread-name-prefix=mytest-")
 				.run(assertTaskExecutor((taskExecutor) -> {
 					assertThat(taskExecutor).hasFieldOrPropertyWithValue("queueCapacity", 10);

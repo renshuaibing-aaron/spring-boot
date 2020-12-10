@@ -36,9 +36,9 @@ import org.springframework.web.client.RestTemplate;
  * Typically applied to an existing builder before it is used, for example:
  * <pre class="code">
  * MockServerRestTemplateCustomizer customizer = new MockServerRestTemplateCustomizer();
- * MyBean bean = new MyBean(new RestTemplateBuilder(customizer));
+ * MyBean cluster = new MyBean(new RestTemplateBuilder(customizer));
  * customizer.getServer().expect(requestTo("/hello")).andRespond(withSuccess());
- * bean.makeRestCall();
+ * cluster.makeRestCall();
  * </pre>
  * <p>
  * If the customizer is only used once, the {@link #getServer()} method can be used to

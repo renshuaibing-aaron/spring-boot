@@ -589,7 +589,7 @@ If an operation is invoked without a required parameter, or with a parameter tha
 [[production-ready-endpoints-custom-web-range-requests]]
 ===== Web Endpoint Range Requests
 An HTTP range request can be used to request part of an HTTP resource.
-When using Spring MVC or Spring Web Flux, operations that return a `org.springframework.core.io.Resource` automatically support range requests.
+When using Spring MVC or Spring Web Flux, operations that return a `org.springframework.com.shirc.redis.delay.queue.core.io.Resource` automatically support range requests.
 
 NOTE: Range requests are not supported when using Jersey.
 
@@ -612,7 +612,7 @@ For new endpoints, the `@Endpoint` and `@WebEndpoint` annotations should be pref
 
 
 
-[[production-ready-endpoints-custom-controller]]
+[[production-ready-endpoints-custom-com.shirc.redisdelayqueuespringdemo.controller]]
 ==== Controller endpoints
 `@ControllerEndpoint` and `@RestControllerEndpoint` can be used to implement an endpoint that is only exposed by Spring MVC or Spring WebFlux.
 Methods are mapped using the standard annotations for Spring MVC and Spring WebFlux such as `@RequestMapping` and `@GetMapping`, with the endpoint's ID being used as a prefix for the path.
@@ -1123,14 +1123,14 @@ If you do not want to expose endpoints over JMX, you can set the `management.end
 [[production-ready-jolokia]]
 === Using Jolokia for JMX over HTTP
 Jolokia is a JMX-HTTP bridge that provides an alternative method of accessing JMX beans.
-To use Jolokia, include a dependency to `org.jolokia:jolokia-core`.
+To use Jolokia, include a dependency to `org.jolokia:jolokia-com.shirc.redis.delay.queue.core`.
 For example, with Maven, you would add the following dependency:
 
 [source,xml,indent=0]
 ----
 	<dependency>
 		<groupId>org.jolokia</groupId>
-		<artifactId>jolokia-core</artifactId>
+		<artifactId>jolokia-com.shirc.redis.delay.queue.core</artifactId>
 	</dependency>
 ----
 
@@ -1606,7 +1606,7 @@ You can also change the interval at which metrics are sent to Wavefront:
 
 [[production-ready-metrics-meter]]
 === Supported Metrics
-Spring Boot registers the following core metrics when applicable:
+Spring Boot registers the following com.shirc.redis.delay.queue.core metrics when applicable:
 
 * JVM metrics, report utilization of:
 ** Various memory and buffer pools
@@ -1643,7 +1643,7 @@ Alternatively, when set to `false`, you can enable instrumentation by adding `@T
 
 	}
 ----
-<1> A controller class to enable timings on every request handler in the controller.
+<1> A com.shirc.redisdelayqueuespringdemo.controller class to enable timings on every request handler in the com.shirc.redisdelayqueuespringdemo.controller.
 <2> A method to enable for an individual endpoint.
     This is not necessary if you have it on the class, but can be used to further customize the timer for this particular endpoint.
 <3> A method with `longTask = true` to enable a long task timer for the method.
@@ -1863,7 +1863,7 @@ By default, metrics from all `MeterBinder` beans will be automatically bound to 
 
 [[production-ready-metrics-per-meter-properties]]
 === Customizing individual metrics
-If you need to apply customizations to specific `Meter` instances you can use the `io.micrometer.core.instrument.config.MeterFilter` interface.
+If you need to apply customizations to specific `Meter` instances you can use the `io.micrometer.com.shirc.redis.delay.queue.core.instrument.config.MeterFilter` interface.
 By default, all `MeterFilter` beans will be automatically applied to the micrometer `MeterRegistry.Config`.
 
 For example, if you want to rename the `mytag.region` tag to `mytag.area` for all meter IDs beginning with `com.example`, you can do the following:

@@ -295,7 +295,7 @@ public class LiveReloadServer {
 	}
 
 	/**
-	 * {@link ThreadFactory} to create the worker threads.
+	 * {@link ThreadFactory} to create the worker com.shirc.redis.delay.queue.threads.
 	 */
 	private static class WorkerThreadFactory implements ThreadFactory {
 

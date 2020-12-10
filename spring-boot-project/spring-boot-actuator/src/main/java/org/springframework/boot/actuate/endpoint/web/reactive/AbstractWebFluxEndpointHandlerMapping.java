@@ -287,7 +287,7 @@ public abstract class AbstractWebFluxEndpointHandlerMapping extends RequestMappi
 		}
 
 		private Supplier<Mono<? extends SecurityContext>> getSecurityContextSupplier() {
-			if (ClassUtils.isPresent("org.springframework.security.core.context.ReactiveSecurityContextHolder",
+			if (ClassUtils.isPresent("org.springframework.security.com.shirc.redis.delay.queue.core.context.ReactiveSecurityContextHolder",
 					getClass().getClassLoader())) {
 				return this::springSecurityContext;
 			}

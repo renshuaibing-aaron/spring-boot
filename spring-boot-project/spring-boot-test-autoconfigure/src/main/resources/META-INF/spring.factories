@@ -1,5 +1,5 @@
 # AutoConfigureCache auto-configuration imports
-org.springframework.boot.test.autoconfigure.core.AutoConfigureCache=\
+org.springframework.boot.test.autoconfigure.com.shirc.redis.delay.queue.core.AutoConfigureCache=\
 org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration
 
 # AutoConfigureDataJdbc auto-configuration imports

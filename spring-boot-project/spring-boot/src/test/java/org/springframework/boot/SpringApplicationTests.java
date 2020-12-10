@@ -1068,7 +1068,7 @@ public class SpringApplicationTests {
 	@Test
 	public void beanDefinitionOverridingCanBeEnabled() {
 		assertThat(new SpringApplication(ExampleConfig.class, OverrideConfig.class)
-				.run("--spring.main.allow-bean-definition-overriding=true", "--spring.main.web-application-type=none")
+				.run("--spring.main.allow-cluster-definition-overriding=true", "--spring.main.web-application-type=none")
 				.getBean("someBean")).isEqualTo("override");
 	}
 
@@ -1098,7 +1098,7 @@ public class SpringApplicationTests {
 	}
 
 	private Condition<ConfigurableApplicationContext> runTestRunnerBean(final String name) {
-		return new Condition<ConfigurableApplicationContext>("run testrunner bean") {
+		return new Condition<ConfigurableApplicationContext>("run testrunner cluster") {
 
 			@Override
 			public boolean matches(ConfigurableApplicationContext value) {

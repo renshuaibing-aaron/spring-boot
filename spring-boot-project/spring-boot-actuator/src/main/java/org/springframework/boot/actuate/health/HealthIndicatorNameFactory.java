@@ -20,7 +20,7 @@ import java.util.Locale;
 import java.util.function.Function;
 
 /**
- * Generate a sensible health indicator name based on its bean name.
+ * Generate a sensible health indicator name based on its cluster name.
  *
  * @author Stephane Nicoll
  * @since 2.0.0

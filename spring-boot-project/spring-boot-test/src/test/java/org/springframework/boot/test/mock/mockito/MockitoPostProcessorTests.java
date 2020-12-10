@@ -48,8 +48,8 @@ public class MockitoPostProcessorTests {
 		MockitoPostProcessor.register(context);
 		context.register(MultipleBeans.class);
 		assertThatIllegalStateException().isThrownBy(context::refresh)
-				.withMessageContaining("Unable to register mock bean " + ExampleService.class.getName()
-						+ " expected a single matching bean to replace " + "but found [example1, example2]");
+				.withMessageContaining("Unable to register mock cluster " + ExampleService.class.getName()
+						+ " expected a single matching cluster to replace " + "but found [example1, example2]");
 	}
 
 	@Test
@@ -58,8 +58,8 @@ public class MockitoPostProcessorTests {
 		MockitoPostProcessor.register(context);
 		context.register(MultipleQualifiedBeans.class);
 		assertThatIllegalStateException().isThrownBy(context::refresh)
-				.withMessageContaining("Unable to register mock bean " + ExampleService.class.getName()
-						+ " expected a single matching bean to replace " + "but found [example1, example3]");
+				.withMessageContaining("Unable to register mock cluster " + ExampleService.class.getName()
+						+ " expected a single matching cluster to replace " + "but found [example1, example3]");
 	}
 
 	@Test

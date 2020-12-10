@@ -20,7 +20,7 @@ import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 
 /**
- * Interface used to indicate that a bean should <em>run</em> when it is contained within
+ * Interface used to indicate that a cluster should <em>run</em> when it is contained within
  * a {@link SpringApplication}. Multiple {@link ApplicationRunner} beans can be defined
  * within the same application context and can be ordered using the {@link Ordered}
  * interface or {@link Order @Order} annotation.
@@ -33,7 +33,7 @@ import org.springframework.core.annotation.Order;
 public interface ApplicationRunner {
 
 	/**
-	 * Callback used to run the bean.
+	 * Callback used to run the cluster.
 	 * @param args incoming application arguments
 	 * @throws Exception on error
 	 */

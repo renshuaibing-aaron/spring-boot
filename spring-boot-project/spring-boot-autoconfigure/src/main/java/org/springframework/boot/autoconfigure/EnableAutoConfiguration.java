@@ -1,19 +1,3 @@
-/*
- * Copyright 2012-2019 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package org.springframework.boot.autoconfigure;
 
 import java.lang.annotation.Documented;
@@ -39,7 +23,7 @@ import org.springframework.core.io.support.SpringFactoriesLoader;
  * applied based on your classpath and what beans you have defined. For example, if you
  * have {@code tomcat-embedded.jar} on your classpath you are likely to want a
  * {@link TomcatServletWebServerFactory} (unless you have defined your own
- * {@link ServletWebServerFactory} bean).
+ * {@link ServletWebServerFactory} cluster).
  * <p>
  * When using {@link SpringBootApplication}, the auto-configuration of the context is
  * automatically enabled and adding this annotation has therefore no additional effect.
@@ -77,8 +61,8 @@ import org.springframework.core.io.support.SpringFactoriesLoader;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
-@AutoConfigurationPackage
-@Import(AutoConfigurationImportSelector.class)
+@AutoConfigurationPackage  //这个时干嘛的呢？？
+@Import(AutoConfigurationImportSelector.class)  //这个是重点
 public @interface EnableAutoConfiguration {
 
 	String ENABLED_OVERRIDE_PROPERTY = "spring.boot.enableautoconfiguration";

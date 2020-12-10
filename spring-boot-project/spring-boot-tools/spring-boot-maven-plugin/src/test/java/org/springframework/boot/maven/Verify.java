@@ -219,7 +219,7 @@ public final class Verify {
 		protected void verifyZipEntries(ArchiveVerifier verifier) throws Exception {
 			super.verifyZipEntries(verifier);
 			verifier.assertHasEntryNameStartingWith("BOOT-INF/lib/spring-context");
-			verifier.assertHasEntryNameStartingWith("BOOT-INF/lib/spring-core");
+			verifier.assertHasEntryNameStartingWith("BOOT-INF/lib/spring-com.shirc.redis.delay.queue.core");
 			verifier.assertHasEntryNameStartingWith("BOOT-INF/lib/javax.servlet-api-4");
 			assertThat(verifier.hasEntry("org/springframework/boot/loader/JarLauncher.class"))
 					.as("Unpacked launcher classes").isTrue();
@@ -247,7 +247,7 @@ public final class Verify {
 		protected void verifyZipEntries(ArchiveVerifier verifier) throws Exception {
 			super.verifyZipEntries(verifier);
 			verifier.assertHasEntryNameStartingWith("WEB-INF/lib/spring-context");
-			verifier.assertHasEntryNameStartingWith("WEB-INF/lib/spring-core");
+			verifier.assertHasEntryNameStartingWith("WEB-INF/lib/spring-com.shirc.redis.delay.queue.core");
 			verifier.assertHasEntryNameStartingWith("WEB-INF/lib-provided/javax.servlet-api-4");
 			assertThat(verifier.hasEntry("org/" + "springframework/boot/loader/JarLauncher.class"))
 					.as("Unpacked launcher classes").isTrue();
@@ -292,7 +292,7 @@ public final class Verify {
 		protected void verifyZipEntries(ArchiveVerifier verifier) throws Exception {
 			super.verifyZipEntries(verifier);
 			verifier.assertHasEntryNameStartingWith("lib/spring-context");
-			verifier.assertHasEntryNameStartingWith("lib/spring-core");
+			verifier.assertHasEntryNameStartingWith("lib/spring-com.shirc.redis.delay.queue.core");
 			verifier.assertHasNoEntryNameStartingWith("lib/javax.servlet-api");
 			assertThat(verifier.hasEntry("org/" + "springframework/boot/loader/JarLauncher.class"))
 					.as("Unpacked launcher classes").isFalse();

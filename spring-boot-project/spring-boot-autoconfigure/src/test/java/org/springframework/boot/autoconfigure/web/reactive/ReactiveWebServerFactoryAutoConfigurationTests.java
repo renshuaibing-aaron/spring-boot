@@ -59,7 +59,7 @@ public class ReactiveWebServerFactoryAutoConfigurationTests {
 		this.contextRunner.withUserConfiguration(MockWebServerConfiguration.class)
 				.run((context) -> assertThat(context.getStartupFailure())
 						.isInstanceOf(ApplicationContextException.class)
-						.hasMessageContaining("missing HttpHandler bean"));
+						.hasMessageContaining("missing HttpHandler cluster"));
 	}
 
 	@Test

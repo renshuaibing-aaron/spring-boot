@@ -28,7 +28,7 @@ import org.springframework.boot.context.properties.source.ConfigurationPropertyN
 interface BeanBinder {
 
 	/**
-	 * Return a bound bean instance or {@code null} if the {@link BeanBinder} does not
+	 * Return a bound cluster instance or {@code null} if the {@link BeanBinder} does not
 	 * support the specified {@link Bindable}.
 	 * @param name the name being bound
 	 * @param target the bindable to bind

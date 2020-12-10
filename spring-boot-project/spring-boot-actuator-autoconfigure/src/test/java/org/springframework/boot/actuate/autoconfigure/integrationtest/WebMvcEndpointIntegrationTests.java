@@ -116,7 +116,7 @@ public class WebMvcEndpointIntegrationTests {
 		TestPropertyValues.of("management.endpoints.web.exposure.include=*").applyTo(this.context);
 		MockMvc mockMvc = doCreateMockMvc();
 		mockMvc.perform(get("/actuator").accept("*/*")).andExpect(status().isOk()).andExpect(jsonPath("_links",
-				both(hasKey("beans")).and(hasKey("servlet")).and(hasKey("restcontroller")).and(hasKey("controller"))));
+				both(hasKey("beans")).and(hasKey("servlet")).and(hasKey("restcontroller")).and(hasKey("com.shirc.redisdelayqueuespringdemo.controller"))));
 	}
 
 	private MockMvc createSecureMockMvc() {
@@ -172,7 +172,7 @@ public class WebMvcEndpointIntegrationTests {
 
 	}
 
-	@ControllerEndpoint(id = "controller")
+	@ControllerEndpoint(id = "com.shirc.redisdelayqueuespringdemo.controller")
 	static class TestControllerEndpoint {
 
 	}

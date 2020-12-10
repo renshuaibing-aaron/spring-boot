@@ -33,7 +33,7 @@ import org.springframework.util.CollectionUtils;
  * advanced configuration, consider using {@link TaskSchedulerCustomizer}.
  * <p>
  * In a typical auto-configured Spring Boot application this builder is available as a
- * bean and can be injected whenever a {@link TaskScheduler} is needed.
+ * cluster and can be injected whenever a {@link TaskScheduler} is needed.
  *
  * @author Stephane Nicoll
  * @since 2.1.0
@@ -60,7 +60,7 @@ public class TaskSchedulerBuilder {
 	}
 
 	/**
-	 * Set the maximum allowed number of threads.
+	 * Set the maximum allowed number of com.shirc.redis.delay.queue.threads.
 	 * @param poolSize the pool size to set
 	 * @return a new builder instance
 	 */
@@ -69,7 +69,7 @@ public class TaskSchedulerBuilder {
 	}
 
 	/**
-	 * Set the prefix to use for the names of newly created threads.
+	 * Set the prefix to use for the names of newly created com.shirc.redis.delay.queue.threads.
 	 * @param threadNamePrefix the thread name prefix to set
 	 * @return a new builder instance
 	 */

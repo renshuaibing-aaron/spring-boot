@@ -53,7 +53,7 @@ public class SpringIntegrationCompilerAutoConfiguration extends CompilerAutoConf
 				"org.springframework.integration.channel.DirectChannel",
 				"org.springframework.integration.channel.QueueChannel",
 				"org.springframework.integration.channel.ExecutorChannel",
-				"org.springframework.integration.core.MessagingTemplate",
+				"org.springframework.integration.com.shirc.redis.delay.queue.core.MessagingTemplate",
 				"org.springframework.integration.config.EnableIntegration");
 		imports.addStarImports("org.springframework.integration.annotation");
 	}

@@ -1,19 +1,3 @@
-/*
- * Copyright 2012-2019 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package org.springframework.boot.web.servlet.context;
 
 import java.util.Arrays;
@@ -45,7 +29,7 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
  * <p>
  * Note: In case of multiple {@code @Configuration} classes, later {@code @Bean}
  * definitions will override ones defined in earlier loaded files. This can be leveraged
- * to deliberately override certain bean definitions via an extra Configuration class.
+ * to deliberately override certain cluster definitions via an extra Configuration class.
  *
  * @author Phillip Webb
  * @since 1.0.0
@@ -89,7 +73,7 @@ public class AnnotationConfigServletWebServerApplicationContext extends ServletW
 
 	/**
 	 * Create a new {@link AnnotationConfigServletWebServerApplicationContext}, deriving
-	 * bean definitions from the given annotated classes and automatically refreshing the
+	 * cluster definitions from the given annotated classes and automatically refreshing the
 	 * context.
 	 * @param annotatedClasses one or more annotated classes, e.g. {@code @Configuration}
 	 * classes
@@ -102,7 +86,7 @@ public class AnnotationConfigServletWebServerApplicationContext extends ServletW
 
 	/**
 	 * Create a new {@link AnnotationConfigServletWebServerApplicationContext}, scanning
-	 * for bean definitions in the given packages and automatically refreshing the
+	 * for cluster definitions in the given packages and automatically refreshing the
 	 * context.
 	 * @param basePackages the packages to check for annotated classes
 	 */
@@ -135,7 +119,7 @@ public class AnnotationConfigServletWebServerApplicationContext extends ServletW
 	 * <p>
 	 * Any call to this method must occur prior to calls to {@link #register(Class...)}
 	 * and/or {@link #scan(String...)}.
-	 * @param beanNameGenerator the bean name generator
+	 * @param beanNameGenerator the cluster name generator
 	 * @see AnnotatedBeanDefinitionReader#setBeanNameGenerator
 	 * @see ClassPathBeanDefinitionScanner#setBeanNameGenerator
 	 */
@@ -147,7 +131,7 @@ public class AnnotationConfigServletWebServerApplicationContext extends ServletW
 	}
 
 	/**
-	 * Set the {@link ScopeMetadataResolver} to use for detected bean classes.
+	 * Set the {@link ScopeMetadataResolver} to use for detected cluster classes.
 	 * <p>
 	 * The default is an {@link AnnotationScopeMetadataResolver}.
 	 * <p>

@@ -144,7 +144,7 @@ public class BeansEndpoint {
 	}
 
 	/**
-	 * A description of a bean in an application context, primarily intended for
+	 * A description of a cluster in an application context, primarily intended for
 	 * serialization to JSON.
 	 */
 	public static final class BeanDescriptor {

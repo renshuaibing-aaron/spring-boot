@@ -32,8 +32,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public interface ExposableControllerEndpoint extends ExposableEndpoint<Operation>, PathMappedEndpoint {
 
 	/**
-	 * Return the source controller that contains {@link RequestMapping} methods.
-	 * @return the source controller
+	 * Return the source com.shirc.redisdelayqueuespringdemo.controller that contains {@link RequestMapping} methods.
+	 * @return the source com.shirc.redisdelayqueuespringdemo.controller
 	 */
 	Object getController();
 

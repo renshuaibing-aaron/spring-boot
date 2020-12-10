@@ -85,7 +85,7 @@ public class DataSourcePoolMetricsAutoConfiguration {
 
 		/**
 		 * Get the name of a DataSource based on its {@code beanName}.
-		 * @param beanName the name of the data source bean
+		 * @param beanName the name of the data source cluster
 		 * @return a name for the given data source
 		 */
 		private String getDataSourceName(String beanName) {

@@ -1,19 +1,3 @@
-/*
- * Copyright 2012-2019 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package org.springframework.boot.web.embedded.tomcat;
 
 import java.util.Set;
@@ -28,6 +12,9 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.boot.web.servlet.ServletContextInitializer;
 
 /**
+ *
+ * 这里需要注意的是 虽然TomcatStarter 实现了ServletContainerInitializer 符合Servlet3.0 规范的，但实际上并没有被 SPI 加载
+ *
  * {@link ServletContainerInitializer} used to trigger {@link ServletContextInitializer
  * ServletContextInitializers} and track startup errors.
  *
@@ -38,6 +25,10 @@ class TomcatStarter implements ServletContainerInitializer {
 
 	private static final Log logger = LogFactory.getLog(TomcatStarter.class);
 
+	/**
+	 * 这个是在springboot里面引入springmvc 的关键 这个是注入dispatchservlet类关键
+	 * todo 注意分析这个类
+	 */
 	private final ServletContextInitializer[] initializers;
 
 	private volatile Exception startUpException;
@@ -46,8 +37,19 @@ class TomcatStarter implements ServletContainerInitializer {
 		this.initializers = initializers;
 	}
 
+	/**
+	 *此处需要注意两点
+	 * 1.这个方法是怎么触发的
+	 * 2.这个方法的执行有哪些作用？
+	 *    明显可以看出这里会执行initializers的onStartup 方法
+	 * @param classes
+	 * @param servletContext
+	 * @throws ServletException
+	 */
 	@Override
 	public void onStartup(Set<Class<?>> classes, ServletContext servletContext) throws ServletException {
+
+		System.out.println("============TomcatStarter#onStartup【加载Dispatchservlet？】====================");
 		try {
 			for (ServletContextInitializer initializer : this.initializers) {
 				initializer.onStartup(servletContext);

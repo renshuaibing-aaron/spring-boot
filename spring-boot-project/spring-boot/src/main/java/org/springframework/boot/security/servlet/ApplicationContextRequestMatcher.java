@@ -30,13 +30,13 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 /**
  * {@link ApplicationContext} backed {@link RequestMatcher}. Can work directly with the
- * {@link ApplicationContext}, obtain an existing bean or
- * {@link AutowireCapableBeanFactory#createBean(Class, int, boolean) create a new bean}
+ * {@link ApplicationContext}, obtain an existing cluster or
+ * {@link AutowireCapableBeanFactory#createBean(Class, int, boolean) create a new cluster}
  * that is autowired in the usual way.
  *
  * @param <C> the type of the context that the match method actually needs to use. Can be
  * an {@link ApplicationContext} or a class of an {@link ApplicationContext#getBean(Class)
- * existing bean}.
+ * existing cluster}.
  * @author Phillip Webb
  * @since 2.0.0
  */

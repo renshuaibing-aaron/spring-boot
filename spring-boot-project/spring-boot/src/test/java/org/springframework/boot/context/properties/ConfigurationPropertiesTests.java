@@ -1162,7 +1162,7 @@ public class ConfigurationPropertiesTests {
 
 		private Duration duration;
 
-		// No getter - you should be able to bind to a write-only bean
+		// No getter - you should be able to bind to a write-only cluster
 
 		public void setName(String name) {
 			this.name = name;
@@ -1318,7 +1318,7 @@ public class ConfigurationPropertiesTests {
 			this.name = name;
 		}
 
-		// No getter - you should be able to bind to a write-only bean
+		// No getter - you should be able to bind to a write-only cluster
 
 	}
 

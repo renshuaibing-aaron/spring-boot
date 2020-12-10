@@ -41,7 +41,7 @@ import static org.mockito.Mockito.mock;
 
 /**
  * Integration test for {@link WebTestClientContextCustomizer} with a custom
- * {@link WebTestClient} bean.
+ * {@link WebTestClient} cluster.
  *
  * @author Phillip Webb
  */

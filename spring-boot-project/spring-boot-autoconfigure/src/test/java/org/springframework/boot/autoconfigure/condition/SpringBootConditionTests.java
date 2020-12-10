@@ -59,7 +59,7 @@ public class SpringBootConditionTests {
 		@Bean
 		@Conditional(AlwaysThrowsCondition.class)
 		public String myBean() {
-			return "bean";
+			return "cluster";
 		}
 
 	}

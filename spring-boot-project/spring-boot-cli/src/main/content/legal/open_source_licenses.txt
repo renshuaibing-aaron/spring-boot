@@ -51,7 +51,7 @@ SECTION 2: Apache License, V2.0
    >>> Maven Settings (org.apache.maven:maven-settings)
    >>> Maven Settings Builder (org.apache.maven:maven-settings-builder)
    >>> Plexus :: Component Annotations (org.codehaus.plexus:plexus-component-annotations)
-   >>> Plexus Common Utilities (org.codehaus.plexus:plexus-utils)
+   >>> Plexus Common Utilities (org.codehaus.plexus:plexus-com.shirc.redis.delay.queue.utils)
    >>> Plexus Component API (org.codehaus.plexus:plexus-component-api)
    >>> Plexus Interpolation API (org.codehaus.plexus:plexus-interpolation)
 
@@ -186,7 +186,7 @@ Apache License, V2.0 is applicable to the following component(s).
 >>> org.apache.maven:maven-settings
 >>> org.apache.maven:maven-settings-builder
 >>> org.codehaus.plexus:plexus-component-annotations
->>> org.codehaus.plexus:plexus-utils
+>>> org.codehaus.plexus:plexus-com.shirc.redis.delay.queue.utils
 >>> org.codehaus.plexus:plexus-component-api
 >>> org.codehaus.plexus:plexus-interpolation
 

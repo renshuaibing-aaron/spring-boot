@@ -20,7 +20,7 @@ import org.springframework.restdocs.webtestclient.WebTestClientRestDocumentation
 
 /**
  * A customizer for {@link WebTestClientRestDocumentationConfigurer}. If a
- * {@code RestDocsWebTestClientConfigurationCustomizer} bean is found in the application
+ * {@code RestDocsWebTestClientConfigurationCustomizer} cluster is found in the application
  * context it will be {@link #customize called} to customize the
  * {@code WebTestClientRestDocumentationConfigurer} before it is applied. Intended for use
  * only when the attributes on {@link AutoConfigureRestDocs} do not provide sufficient

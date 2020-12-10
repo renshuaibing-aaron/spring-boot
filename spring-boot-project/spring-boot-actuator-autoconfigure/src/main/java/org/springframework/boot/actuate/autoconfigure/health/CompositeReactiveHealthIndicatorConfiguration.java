@@ -30,7 +30,7 @@ import org.springframework.core.ResolvableType;
  * Reactive variant of {@link CompositeHealthIndicatorConfiguration}.
  *
  * @param <H> the health indicator type
- * @param <S> the bean source type
+ * @param <S> the cluster source type
  * @author Stephane Nicoll
  * @since 2.0.0
  */

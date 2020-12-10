@@ -1,19 +1,3 @@
-/*
- * Copyright 2012-2019 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package org.springframework.boot;
 
 import java.lang.reflect.Constructor;
@@ -230,6 +214,9 @@ public class SpringApplication {
 
 	private Map<String, Object> defaultProperties;
 
+	/**
+	 * 附加的 profiles 的数组
+	 */
 	private Set<String> additionalProfiles = new HashSet<>();
 
 	private boolean allowBeanDefinitionOverriding;
@@ -241,7 +228,7 @@ public class SpringApplication {
 	 * beans from the specified primary sources (see {@link SpringApplication class-level}
 	 * documentation for details. The instance can be customized before calling
 	 * {@link #run(String...)}.
-	 * @param primarySources the primary bean sources
+	 * @param primarySources the primary cluster sources
 	 * @see #run(Class, String[])
 	 * @see #SpringApplication(ResourceLoader, Class...)
 	 * @see #setSources(Set)
@@ -251,21 +238,38 @@ public class SpringApplication {
 	}
 
 	/**
+	 * //1、初始化资源加载器
+	 * //2、断言资源加载类不能为 null
+	 * //3、初始化加载资源类集合并去重
+	 * //4、 推断应用类型是Standard还是Web
+	 * //5、设置应用上下文初始化器
+	 * //6、设置监听器
+	 * //7、推断应用入口类
 	 * Create a new {@link SpringApplication} instance. The application context will load
 	 * beans from the specified primary sources (see {@link SpringApplication class-level}
 	 * documentation for details. The instance can be customized before calling
 	 * {@link #run(String...)}.
 	 * @param resourceLoader the resource loader to use
-	 * @param primarySources the primary bean sources
+	 * @param primarySources the primary cluster sources
 	 * @see #run(Class, String[])
 	 * @see #setSources(Set)
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public SpringApplication(ResourceLoader resourceLoader, Class<?>... primarySources) {
+
+		System.out.println("======springboot启动时创建SpringApplication 并进行检查==================");
+		/*
+		* 根据classpath里面是否存在某个特征类
+（org.springframework.web.context.ConfigurableWebApplicationContext）来决定是否应该创建一个为Web应用使用的ApplicationContext类型。
+使用SpringFactoriesLoader在应用的classpath中查找并加载所有可用的ApplicationContextInitializer。
+使用SpringFactoriesLoader在应用的classpath中查找并加载所有可用的ApplicationListener*/
+
 		this.resourceLoader = resourceLoader;
 		Assert.notNull(primarySources, "PrimarySources must not be null");
+
 		this.primarySources = new LinkedHashSet<>(Arrays.asList(primarySources));
 		this.webApplicationType = WebApplicationType.deduceFromClasspath();
+
 		setInitializers((Collection) getSpringFactoriesInstances(ApplicationContextInitializer.class));
 		setListeners((Collection) getSpringFactoriesInstances(ApplicationListener.class));
 		this.mainApplicationClass = deduceMainApplicationClass();
@@ -293,29 +297,66 @@ public class SpringApplication {
 	 * @return a running {@link ApplicationContext}
 	 */
 	public ConfigurableApplicationContext run(String... args) {
+
+		//  创建 StopWatch 对象，并启动。StopWatch 主要用于简单统计 run 启动过程的时长
 		StopWatch stopWatch = new StopWatch();
 		stopWatch.start();
+
 		ConfigurableApplicationContext context = null;
 		Collection<SpringBootExceptionReporter> exceptionReporters = new ArrayList<>();
+		// <2> 配置 headless 属性
 		configureHeadlessProperty();
+
+		//创建了应用的监听器SpringApplicationRunListeners并开始监听
+		//） SpringApplication实例初始化完成并且完成设置后，就开始执行run方法的逻辑了，方法执行伊始，首先遍历执行所有通过SpringFactoriesLoader可以查找到并加载的SpringApplicationRunListener。
+		// 调用它们的started()方法，告诉这些SpringApplicationRunListener，“嘿，SpringBoot应用要开始执行咯！”。
 		SpringApplicationRunListeners listeners = getRunListeners(args);
 		listeners.starting();
+
 		try {
+			// <3> 创建  ApplicationArguments 对象
 			ApplicationArguments applicationArguments = new DefaultApplicationArguments(args);
+
+			//准备配置环境
+			//加载SpringBoot配置环境(ConfigurableEnvironment)，
+			// 如果是通过web容器发布，会加载StandardEnvironment，其最终也是继承了ConfigurableEnvironment
+			// <4> 加载属性配置。执行完成后，所有的 environment 的属性都会加载进来，包括 application.properties 和外部的属性配置
 			ConfigurableEnvironment environment = prepareEnvironment(listeners, applicationArguments);
 			configureIgnoreBeanInfo(environment);
+			System.out.println("======根据是否进行了配置打印banner==============");
 			Banner printedBanner = printBanner(environment);
+
+			//根据用户是否明确设置了applicationContextClass类型以及初始化阶段的推断结果，决定该为当前SpringBoot
+			// 应用创建什么类型的ApplicationContext并创建完成，然后根据条件决定是否添加ShutdownHook，决定是否使用自定义的BeanNameGenerator，
+			// 决定是否使用自定义的ResourceLoader，当然，最重要的，将之前准备好的Environment设置给创建好的ApplicationContext使用
+			System.out.println("=======【创建 Spring 容器】=============");
 			context = createApplicationContext();
+
+			// <7> 异常报告器
 			exceptionReporters = getSpringFactoriesInstances(SpringBootExceptionReporter.class,
 					new Class[] { ConfigurableApplicationContext.class }, context);
+
+			// <8> 主要是调用所有初始化类的 initialize 方法
 			prepareContext(context, environment, listeners, applicationArguments, printedBanner);
+
+
+			//将之前通过@EnableAutoConfiguration获取的所有配置以及其他形式的IoC容器配置加载到已经准备完毕的ApplicationContext
+			System.out.println("==========调用ApplicationContext的refresh()方法，完成IoC容器可用的最后一道工序===================");
 			refreshContext(context);
+
+			// <10> 执行 Spring 容器的初始化的后置逻辑。默认实现为空
 			afterRefresh(context, applicationArguments);
+			// <11> 停止 StopWatch 统计时长
 			stopWatch.stop();
+
+			// <12> 打印 Spring Boot 启动的时长日志
 			if (this.logStartupInfo) {
 				new StartupInfoLogger(this.mainApplicationClass).logStarted(getApplicationLog(), stopWatch);
 			}
+
+			// <13> 通知 SpringApplicationRunListener 的数组，Spring 容器启动完成
 			listeners.started(context);
+			System.out.println("=========== 查找当前ApplicationContext中是否注册有CommandLineRunner，如果有，则遍历执行它们=============");
 			callRunners(context, applicationArguments);
 		}
 		catch (Throwable ex) {
@@ -324,6 +365,11 @@ public class SpringApplication {
 		}
 
 		try {
+			/**
+			 * 通知 SpringApplicationRunListener 的数组，Spring 容器运行中
+			 * 正常情况下，遍历执行SpringApplicationRunListener的finished()方法、
+			 * （如果整个过程出现异常，则依然调用所有SpringApplicationRunListener的finished()方法，只不过这种情况下会将异常信息一并传入处理）
+			 */
 			listeners.running(context);
 		}
 		catch (Throwable ex) {
@@ -336,15 +382,20 @@ public class SpringApplication {
 	private ConfigurableEnvironment prepareEnvironment(SpringApplicationRunListeners listeners,
 			ApplicationArguments applicationArguments) {
 		// Create and configure the environment
+		// <1> 创建 ConfigurableEnvironment 对象，并进行配置
 		ConfigurableEnvironment environment = getOrCreateEnvironment();
 		configureEnvironment(environment, applicationArguments.getSourceArgs());
 		ConfigurationPropertySources.attach(environment);
+		// <2> 通知 SpringApplicationRunListener 的数组，环境变量已经准备完成。
 		listeners.environmentPrepared(environment);
+		// <3> 绑定 environment 到 SpringApplication 上
 		bindToSpringApplication(environment);
+		// <4> 如果非自定义 environment ，则根据条件转换
 		if (!this.isCustomEnvironment) {
 			environment = new EnvironmentConverter(getClassLoader()).convertEnvironmentIfNecessary(environment,
 					deduceEnvironmentClass());
 		}
+		// <5> 如果有 attach 到 environment 上的 MutablePropertySources ，则添加到 environment 的 PropertySource 中。
 		ConfigurationPropertySources.attach(environment);
 		return environment;
 	}
@@ -360,10 +411,20 @@ public class SpringApplication {
 		}
 	}
 
+	/**
+	 *看方法的名字是准备容器 推测应该是把需要用的BD注册到容器里面去 这里和spring对比 下一步应该是refreash方法 初始化bean
+	 * @param context
+	 * @param environment
+	 * @param listeners
+	 * @param applicationArguments
+	 * @param printedBanner
+	 */
 	private void prepareContext(ConfigurableApplicationContext context, ConfigurableEnvironment environment,
 			SpringApplicationRunListeners listeners, ApplicationArguments applicationArguments, Banner printedBanner) {
 		context.setEnvironment(environment);
 		postProcessApplicationContext(context);
+		//ApplicationContext创建好之后，SpringApplication会再次借助Spring-FactoriesLoader，查找并加载classpath中所有可用的ApplicationContext-Initializer，
+		// 然后遍历调用这些ApplicationContextInitializer的initialize（applicationContext）方法来对已经创建好的ApplicationContext进行进一步的处理
 		applyInitializers(context);
 		listeners.contextPrepared(context);
 		if (this.logStartupInfo) {
@@ -384,6 +445,8 @@ public class SpringApplication {
 		Set<Object> sources = getAllSources();
 		Assert.notEmpty(sources, "Sources must not be empty");
 		load(context, sources.toArray(new Object[0]));
+
+		//遍历调用所有SpringApplicationRunListener的contextPrepared()方法
 		listeners.contextLoaded(context);
 	}
 
@@ -414,11 +477,22 @@ public class SpringApplication {
 		return getSpringFactoriesInstances(type, new Class<?>[] {});
 	}
 
+	/**
+	 * 获取指定类的对象们
+	 * @param type
+	 * @param parameterTypes
+	 * @param args
+	 * @param <T>
+	 * @return
+	 */
 	private <T> Collection<T> getSpringFactoriesInstances(Class<T> type, Class<?>[] parameterTypes, Object... args) {
 		ClassLoader classLoader = getClassLoader();
 		// Use names and ensure unique to protect against duplicates
+		// <1> 加载指定类型对应的，在 `META-INF/spring.factories` 里的类名的数组
 		Set<String> names = new LinkedHashSet<>(SpringFactoriesLoader.loadFactoryNames(type, classLoader));
+		// <2> 创建对象们
 		List<T> instances = createSpringFactoriesInstances(type, parameterTypes, classLoader, args, names);
+		// <3> 排序对象们
 		AnnotationAwareOrderComparator.sort(instances);
 		return instances;
 	}
@@ -642,6 +716,7 @@ public class SpringApplication {
 	protected void logStartupProfileInfo(ConfigurableApplicationContext context) {
 		Log log = getApplicationLog();
 		if (log.isInfoEnabled()) {
+			//获取环境变量
 			String[] activeProfiles = context.getEnvironment().getActiveProfiles();
 			if (ObjectUtils.isEmpty(activeProfiles)) {
 				String[] defaultProfiles = context.getEnvironment().getDefaultProfiles();
@@ -711,7 +786,7 @@ public class SpringApplication {
 	}
 
 	/**
-	 * Get the bean definition registry.
+	 * Get the cluster definition registry.
 	 * @param context the application context
 	 * @return the BeanDefinitionRegistry if it can be determined
 	 */
@@ -727,7 +802,7 @@ public class SpringApplication {
 
 	/**
 	 * Factory method used to create the {@link BeanDefinitionLoader}.
-	 * @param registry the bean definition registry
+	 * @param registry the cluster definition registry
 	 * @param sources the sources to load
 	 * @return the {@link BeanDefinitionLoader} that will be used to load beans
 	 */
@@ -929,7 +1004,7 @@ public class SpringApplication {
 	}
 
 	/**
-	 * Sets if bean definition overriding, by registering a definition with the same name
+	 * Sets if cluster definition overriding, by registering a definition with the same name
 	 * as an existing definition, should be allowed. Defaults to {@code false}.
 	 * @param allowBeanDefinitionOverriding if overriding is allowed
 	 * @since 2.1.0
@@ -1034,8 +1109,8 @@ public class SpringApplication {
 	}
 
 	/**
-	 * Sets the bean name generator that should be used when generating bean names.
-	 * @param beanNameGenerator the bean name generator
+	 * Sets the cluster name generator that should be used when generating cluster names.
+	 * @param beanNameGenerator the cluster name generator
 	 */
 	public void setBeanNameGenerator(BeanNameGenerator beanNameGenerator) {
 		this.beanNameGenerator = beanNameGenerator;
@@ -1212,6 +1287,7 @@ public class SpringApplication {
 	 * @return the running {@link ApplicationContext}
 	 */
 	public static ConfigurableApplicationContext run(Class<?>[] primarySources, String[] args) {
+		System.out.println("=========【spring 启动】=========");
 		return new SpringApplication(primarySources).run(args);
 	}
 

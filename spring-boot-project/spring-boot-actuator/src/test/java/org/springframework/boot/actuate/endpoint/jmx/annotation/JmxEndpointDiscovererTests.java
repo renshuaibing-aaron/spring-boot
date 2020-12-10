@@ -170,7 +170,7 @@ public class JmxEndpointDiscovererTests {
 	public void getEndpointsWhenTwoExtensionsHaveTheSameEndpointTypeShouldThrowException() {
 		load(ClashingJmxEndpointConfiguration.class, (discoverer) -> assertThatIllegalStateException()
 				.isThrownBy(discoverer::getEndpoints).withMessageContaining(
-						"Found multiple extensions for the endpoint bean testEndpoint (testExtensionOne, testExtensionTwo)"));
+						"Found multiple extensions for the endpoint cluster testEndpoint (testExtensionOne, testExtensionTwo)"));
 	}
 
 	@Test
@@ -198,7 +198,7 @@ public class JmxEndpointDiscovererTests {
 	public void getEndpointsWhenExtensionIsNotCompatibleWithTheEndpointTypeShouldThrowException() {
 		load(InvalidJmxExtensionConfiguration.class, (discoverer) -> assertThatIllegalStateException()
 				.isThrownBy(discoverer::getEndpoints).withMessageContaining(
-						"Endpoint bean 'nonJmxEndpoint' cannot support the extension bean 'nonJmxJmxEndpointExtension'"));
+						"Endpoint cluster 'nonJmxEndpoint' cannot support the extension cluster 'nonJmxJmxEndpointExtension'"));
 	}
 
 	private Object getInvoker(JmxOperation operation) {

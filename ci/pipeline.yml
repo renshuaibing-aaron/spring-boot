@@ -35,7 +35,7 @@ resources:
     password: ((github-password))
     branch: ((branch))
     git_config:
-    - name: core.autocrlf
+    - name: autocrlf
       value: true
   icon: github-circle
 - name: git-pull-request

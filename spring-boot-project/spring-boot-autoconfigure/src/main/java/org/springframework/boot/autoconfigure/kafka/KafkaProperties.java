@@ -161,7 +161,7 @@ public class KafkaProperties {
 	 * Create an initial map of consumer properties from the state of this instance.
 	 * <p>
 	 * This allows you to add additional properties, if necessary, and override the
-	 * default kafkaConsumerFactory bean.
+	 * default kafkaConsumerFactory cluster.
 	 * @return the consumer properties initialized with the customizations defined on this
 	 * instance
 	 */
@@ -175,7 +175,7 @@ public class KafkaProperties {
 	 * Create an initial map of producer properties from the state of this instance.
 	 * <p>
 	 * This allows you to add additional properties, if necessary, and override the
-	 * default kafkaProducerFactory bean.
+	 * default kafkaProducerFactory cluster.
 	 * @return the producer properties initialized with the customizations defined on this
 	 * instance
 	 */
@@ -189,7 +189,7 @@ public class KafkaProperties {
 	 * Create an initial map of admin properties from the state of this instance.
 	 * <p>
 	 * This allows you to add additional properties, if necessary, and override the
-	 * default kafkaAdmin bean.
+	 * default kafkaAdmin cluster.
 	 * @return the admin properties initialized with the customizations defined on this
 	 * instance
 	 */
@@ -649,7 +649,7 @@ public class KafkaProperties {
 		private String applicationId;
 
 		/**
-		 * Whether or not to auto-start the streams factory bean.
+		 * Whether or not to auto-start the streams factory cluster.
 		 */
 		private boolean autoStartup = true;
 

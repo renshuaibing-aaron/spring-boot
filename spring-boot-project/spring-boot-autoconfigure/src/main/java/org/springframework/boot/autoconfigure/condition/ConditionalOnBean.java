@@ -29,9 +29,9 @@ import org.springframework.context.annotation.Conditional;
 /**
  * {@link Conditional} that only matches when beans meeting all the specified requirements
  * are already contained in the {@link BeanFactory}. All the requirements must be met for
- * the condition to match, but they do not have to be met by the same bean.
+ * the condition to match, but they do not have to be met by the same cluster.
  * <p>
- * When placed on a {@code @Bean} method, the bean class defaults to the return type of
+ * When placed on a {@code @Bean} method, the cluster class defaults to the return type of
  * the factory method:
  *
  * <pre class="code">
@@ -46,12 +46,12 @@ import org.springframework.context.annotation.Conditional;
  *
  * }</pre>
  * <p>
- * In the sample above the condition will match if a bean of type {@code MyService} is
+ * In the sample above the condition will match if a cluster of type {@code MyService} is
  * already contained in the {@link BeanFactory}.
  * <p>
- * The condition can only match the bean definitions that have been processed by the
+ * The condition can only match the cluster definitions that have been processed by the
  * application context so far and, as such, it is strongly recommended to use this
- * condition on auto-configuration classes only. If a candidate bean may be created by
+ * condition on auto-configuration classes only. If a candidate cluster may be created by
  * another auto-configuration, make sure that the one using this condition runs after.
  *
  * @author Phillip Webb
@@ -78,7 +78,7 @@ public @interface ConditionalOnBean {
 	String[] type() default {};
 
 	/**
-	 * The annotation type decorating a bean that should be checked. The condition matches
+	 * The annotation type decorating a cluster that should be checked. The condition matches
 	 * when all of the annotations specified are defined on beans in the
 	 * {@link BeanFactory}.
 	 * @return the class-level annotation types to check
@@ -86,7 +86,7 @@ public @interface ConditionalOnBean {
 	Class<? extends Annotation>[] annotation() default {};
 
 	/**
-	 * The names of beans to check. The condition matches when all of the bean names
+	 * The names of beans to check. The condition matches when all of the cluster names
 	 * specified are contained in the {@link BeanFactory}.
 	 * @return the names of beans to check
 	 */
@@ -100,7 +100,7 @@ public @interface ConditionalOnBean {
 	SearchStrategy search() default SearchStrategy.ALL;
 
 	/**
-	 * Additional classes that may contain the specified bean types within their generic
+	 * Additional classes that may contain the specified cluster types within their generic
 	 * parameters. For example, an annotation declaring {@code value=Name.class} and
 	 * {@code parameterizedContainer=NameRegistration.class} would detect both
 	 * {@code Name} and {@code NameRegistration<Name>}.

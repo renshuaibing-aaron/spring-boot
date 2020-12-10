@@ -74,9 +74,9 @@ public class EntityScanPackages {
 	}
 
 	/**
-	 * Return the {@link EntityScanPackages} for the given bean factory.
-	 * @param beanFactory the source bean factory
-	 * @return the {@link EntityScanPackages} for the bean factory (never {@code null})
+	 * Return the {@link EntityScanPackages} for the given cluster factory.
+	 * @param beanFactory the source cluster factory
+	 * @return the {@link EntityScanPackages} for the cluster factory (never {@code null})
 	 */
 	public static EntityScanPackages get(BeanFactory beanFactory) {
 		// Currently we only store a single base package, but we return a list to

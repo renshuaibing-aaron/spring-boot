@@ -515,8 +515,8 @@ public class LoggingApplicationListenerTests {
 	public void loggingGroupsDefaultsAreApplied() {
 		TestPropertySourceUtils.addInlinedPropertiesToEnvironment(this.context, "logging.level.web=TRACE");
 		this.initializer.initialize(this.context.getEnvironment(), this.context.getClassLoader());
-		assertTraceEnabled("org.springframework.core", false);
-		assertTraceEnabled("org.springframework.core.codec", true);
+		assertTraceEnabled("org.springframework.com.shirc.redis.delay.queue.core", false);
+		assertTraceEnabled("org.springframework.com.shirc.redis.delay.queue.core.codec", true);
 		assertTraceEnabled("org.springframework.http", true);
 		assertTraceEnabled("org.springframework.web", true);
 		assertTraceEnabled("org.springframework.boot.actuate.endpoint.web", true);

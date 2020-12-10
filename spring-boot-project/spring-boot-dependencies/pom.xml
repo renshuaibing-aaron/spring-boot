@@ -165,7 +165,7 @@
 		<snakeyaml.version>1.23</snakeyaml.version>
 		<solr.version>7.7.2</solr.version>
 		<!-- deprecated in favor of "spring-framework.version" -->
-		<spring.version>5.1.9.RELEASE</spring.version>
+		<spring.version>5.1.10.BUILD-SNAPSHOT</spring.version>
 		<spring-amqp.version>2.1.8.RELEASE</spring-amqp.version>
 		<spring-batch.version>4.1.2.RELEASE</spring-batch.version>
 		<spring-cloud-connectors.version>2.0.6.RELEASE</spring-cloud-connectors.version>
@@ -194,7 +194,7 @@
 		<unboundid-ldapsdk.version>4.0.11</unboundid-ldapsdk.version>
 		<undertow.version>2.0.26.Final</undertow.version>
 		<webjars-hal-browser.version>3325375</webjars-hal-browser.version>
-		<webjars-locator-core.version>0.35</webjars-locator-core.version>
+		<webjars-locator-version>0.35</webjars-locator-version>
 		<woodstox.version>5.0.3</woodstox.version>
 		<wsdl4j.version>1.6.3</wsdl4j.version>
 		<xml-apis.version>1.4.01</xml-apis.version>
@@ -1420,7 +1420,7 @@
 			</dependency>
 			<dependency>
 				<groupId>org.apache.activemq</groupId>
-				<artifactId>artemis-core-client</artifactId>
+				<artifactId>artemis-client</artifactId>
 				<version>${artemis.version}</version>
 				<exclusions>
 					<exclusion>
@@ -1945,6 +1945,16 @@
 				<groupId>org.codehaus.groovy</groupId>
 				<artifactId>groovy-xml</artifactId>
 				<version>${groovy.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.codehaus.janino</groupId>
+				<artifactId>commons-compiler</artifactId>
+				<version>${janino.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.codehaus.janino</groupId>
+				<artifactId>commons-compiler-jdk</artifactId>
+				<version>${janino.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.codehaus.janino</groupId>
@@ -3053,7 +3063,7 @@
 			<dependency>
 				<groupId>org.webjars</groupId>
 				<artifactId>webjars-locator-core</artifactId>
-				<version>${webjars-locator-core.version}</version>
+				<version>${webjars-locator-version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.xerial</groupId>

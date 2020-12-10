@@ -34,7 +34,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.jolokia</groupId>
-			<artifactId>jolokia-core</artifactId>
+			<artifactId>jolokia-com.shirc.redis.delay.queue.core</artifactId>
 		</dependency>
 		<!-- Runtime -->
 		<dependency>

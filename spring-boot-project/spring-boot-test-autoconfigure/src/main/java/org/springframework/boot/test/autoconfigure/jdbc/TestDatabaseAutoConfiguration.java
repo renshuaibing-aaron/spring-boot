@@ -98,7 +98,7 @@ public class TestDatabaseAutoConfiguration {
 			if (holder != null) {
 				String beanName = holder.getBeanName();
 				boolean primary = holder.getBeanDefinition().isPrimary();
-				logger.info("Replacing '" + beanName + "' DataSource bean with " + (primary ? "primary " : "")
+				logger.info("Replacing '" + beanName + "' DataSource cluster with " + (primary ? "primary " : "")
 						+ "embedded version");
 				registry.removeBeanDefinition(beanName);
 				registry.registerBeanDefinition(beanName, createEmbeddedBeanDefinition(primary));

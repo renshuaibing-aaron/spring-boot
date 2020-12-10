@@ -78,7 +78,7 @@ public class HibernateMetricsAutoConfiguration {
 
 	/**
 	 * Get the name of an {@link EntityManagerFactory} based on its {@code beanName}.
-	 * @param beanName the name of the {@link EntityManagerFactory} bean
+	 * @param beanName the name of the {@link EntityManagerFactory} cluster
 	 * @return a name for the given entity manager factory
 	 */
 	private String getEntityManagerFactoryName(String beanName) {

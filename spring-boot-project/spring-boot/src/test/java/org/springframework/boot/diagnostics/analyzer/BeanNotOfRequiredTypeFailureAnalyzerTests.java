@@ -43,7 +43,7 @@ public class BeanNotOfRequiredTypeFailureAnalyzerTests {
 	@Test
 	public void jdkProxyCausesInjectionFailure() {
 		FailureAnalysis analysis = performAnalysis(JdkProxyConfiguration.class);
-		assertThat(analysis.getDescription()).startsWith("The bean 'asyncBean'");
+		assertThat(analysis.getDescription()).startsWith("The cluster 'asyncBean'");
 		assertThat(analysis.getDescription()).contains("'" + AsyncBean.class.getName() + "'");
 		assertThat(analysis.getDescription()).endsWith(String.format("%s%n", SomeInterface.class.getName()));
 	}

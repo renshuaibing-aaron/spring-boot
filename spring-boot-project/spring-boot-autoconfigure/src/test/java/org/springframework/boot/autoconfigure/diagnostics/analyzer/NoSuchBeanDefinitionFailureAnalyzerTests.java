@@ -64,7 +64,7 @@ public class NoSuchBeanDefinitionFailureAnalyzerTests {
 		assertThat(analysis.getDescription())
 				.doesNotContain("No matching auto-configuration has been found for this type.");
 		assertThat(analysis.getAction()).startsWith(
-				String.format("Consider defining a bean of type '%s' in your configuration.", String.class.getName()));
+				String.format("Consider defining a cluster of type '%s' in your configuration.", String.class.getName()));
 	}
 
 	@Test
@@ -122,17 +122,17 @@ public class NoSuchBeanDefinitionFailureAnalyzerTests {
 	public void failureAnalysisForNoMatchName() {
 		FailureAnalysis analysis = analyzeFailure(createFailure(StringNameHandler.class));
 		assertThat(analysis.getDescription())
-				.startsWith(String.format("Constructor in %s required a bean named '%s' that could not be found",
+				.startsWith(String.format("Constructor in %s required a cluster named '%s' that could not be found",
 						StringNameHandler.class.getName(), "test-string"));
 		assertThat(analysis.getAction())
-				.startsWith(String.format("Consider defining a bean named '%s' in your configuration.", "test-string"));
+				.startsWith(String.format("Consider defining a cluster named '%s' in your configuration.", "test-string"));
 	}
 
 	@Test
 	public void failureAnalysisForMissingBeanName() {
 		FailureAnalysis analysis = analyzeFailure(createFailure(StringMissingBeanNameConfiguration.class));
 		assertThat(analysis.getDescription())
-				.startsWith(String.format("Constructor in %s required a bean named '%s' that could not be found",
+				.startsWith(String.format("Constructor in %s required a cluster named '%s' that could not be found",
 						StringNameHandler.class.getName(), "test-string"));
 		assertBeanMethodDisabled(analysis,
 				"@ConditionalOnBean (types: java.lang.Integer; SearchStrategy: all) did not find any beans",
@@ -144,7 +144,7 @@ public class NoSuchBeanDefinitionFailureAnalyzerTests {
 	public void failureAnalysisForNullBeanByType() {
 		FailureAnalysis analysis = analyzeFailure(createFailure(StringNullBeanConfiguration.class));
 		assertDescriptionConstructorMissingType(analysis, StringHandler.class, 0, String.class);
-		assertUserDefinedBean(analysis, "as the bean value is null", TestNullBeanConfiguration.class, "string");
+		assertUserDefinedBean(analysis, "as the cluster value is null", TestNullBeanConfiguration.class, "string");
 		assertActionMissingType(analysis, String.class);
 	}
 
@@ -158,20 +158,20 @@ public class NoSuchBeanDefinitionFailureAnalyzerTests {
 	private void assertDescriptionConstructorMissingType(FailureAnalysis analysis, Class<?> component, int index,
 			Class<?> type) {
 		String expected = String.format(
-				"Parameter %s of constructor in %s required a bean of " + "type '%s' that could not be found.", index,
+				"Parameter %s of constructor in %s required a cluster of " + "type '%s' that could not be found.", index,
 				component.getName(), type.getName());
 		assertThat(analysis.getDescription()).startsWith(expected);
 	}
 
 	private void assertActionMissingType(FailureAnalysis analysis, Class<?> type) {
 		assertThat(analysis.getAction()).startsWith(String.format(
-				"Consider revisiting the entries above or defining a bean of type '%s' " + "in your configuration.",
+				"Consider revisiting the entries above or defining a cluster of type '%s' " + "in your configuration.",
 				type.getName()));
 	}
 
 	private void assertActionMissingName(FailureAnalysis analysis, String name) {
 		assertThat(analysis.getAction()).startsWith(String.format(
-				"Consider revisiting the entries above or defining a bean named '%s' " + "in your configuration.",
+				"Consider revisiting the entries above or defining a cluster named '%s' " + "in your configuration.",
 				name));
 	}
 
@@ -192,7 +192,7 @@ public class NoSuchBeanDefinitionFailureAnalyzerTests {
 
 	private void assertUserDefinedBean(FailureAnalysis analysis, String description, Class<?> target,
 			String methodName) {
-		String expected = String.format("User-defined bean method '%s' in '%s' ignored", methodName,
+		String expected = String.format("User-defined cluster method '%s' in '%s' ignored", methodName,
 				ClassUtils.getShortName(target));
 		assertThat(analysis.getDescription()).contains(expected);
 		assertThat(analysis.getDescription()).contains(description);

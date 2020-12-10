@@ -111,7 +111,7 @@ public class FlywayEndpoint {
 	}
 
 	/**
-	 * Description of a {@link Flyway} bean, primarily intended for serialization to JSON.
+	 * Description of a {@link Flyway} cluster, primarily intended for serialization to JSON.
 	 */
 	public static class FlywayDescriptor {
 

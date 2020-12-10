@@ -36,12 +36,12 @@ import org.springframework.test.context.junit4.SpringRunner;
  * either {@code @Configuration} classes, or test classes that are
  * {@link RunWith @RunWith} the {@link SpringRunner}.
  * <p>
- * Spies can be applied by type or by {@link #name() bean name}. All beans in the context
- * of the same type will be wrapped with the spy. If no existing bean is defined a new one
+ * Spies can be applied by type or by {@link #name() cluster name}. All beans in the context
+ * of the same type will be wrapped with the spy. If no existing cluster is defined a new one
  * will be added. Dependencies that are known to the application context but are not beans
  * (such as those
  * {@link org.springframework.beans.factory.config.ConfigurableListableBeanFactory#registerResolvableDependency(Class, Object)
- * registered directly}) will not be found and a spied bean will be added to the context
+ * registered directly}) will not be found and a spied cluster will be added to the context
  * alongside the existing dependency.
  * <p>
  * When {@code @SpyBean} is used on a field, as well as being registered in the
@@ -70,7 +70,7 @@ import org.springframework.test.context.junit4.SpringRunner;
  *
  *
  * }
- * </pre> If there is more than one bean of the requested type, qualifier metadata must be
+ * </pre> If there is more than one cluster of the requested type, qualifier metadata must be
  * specified at field level: <pre class="code">
  * &#064;RunWith(SpringRunner.class)
  * public class ExampleTests {
@@ -97,9 +97,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 public @interface SpyBean {
 
 	/**
-	 * The name of the bean to spy. If not specified the name will either be generated or,
-	 * if the spy is for an existing bean, the existing name will be used.
-	 * @return the name of the bean
+	 * The name of the cluster to spy. If not specified the name will either be generated or,
+	 * if the spy is for an existing cluster, the existing name will be used.
+	 * @return the name of the cluster
 	 */
 	String name() default "";
 
@@ -126,7 +126,7 @@ public @interface SpyBean {
 	Class<?>[] classes() default {};
 
 	/**
-	 * The reset mode to apply to the spied bean. The default is {@link MockReset#AFTER}
+	 * The reset mode to apply to the spied cluster. The default is {@link MockReset#AFTER}
 	 * meaning that spies are automatically reset after each test method is invoked.
 	 * @return the reset mode
 	 */

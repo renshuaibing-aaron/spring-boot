@@ -391,7 +391,7 @@ At any point, you can start to define your own configuration to replace specific
 For example, if you add your own `DataSource` bean, the default embedded database support backs away.
 
 If you need to find out what auto-configuration is currently being applied, and why, start your application with the `--debug` switch.
-Doing so enables debug logs for a selection of core loggers and logs a conditions report to the console.
+Doing so enables debug logs for a selection of com.shirc.redis.delay.queue.core loggers and logs a conditions report to the console.
 
 
 

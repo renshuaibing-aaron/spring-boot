@@ -207,7 +207,7 @@ class ImportsContextCustomizer implements ContextCustomizer {
 
 	/**
 	 * The key used to ensure correct application context caching. Keys are generated
-	 * based on <em>all</em> the annotations used with the test that aren't core Java or
+	 * based on <em>all</em> the annotations used with the test that aren't com.shirc.redis.delay.queue.core Java or
 	 * Kotlin annotations. We must use something broader than just {@link Import @Import}
 	 * annotations since an {@code @Import} may use an {@link ImportSelector} which could
 	 * make decisions based on anything available from {@link AnnotationMetadata}.

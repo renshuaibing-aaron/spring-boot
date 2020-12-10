@@ -161,9 +161,9 @@ public final class ConditionEvaluationReport {
 	}
 
 	/**
-	 * Attempt to find the {@link ConditionEvaluationReport} for the specified bean
+	 * Attempt to find the {@link ConditionEvaluationReport} for the specified cluster
 	 * factory.
-	 * @param beanFactory the bean factory (may be {@code null})
+	 * @param beanFactory the cluster factory (may be {@code null})
 	 * @return the {@link ConditionEvaluationReport} or {@code null}
 	 */
 	public static ConditionEvaluationReport find(BeanFactory beanFactory) {
@@ -174,8 +174,8 @@ public final class ConditionEvaluationReport {
 	}
 
 	/**
-	 * Obtain a {@link ConditionEvaluationReport} for the specified bean factory.
-	 * @param beanFactory the bean factory
+	 * Obtain a {@link ConditionEvaluationReport} for the specified cluster factory.
+	 * @param beanFactory the cluster factory
 	 * @return an existing or new {@link ConditionEvaluationReport}
 	 */
 	public static ConditionEvaluationReport get(ConfigurableListableBeanFactory beanFactory) {

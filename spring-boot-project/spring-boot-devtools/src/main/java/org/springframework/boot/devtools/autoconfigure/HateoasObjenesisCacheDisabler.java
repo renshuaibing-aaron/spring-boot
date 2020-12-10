@@ -53,7 +53,7 @@ class HateoasObjenesisCacheDisabler implements InitializingBean {
 
 	private void doDisableCaching() {
 		try {
-			Class<?> type = ClassUtils.forName("org.springframework.hateoas.core.DummyInvocationUtils",
+			Class<?> type = ClassUtils.forName("org.springframework.hateoas.com.shirc.redis.delay.queue.core.DummyInvocationUtils",
 					getClass().getClassLoader());
 			removeObjenesisCache(type);
 		}

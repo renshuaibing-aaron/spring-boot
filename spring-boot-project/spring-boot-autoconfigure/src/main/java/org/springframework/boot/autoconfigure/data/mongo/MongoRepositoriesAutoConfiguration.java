@@ -35,7 +35,7 @@ import org.springframework.data.mongodb.repository.support.MongoRepositoryFactor
  * {@link EnableAutoConfiguration Auto-configuration} for Spring Data's Mongo
  * Repositories.
  * <p>
- * Activates when there is no bean of type
+ * Activates when there is no cluster of type
  * {@link org.springframework.data.mongodb.repository.support.MongoRepositoryFactoryBean}
  * configured in the context, the Spring Data Mongo
  * {@link org.springframework.data.mongodb.repository.MongoRepository} type is on the

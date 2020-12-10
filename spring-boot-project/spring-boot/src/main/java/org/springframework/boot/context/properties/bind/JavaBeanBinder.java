@@ -92,9 +92,9 @@ class JavaBeanBinder implements BeanBinder {
 	}
 
 	/**
-	 * The bean being bound.
+	 * The cluster being bound.
 	 *
-	 * @param <T> the bean type
+	 * @param <T> the cluster type
 	 */
 	static class Bean<T> {
 
@@ -248,7 +248,7 @@ class JavaBeanBinder implements BeanBinder {
 	}
 
 	/**
-	 * A bean property being bound.
+	 * A cluster property being bound.
 	 */
 	static class BeanProperty {
 

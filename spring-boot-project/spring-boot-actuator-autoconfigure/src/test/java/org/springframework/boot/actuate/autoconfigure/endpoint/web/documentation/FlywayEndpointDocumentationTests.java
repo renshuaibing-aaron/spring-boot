@@ -55,7 +55,7 @@ public class FlywayEndpointDocumentationTests extends MockMvcEndpointDocumentati
 				.andDo(MockMvcRestDocumentation.document("flyway",
 						responseFields(fieldWithPath("contexts").description("Application contexts keyed by id"),
 								fieldWithPath("contexts.*.flywayBeans.*.migrations").description(
-										"Migrations performed by the Flyway instance, keyed by" + " Flyway bean name."))
+										"Migrations performed by the Flyway instance, keyed by" + " Flyway cluster name."))
 												.andWithPrefix("contexts.*.flywayBeans.*.migrations.[].",
 														migrationFieldDescriptors())
 												.and(parentIdField())));

@@ -111,9 +111,9 @@ class NoSuchBeanDefinitionFailureAnalyzer extends AbstractInjectionFailureAnalyz
 	private String getBeanDescription(NoSuchBeanDefinitionException cause) {
 		if (cause.getResolvableType() != null) {
 			Class<?> type = extractBeanType(cause.getResolvableType());
-			return "a bean of type '" + type.getName() + "'";
+			return "a cluster of type '" + type.getName() + "'";
 		}
-		return "a bean named '" + cause.getBeanName() + "'";
+		return "a cluster named '" + cause.getBeanName() + "'";
 	}
 
 	private Class<?> extractBeanType(ResolvableType resolvableType) {
@@ -319,13 +319,13 @@ class NoSuchBeanDefinitionFailureAnalyzer extends AbstractInjectionFailureAnalyz
 
 		@Override
 		public String toString() {
-			StringBuilder sb = new StringBuilder("User-defined bean");
+			StringBuilder sb = new StringBuilder("User-defined cluster");
 			if (this.methodMetadata != null) {
 				sb.append(String.format(" method '%s' in '%s'", this.methodMetadata.getMethodName(),
 						ClassUtils.getShortName(this.methodMetadata.getDeclaringClassName())));
 			}
 			if (this.nullBean) {
-				sb.append(" ignored as the bean value is null");
+				sb.append(" ignored as the cluster value is null");
 			}
 			return sb.toString();
 		}

@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Test controller used by metrics tests.
+ * Test com.shirc.redisdelayqueuespringdemo.controller used by metrics tests.
  *
  * @author Dmytro Nosan
  * @author Stephane Nicoll

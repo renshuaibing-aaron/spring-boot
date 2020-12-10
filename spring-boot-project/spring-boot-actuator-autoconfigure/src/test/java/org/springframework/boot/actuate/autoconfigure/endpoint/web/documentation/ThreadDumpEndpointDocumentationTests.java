@@ -61,100 +61,100 @@ public class ThreadDumpEndpointDocumentationTests extends MockMvcEndpointDocumen
 			}
 		}).start();
 		this.mockMvc.perform(get("/actuator/threaddump")).andExpect(status().isOk())
-				.andDo(MockMvcRestDocumentation.document("threaddump", preprocessResponse(limit("threads")),
-						responseFields(fieldWithPath("threads").description("JVM's threads."),
-								fieldWithPath("threads.[].blockedCount")
+				.andDo(MockMvcRestDocumentation.document("threaddump", preprocessResponse(limit("com.shirc.redis.delay.queue.threads")),
+						responseFields(fieldWithPath("com.shirc.redis.delay.queue.threads").description("JVM's com.shirc.redis.delay.queue.threads."),
+								fieldWithPath("com.shirc.redis.delay.queue.threads.[].blockedCount")
 										.description("Total number of times that the thread has been " + "blocked."),
-								fieldWithPath("threads.[].blockedTime")
+								fieldWithPath("com.shirc.redis.delay.queue.threads.[].blockedTime")
 										.description("Time in milliseconds that the thread has spent "
 												+ "blocked. -1 if thread contention " + "monitoring is disabled."),
-								fieldWithPath("threads.[].daemon")
+								fieldWithPath("com.shirc.redis.delay.queue.threads.[].daemon")
 										.description("Whether the thread is a daemon "
 												+ "thread. Only available on Java 9 or " + "later.")
 										.optional().type(JsonFieldType.BOOLEAN),
-								fieldWithPath("threads.[].inNative")
+								fieldWithPath("com.shirc.redis.delay.queue.threads.[].inNative")
 										.description("Whether the thread is executing native code."),
-								fieldWithPath("threads.[].lockName").description(
+								fieldWithPath("com.shirc.redis.delay.queue.threads.[].lockName").description(
 										"Description of the object on which the " + "thread is blocked, if any.")
 										.optional().type(JsonFieldType.STRING),
-								fieldWithPath("threads.[].lockInfo")
+								fieldWithPath("com.shirc.redis.delay.queue.threads.[].lockInfo")
 										.description("Object for which the thread is blocked " + "waiting.").optional()
 										.type(JsonFieldType.OBJECT),
-								fieldWithPath("threads.[].lockInfo.className")
+								fieldWithPath("com.shirc.redis.delay.queue.threads.[].lockInfo.className")
 										.description("Fully qualified class name of the lock" + " object.").optional()
 										.type(JsonFieldType.STRING),
-								fieldWithPath("threads.[].lockInfo.identityHashCode")
+								fieldWithPath("com.shirc.redis.delay.queue.threads.[].lockInfo.identityHashCode")
 										.description("Identity hash code of the lock object.").optional()
 										.type(JsonFieldType.NUMBER),
-								fieldWithPath("threads.[].lockedMonitors")
+								fieldWithPath("com.shirc.redis.delay.queue.threads.[].lockedMonitors")
 										.description("Monitors locked by this thread, if any"),
-								fieldWithPath("threads.[].lockedMonitors.[].className")
+								fieldWithPath("com.shirc.redis.delay.queue.threads.[].lockedMonitors.[].className")
 										.description("Class name of the lock object.").optional()
 										.type(JsonFieldType.STRING),
-								fieldWithPath("threads.[].lockedMonitors.[].identityHashCode")
+								fieldWithPath("com.shirc.redis.delay.queue.threads.[].lockedMonitors.[].identityHashCode")
 										.description("Identity hash code of the lock " + "object.").optional()
 										.type(JsonFieldType.NUMBER),
-								fieldWithPath("threads.[].lockedMonitors.[].lockedStackDepth")
+								fieldWithPath("com.shirc.redis.delay.queue.threads.[].lockedMonitors.[].lockedStackDepth")
 										.description("Stack depth where the monitor " + "was locked.").optional()
 										.type(JsonFieldType.NUMBER),
-								subsectionWithPath("threads.[].lockedMonitors.[].lockedStackFrame")
+								subsectionWithPath("com.shirc.redis.delay.queue.threads.[].lockedMonitors.[].lockedStackFrame")
 										.description("Stack frame that locked the " + "monitor.").optional()
 										.type(JsonFieldType.OBJECT),
-								fieldWithPath("threads.[].lockedSynchronizers")
+								fieldWithPath("com.shirc.redis.delay.queue.threads.[].lockedSynchronizers")
 										.description("Synchronizers locked by this thread."),
-								fieldWithPath("threads.[].lockedSynchronizers.[].className").description(
+								fieldWithPath("com.shirc.redis.delay.queue.threads.[].lockedSynchronizers.[].className").description(
 										"Class name of the locked " + "synchronizer.").optional()
 										.type(JsonFieldType.STRING),
-								fieldWithPath("threads.[].lockedSynchronizers.[].identityHashCode").description(
+								fieldWithPath("com.shirc.redis.delay.queue.threads.[].lockedSynchronizers.[].identityHashCode").description(
 										"Identity hash code of the locked " + "synchronizer.").optional()
 										.type(JsonFieldType.NUMBER),
-								fieldWithPath("threads.[].lockOwnerId").description(
+								fieldWithPath("com.shirc.redis.delay.queue.threads.[].lockOwnerId").description(
 										"ID of the thread that owns the object on which "
 												+ "the thread is blocked. `-1` if the " + "thread is not blocked."),
-								fieldWithPath("threads.[].lockOwnerName")
+								fieldWithPath("com.shirc.redis.delay.queue.threads.[].lockOwnerName")
 										.description("Name of the thread that owns the "
 												+ "object on which the thread is " + "blocked, if any.")
 										.optional().type(JsonFieldType.STRING),
-								fieldWithPath("threads.[].priority")
+								fieldWithPath("com.shirc.redis.delay.queue.threads.[].priority")
 										.description("Priority of the thread. Only " + "available on Java 9 or later.")
 										.optional().type(JsonFieldType.NUMBER),
-								fieldWithPath("threads.[].stackTrace").description("Stack trace of the thread."),
-								fieldWithPath("threads.[].stackTrace.[].classLoaderName").description(
+								fieldWithPath("com.shirc.redis.delay.queue.threads.[].stackTrace").description("Stack trace of the thread."),
+								fieldWithPath("com.shirc.redis.delay.queue.threads.[].stackTrace.[].classLoaderName").description(
 										"Name of the class loader of the " + "class that contains the execution "
 												+ "point identified by this entry, if "
 												+ "any. Only available on Java 9 or " + "later.")
 										.optional().type(JsonFieldType.STRING),
-								fieldWithPath("threads.[].stackTrace.[].className").description(
+								fieldWithPath("com.shirc.redis.delay.queue.threads.[].stackTrace.[].className").description(
 										"Name of the class that contains the " + "execution point identified "
 												+ "by this entry."),
-								fieldWithPath("threads.[].stackTrace.[].fileName")
+								fieldWithPath("com.shirc.redis.delay.queue.threads.[].stackTrace.[].fileName")
 										.description("Name of the source file that " + "contains the execution point "
 												+ "identified by this entry, if any.")
 										.optional().type(JsonFieldType.STRING),
-								fieldWithPath("threads.[].stackTrace.[].lineNumber")
+								fieldWithPath("com.shirc.redis.delay.queue.threads.[].stackTrace.[].lineNumber")
 										.description("Line number of the execution "
 												+ "point identified by this entry. " + "Negative if unknown."),
-								fieldWithPath("threads.[].stackTrace.[].methodName").description("Name of the method."),
-								fieldWithPath("threads.[].stackTrace.[].moduleName")
+								fieldWithPath("com.shirc.redis.delay.queue.threads.[].stackTrace.[].methodName").description("Name of the method."),
+								fieldWithPath("com.shirc.redis.delay.queue.threads.[].stackTrace.[].moduleName")
 										.description("Name of the module that contains "
 												+ "the execution point identified by "
 												+ "this entry, if any. Only available " + "on Java 9 or later.")
 										.optional().type(JsonFieldType.STRING),
-								fieldWithPath("threads.[].stackTrace.[].moduleVersion")
+								fieldWithPath("com.shirc.redis.delay.queue.threads.[].stackTrace.[].moduleVersion")
 										.description("Version of the module that " + "contains the execution point "
 												+ "identified by this entry, if any. "
 												+ "Only available on Java 9 or later.")
 										.optional().type(JsonFieldType.STRING),
-								fieldWithPath("threads.[].stackTrace.[].nativeMethod")
+								fieldWithPath("com.shirc.redis.delay.queue.threads.[].stackTrace.[].nativeMethod")
 										.description("Whether the execution point is a native " + "method."),
-								fieldWithPath("threads.[].suspended").description("Whether the thread is suspended."),
-								fieldWithPath("threads.[].threadId").description("ID of the thread."),
-								fieldWithPath("threads.[].threadName").description("Name of the thread."),
-								fieldWithPath("threads.[].threadState").description(
+								fieldWithPath("com.shirc.redis.delay.queue.threads.[].suspended").description("Whether the thread is suspended."),
+								fieldWithPath("com.shirc.redis.delay.queue.threads.[].threadId").description("ID of the thread."),
+								fieldWithPath("com.shirc.redis.delay.queue.threads.[].threadName").description("Name of the thread."),
+								fieldWithPath("com.shirc.redis.delay.queue.threads.[].threadState").description(
 										"State of the thread (" + describeEnumValues(Thread.State.class) + ")."),
-								fieldWithPath("threads.[].waitedCount").description(
+								fieldWithPath("com.shirc.redis.delay.queue.threads.[].waitedCount").description(
 										"Total number of times that the thread has waited" + " for notification."),
-								fieldWithPath("threads.[].waitedTime")
+								fieldWithPath("com.shirc.redis.delay.queue.threads.[].waitedTime")
 										.description("Time in milliseconds that the thread has spent "
 												+ "waiting. -1 if thread contention " + "monitoring is disabled"))));
 		latch.countDown();

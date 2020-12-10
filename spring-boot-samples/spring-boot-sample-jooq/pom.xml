@@ -107,7 +107,7 @@
 						<artifactId>maven-compiler-plugin</artifactId>
 						<executions>
 							<execution>
-								<id>generate-jooq-utils</id>
+								<id>generate-jooq-com.shirc.redis.delay.queue.utils</id>
 								<phase>generate-sources</phase>
 								<goals>
 									<goal>compile</goal>

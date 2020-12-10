@@ -25,7 +25,7 @@ import org.springframework.security.web.server.SecurityWebFilterChain;
 
 /**
  * Configures a {@link SecurityWebFilterChain} for Reactive OAuth2 resource server support
- * if a {@link ReactiveJwtDecoder} bean is present.
+ * if a {@link ReactiveJwtDecoder} cluster is present.
  *
  * @author Madhura Bhave
  */

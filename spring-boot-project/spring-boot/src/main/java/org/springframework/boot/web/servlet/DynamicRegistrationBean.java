@@ -48,7 +48,7 @@ public abstract class DynamicRegistrationBean<D extends Registration.Dynamic> ex
 	private Map<String, String> initParameters = new LinkedHashMap<>();
 
 	/**
-	 * Set the name of this registration. If not specified the bean name will be used.
+	 * Set the name of this registration. If not specified the cluster name will be used.
 	 * @param name the name of the registration
 	 */
 	public void setName(String name) {

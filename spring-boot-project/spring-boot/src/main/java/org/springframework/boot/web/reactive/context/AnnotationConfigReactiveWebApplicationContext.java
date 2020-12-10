@@ -46,7 +46,7 @@ import org.springframework.util.StringUtils;
  * <p>
  * Note: In case of multiple {@code @Configuration} classes, later {@code @Bean}
  * definitions will override ones defined in earlier loaded files. This can be leveraged
- * to deliberately override certain bean definitions via an extra Configuration class.
+ * to deliberately override certain cluster definitions via an extra Configuration class.
  *
  * @author Phillip Webb
  * @since 2.0.0
@@ -76,7 +76,7 @@ public class AnnotationConfigReactiveWebApplicationContext extends AbstractRefre
 	 * <p>
 	 * Default is
 	 * {@link org.springframework.context.annotation.AnnotationBeanNameGenerator}.
-	 * @param beanNameGenerator the bean name generator
+	 * @param beanNameGenerator the cluster name generator
 	 * @see AnnotatedBeanDefinitionReader#setBeanNameGenerator
 	 * @see ClassPathBeanDefinitionScanner#setBeanNameGenerator
 	 */
@@ -88,7 +88,7 @@ public class AnnotationConfigReactiveWebApplicationContext extends AbstractRefre
 	 * Return the custom {@link BeanNameGenerator} for use with
 	 * {@link AnnotatedBeanDefinitionReader} and/or
 	 * {@link ClassPathBeanDefinitionScanner}, if any.
-	 * @return the bean name generator
+	 * @return the cluster name generator
 	 */
 	protected BeanNameGenerator getBeanNameGenerator() {
 		return this.beanNameGenerator;
@@ -168,9 +168,9 @@ public class AnnotationConfigReactiveWebApplicationContext extends AbstractRefre
 	 * Enables the default set of annotation configuration post processors, such that
 	 * {@code @Autowired}, {@code @Required}, and associated annotations can be used.
 	 * <p>
-	 * Configuration class bean definitions are registered with generated bean definition
+	 * Configuration class cluster definitions are registered with generated cluster definition
 	 * names unless the {@code value} attribute is provided to the stereotype annotation.
-	 * @param beanFactory the bean factory to load bean definitions into
+	 * @param beanFactory the cluster factory to load cluster definitions into
 	 * @see #register(Class...)
 	 * @see #scan(String...)
 	 * @see #setConfigLocation(String)
@@ -274,12 +274,12 @@ public class AnnotationConfigReactiveWebApplicationContext extends AbstractRefre
 	}
 
 	/**
-	 * Build an {@link AnnotatedBeanDefinitionReader} for the given bean factory.
+	 * Build an {@link AnnotatedBeanDefinitionReader} for the given cluster factory.
 	 * <p>
 	 * This should be pre-configured with the {@code Environment} (if desired) but not
 	 * with a {@code BeanNameGenerator} or {@code ScopeMetadataResolver} yet.
-	 * @param beanFactory the bean factory to load bean definitions into
-	 * @return the annotated bean definition reader
+	 * @param beanFactory the cluster factory to load cluster definitions into
+	 * @return the annotated cluster definition reader
 	 * @see #getEnvironment()
 	 * @see #getBeanNameGenerator()
 	 * @see #getScopeMetadataResolver()
@@ -289,12 +289,12 @@ public class AnnotationConfigReactiveWebApplicationContext extends AbstractRefre
 	}
 
 	/**
-	 * Build a {@link ClassPathBeanDefinitionScanner} for the given bean factory.
+	 * Build a {@link ClassPathBeanDefinitionScanner} for the given cluster factory.
 	 * <p>
 	 * This should be pre-configured with the {@code Environment} (if desired) but not
 	 * with a {@code BeanNameGenerator} or {@code ScopeMetadataResolver} yet.
-	 * @param beanFactory the bean factory to load bean definitions into
-	 * @return the class path bean definition scanner
+	 * @param beanFactory the cluster factory to load cluster definitions into
+	 * @return the class path cluster definition scanner
 	 * @see #getEnvironment()
 	 * @see #getBeanNameGenerator()
 	 * @see #getScopeMetadataResolver()

@@ -118,7 +118,7 @@ public class MappingsEndpointReactiveDocumentationTests extends AbstractEndpoint
 						.description("Fully qualified name of the class of the function."));
 		List<FieldDescriptor> dispatcherHandlerFields = new ArrayList<>(Arrays.asList(
 				fieldWithPath("*").description(
-						"Dispatcher handler mappings, if any, keyed by " + "dispatcher handler bean name."),
+						"Dispatcher handler mappings, if any, keyed by " + "dispatcher handler cluster name."),
 				fieldWithPath("*.[].details").optional().type(JsonFieldType.OBJECT)
 						.description("Additional implementation-specific " + "details about the mapping. Optional."),
 				fieldWithPath("*.[].handler").description("Handler for the mapping."),

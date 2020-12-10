@@ -17,7 +17,7 @@
 package org.springframework.boot.test.mock.mockito.example;
 
 /**
- * Example bean for mocking tests that calls {@link ExampleGenericService}.
+ * Example cluster for mocking tests that calls {@link ExampleGenericService}.
  *
  * @author Phillip Webb
  */

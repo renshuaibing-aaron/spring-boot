@@ -70,12 +70,12 @@ public class JerseyEndpointIntegrationTests {
 							.getWebServer().getPort();
 					WebTestClient client = WebTestClient.bindToServer().baseUrl("http://localhost:" + port).build();
 					client.get().uri("/actuator").exchange().expectStatus().isOk().expectBody().jsonPath("_links.beans")
-							.isNotEmpty().jsonPath("_links.restcontroller").doesNotExist().jsonPath("_links.controller")
+							.isNotEmpty().jsonPath("_links.restcontroller").doesNotExist().jsonPath("_links.com.shirc.redisdelayqueuespringdemo.controller")
 							.doesNotExist();
 				});
 	}
 
-	@ControllerEndpoint(id = "controller")
+	@ControllerEndpoint(id = "com.shirc.redisdelayqueuespringdemo.controller")
 	static class TestControllerEndpoint {
 
 	}

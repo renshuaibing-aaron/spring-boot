@@ -66,7 +66,7 @@ public @interface AutoConfigureTestDatabase {
 	enum Replace {
 
 		/**
-		 * Replace any DataSource bean (auto-configured or manually defined).
+		 * Replace any DataSource cluster (auto-configured or manually defined).
 		 */
 		ANY,
 

@@ -51,9 +51,9 @@ import org.springframework.context.annotation.Import;
  * Registers the following beans:
  * <ul>
  * <li>{@link org.springframework.amqp.rabbit.core.RabbitTemplate RabbitTemplate} if there
- * is no other bean of the same type in the context.</li>
+ * is no other cluster of the same type in the context.</li>
  * <li>{@link org.springframework.amqp.rabbit.connection.CachingConnectionFactory
- * CachingConnectionFactory} instance if there is no other bean of the same type in the
+ * CachingConnectionFactory} instance if there is no other cluster of the same type in the
  * context.</li>
  * <li>{@link org.springframework.amqp.core.AmqpAdmin } instance as long as
  * {@literal spring.rabbitmq.dynamic=true}.</li>

@@ -80,7 +80,7 @@ class CacheMetricsRegistrarConfiguration {
 
 	/**
 	 * Get the name of a {@link CacheManager} based on its {@code beanName}.
-	 * @param beanName the name of the {@link CacheManager} bean
+	 * @param beanName the name of the {@link CacheManager} cluster
 	 * @return a name for the given cache manager
 	 */
 	private String getCacheManagerName(String beanName) {

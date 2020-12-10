@@ -50,9 +50,9 @@ public class BeansEndpointDocumentationTests extends MockMvcEndpointDocumentatio
 	@Test
 	public void beans() throws Exception {
 		List<FieldDescriptor> beanFields = Arrays.asList(fieldWithPath("aliases").description("Names of any aliases."),
-				fieldWithPath("scope").description("Scope of the bean."),
-				fieldWithPath("type").description("Fully qualified type of the bean."),
-				fieldWithPath("resource").description("Resource in which the bean was defined, if any.").optional(),
+				fieldWithPath("scope").description("Scope of the cluster."),
+				fieldWithPath("type").description("Fully qualified type of the cluster."),
+				fieldWithPath("resource").description("Resource in which the cluster was defined, if any.").optional(),
 				fieldWithPath("dependencies").description("Names of any dependencies."));
 		ResponseFieldsSnippet responseFields = responseFields(
 				fieldWithPath("contexts").description("Application contexts keyed by id."), parentIdField(),

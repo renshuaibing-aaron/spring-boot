@@ -55,14 +55,14 @@ class NoUniqueBeanDefinitionFailureAnalyzer extends AbstractInjectionFailureAnal
 			return null;
 		}
 		StringBuilder message = new StringBuilder();
-		message.append(String.format("%s required a single bean, but %d were found:%n", description, beanNames.length));
+		message.append(String.format("%s required a single cluster, but %d were found:%n", description, beanNames.length));
 		for (String beanName : beanNames) {
 			buildMessage(message, beanName);
 		}
 		return new FailureAnalysis(message.toString(),
 				"Consider marking one of the beans as @Primary, updating the consumer to"
 						+ " accept multiple beans, or using @Qualifier to identify the"
-						+ " bean that should be consumed",
+						+ " cluster that should be consumed",
 				cause);
 	}
 

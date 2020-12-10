@@ -44,7 +44,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * @author Andy Wilkinson
  */
 @RunWith(ModifiedClassPathRunner.class)
-@ClassPathOverrides("org.apache.logging.log4j:log4j-core:2.10.0")
+@ClassPathOverrides("org.apache.logging.log4j:log4j-com.shirc.redis.delay.queue.core:2.10.0")
 public class ElasticsearchRepositoriesAutoConfigurationTests {
 
 	private AnnotationConfigApplicationContext context;

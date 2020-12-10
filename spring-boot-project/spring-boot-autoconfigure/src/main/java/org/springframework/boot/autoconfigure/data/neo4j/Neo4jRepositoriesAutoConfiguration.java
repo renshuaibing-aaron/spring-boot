@@ -34,7 +34,7 @@ import org.springframework.data.neo4j.repository.support.Neo4jRepositoryFactoryB
  * {@link EnableAutoConfiguration Auto-configuration} for Spring Data's Neo4j
  * Repositories.
  * <p>
- * Activates when there is no bean of type {@link Neo4jRepositoryFactoryBean} configured
+ * Activates when there is no cluster of type {@link Neo4jRepositoryFactoryBean} configured
  * in the context, the Spring Data Neo4j {@link Neo4jRepository} type is on the classpath,
  * the Neo4j client driver API is on the classpath, and there is no other configured
  * {@link Neo4jRepository}.

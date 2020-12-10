@@ -20,7 +20,7 @@ import org.springframework.restdocs.mockmvc.MockMvcRestDocumentationConfigurer;
 
 /**
  * A customizer for {@link MockMvcRestDocumentationConfigurer}. If a
- * {@code RestDocsMockMvcConfigurationCustomizer} bean is found in the application context
+ * {@code RestDocsMockMvcConfigurationCustomizer} cluster is found in the application context
  * it will be {@link #customize called} to customize the
  * {@code MockMvcRestDocumentationConfigurer} before it is applied. Intended for use only
  * when the attributes on {@link AutoConfigureRestDocs} do not provide sufficient

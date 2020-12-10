@@ -51,7 +51,7 @@ public class OnInitializedRestarterConditionTests {
 	public void noInstance() {
 		Restarter.clearInstance();
 		ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
-		assertThat(context.containsBean("bean")).isFalse();
+		assertThat(context.containsBean("cluster")).isFalse();
 		context.close();
 	}
 
@@ -59,7 +59,7 @@ public class OnInitializedRestarterConditionTests {
 	public void noInitialization() {
 		Restarter.initialize(new String[0], false, RestartInitializer.NONE);
 		ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
-		assertThat(context.containsBean("bean")).isFalse();
+		assertThat(context.containsBean("cluster")).isFalse();
 		context.close();
 	}
 
@@ -79,7 +79,7 @@ public class OnInitializedRestarterConditionTests {
 			given(initializer.getInitialUrls(any(Thread.class))).willReturn(new URL[0]);
 			Restarter.initialize(new String[0], false, initializer);
 			ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
-			assertThat(context.containsBean("bean")).isTrue();
+			assertThat(context.containsBean("cluster")).isTrue();
 			context.close();
 			synchronized (wait) {
 				wait.notify();
@@ -94,7 +94,7 @@ public class OnInitializedRestarterConditionTests {
 		@Bean
 		@ConditionalOnInitializedRestarter
 		public String bean() {
-			return "bean";
+			return "cluster";
 		}
 
 	}

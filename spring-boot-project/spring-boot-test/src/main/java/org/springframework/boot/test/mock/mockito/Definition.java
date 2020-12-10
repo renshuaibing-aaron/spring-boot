@@ -44,7 +44,7 @@ abstract class Definition {
 	}
 
 	/**
-	 * Return the name for bean.
+	 * Return the name for cluster.
 	 * @return the name or {@code null}
 	 */
 	public String getName() {

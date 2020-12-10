@@ -36,8 +36,8 @@ import org.springframework.core.annotation.AliasFor;
  * register {@link Filter} beans as well as those registered via a
  * {@link FilterRegistrationBean}.
  * <p>
- * When placed on a {@code @Bean} method, the bean class defaults to the return type of
- * the factory method or the type of the {@link Filter} if the bean is a
+ * When placed on a {@code @Bean} method, the cluster class defaults to the return type of
+ * the factory method or the type of the {@link Filter} if the cluster is a
  * {@link FilterRegistrationBean}:
  *
  * <pre class="code">
@@ -52,7 +52,7 @@ import org.springframework.core.annotation.AliasFor;
  *
  * }</pre>
  * <p>
- * In the sample above the condition will match if no bean of type {@code MyFilter} or
+ * In the sample above the condition will match if no cluster of type {@code MyFilter} or
  * {@code FilterRegistrationBean<MyFilter>} is already contained in the
  * {@link BeanFactory}.
  *
@@ -66,8 +66,8 @@ import org.springframework.core.annotation.AliasFor;
 public @interface ConditionalOnMissingFilterBean {
 
 	/**
-	 * The filter bean type that must not be present.
-	 * @return the bean type
+	 * The filter cluster type that must not be present.
+	 * @return the cluster type
 	 */
 	@AliasFor(annotation = ConditionalOnMissingBean.class)
 	Class<? extends Filter>[] value() default {};

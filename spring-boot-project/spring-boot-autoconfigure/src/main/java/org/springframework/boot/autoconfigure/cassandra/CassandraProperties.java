@@ -194,7 +194,7 @@ public class CassandraProperties {
 		this.compression = compression;
 	}
 
-	@DeprecatedConfigurationProperty(reason = "Implement a ClusterBuilderCustomizer bean instead.")
+	@DeprecatedConfigurationProperty(reason = "Implement a ClusterBuilderCustomizer cluster instead.")
 	@Deprecated
 	public Class<? extends LoadBalancingPolicy> getLoadBalancingPolicy() {
 		return this.loadBalancingPolicy;
@@ -229,7 +229,7 @@ public class CassandraProperties {
 		this.fetchSize = fetchSize;
 	}
 
-	@DeprecatedConfigurationProperty(reason = "Implement a ClusterBuilderCustomizer bean instead.")
+	@DeprecatedConfigurationProperty(reason = "Implement a ClusterBuilderCustomizer cluster instead.")
 	@Deprecated
 	public Class<? extends ReconnectionPolicy> getReconnectionPolicy() {
 		return this.reconnectionPolicy;
@@ -240,7 +240,7 @@ public class CassandraProperties {
 		this.reconnectionPolicy = reconnectionPolicy;
 	}
 
-	@DeprecatedConfigurationProperty(reason = "Implement a ClusterBuilderCustomizer bean instead.")
+	@DeprecatedConfigurationProperty(reason = "Implement a ClusterBuilderCustomizer cluster instead.")
 	@Deprecated
 	public Class<? extends RetryPolicy> getRetryPolicy() {
 		return this.retryPolicy;

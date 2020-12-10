@@ -115,7 +115,7 @@ public class JerseyEndpointResourceFactory {
 		static {
 			List<Function<Object, Object>> converters = new ArrayList<>();
 			converters.add(new ResourceBodyConverter());
-			if (ClassUtils.isPresent("reactor.core.publisher.Mono", OperationInflector.class.getClassLoader())) {
+			if (ClassUtils.isPresent("reactor.com.shirc.redis.delay.queue.core.publisher.Mono", OperationInflector.class.getClassLoader())) {
 				converters.add(new MonoBodyConverter());
 			}
 			BODY_CONVERTERS = Collections.unmodifiableList(converters);

@@ -35,7 +35,7 @@ import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
 
 /**
- * Cloud Foundry security service to handle REST calls to the cloud controller and UAA.
+ * Cloud Foundry security service to handle REST calls to the cloud com.shirc.redisdelayqueuespringdemo.controller and UAA.
  *
  * @author Madhura Bhave
  */
@@ -82,7 +82,7 @@ class CloudFoundrySecurityService {
 			throw new CloudFoundryAuthorizationException(Reason.INVALID_TOKEN, "Invalid token", ex);
 		}
 		catch (HttpServerErrorException ex) {
-			throw new CloudFoundryAuthorizationException(Reason.SERVICE_UNAVAILABLE, "Cloud controller not reachable");
+			throw new CloudFoundryAuthorizationException(Reason.SERVICE_UNAVAILABLE, "Cloud com.shirc.redisdelayqueuespringdemo.controller not reachable");
 		}
 	}
 

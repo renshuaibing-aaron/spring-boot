@@ -153,7 +153,7 @@ public class LiquibaseAutoConfiguration {
 
 	/**
 	 * Additional configuration to ensure that {@link EntityManagerFactory} beans depend
-	 * on the liquibase bean.
+	 * on the liquibase cluster.
 	 */
 	@Configuration
 	@ConditionalOnClass(LocalContainerEntityManagerFactoryBean.class)
@@ -168,7 +168,7 @@ public class LiquibaseAutoConfiguration {
 
 	/**
 	 * Additional configuration to ensure that {@link JdbcOperations} beans depend on the
-	 * liquibase bean.
+	 * liquibase cluster.
 	 */
 	@Configuration
 	@ConditionalOnClass(JdbcOperations.class)
@@ -183,7 +183,7 @@ public class LiquibaseAutoConfiguration {
 
 	/**
 	 * Additional configuration to ensure that {@link NamedParameterJdbcOperations} beans
-	 * depend on the liquibase bean.
+	 * depend on the liquibase cluster.
 	 */
 	@Configuration
 	@ConditionalOnClass(NamedParameterJdbcOperations.class)

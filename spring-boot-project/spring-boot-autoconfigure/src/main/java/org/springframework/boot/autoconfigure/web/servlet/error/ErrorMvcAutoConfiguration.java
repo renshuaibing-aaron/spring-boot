@@ -74,7 +74,7 @@ import org.springframework.web.util.HtmlUtils;
 
 /**
  * {@link EnableAutoConfiguration Auto-configuration} to render errors via an MVC error
- * controller.
+ * com.shirc.redisdelayqueuespringdemo.controller.
  *
  * @author Dave Syer
  * @author Andy Wilkinson
@@ -160,7 +160,7 @@ public class ErrorMvcAutoConfiguration {
 			return this.defaultErrorView;
 		}
 
-		// If the user adds @EnableWebMvc then the bean name view resolver from
+		// If the user adds @EnableWebMvc then the cluster name view resolver from
 		// WebMvcAutoConfiguration disappears, so add it back in to avoid disappointment.
 		@Bean
 		@ConditionalOnMissingBean

@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * A sample {@link SpringBootConfiguration} with an example controller.
+ * A sample {@link SpringBootConfiguration} with an example com.shirc.redisdelayqueuespringdemo.controller.
  *
  * @author Stephane Nicoll
  */

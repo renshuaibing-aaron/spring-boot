@@ -85,7 +85,7 @@ public class ApplicationContextAssertTests {
 	public void hasBeanWhenHasNoBeanShouldFail() {
 		assertThatExceptionOfType(AssertionError.class)
 				.isThrownBy(() -> assertThat(getAssert(this.context)).hasBean("foo"))
-				.withMessageContaining("no such bean");
+				.withMessageContaining("no such cluster");
 	}
 
 	@Test
@@ -105,7 +105,7 @@ public class ApplicationContextAssertTests {
 	public void hasSingleBeanWhenHasNoBeansShouldFail() {
 		assertThatExceptionOfType(AssertionError.class)
 				.isThrownBy(() -> assertThat(getAssert(this.context)).hasSingleBean(Foo.class))
-				.withMessageContaining("to have a single bean of type");
+				.withMessageContaining("to have a single cluster of type");
 	}
 
 	@Test
@@ -121,7 +121,7 @@ public class ApplicationContextAssertTests {
 	public void hasSingleBeanWhenFailedToStartShouldFail() {
 		assertThatExceptionOfType(AssertionError.class)
 				.isThrownBy(() -> assertThat(getAssert(this.failure)).hasSingleBean(Foo.class))
-				.withMessageContaining("to have a single bean of type")
+				.withMessageContaining("to have a single cluster of type")
 				.withMessageContaining(String.format("but context failed to start:%n java.lang.RuntimeException"));
 	}
 
@@ -247,7 +247,7 @@ public class ApplicationContextAssertTests {
 	public void getBeanOfTypeWhenFailedToStartShouldFail() {
 		assertThatExceptionOfType(AssertionError.class)
 				.isThrownBy(() -> assertThat(getAssert(this.failure)).getBean(Foo.class))
-				.withMessageContaining("to contain bean of type")
+				.withMessageContaining("to contain cluster of type")
 				.withMessageContaining(String.format("but context failed to start:%n java.lang.RuntimeException"));
 	}
 
@@ -294,7 +294,7 @@ public class ApplicationContextAssertTests {
 	public void getBeanOfNameWhenFailedToStartShouldFail() {
 		assertThatExceptionOfType(AssertionError.class)
 				.isThrownBy(() -> assertThat(getAssert(this.failure)).getBean("foo"))
-				.withMessageContaining("to contain a bean of name")
+				.withMessageContaining("to contain a cluster of name")
 				.withMessageContaining(String.format("but context failed to start:%n java.lang.RuntimeException"));
 	}
 
@@ -321,7 +321,7 @@ public class ApplicationContextAssertTests {
 	public void getBeanOfNameAndTypeWhenFailedToStartShouldFail() {
 		assertThatExceptionOfType(AssertionError.class)
 				.isThrownBy(() -> assertThat(getAssert(this.failure)).getBean("foo", Foo.class))
-				.withMessageContaining("to contain a bean of name")
+				.withMessageContaining("to contain a cluster of name")
 				.withMessageContaining(String.format("but context failed to start:%n java.lang.RuntimeException"));
 	}
 

@@ -44,9 +44,9 @@ import org.springframework.core.annotation.AliasFor;
 public @interface TestConfiguration {
 
 	/**
-	 * Explicitly specify the name of the Spring bean definition associated with this
+	 * Explicitly specify the name of the Spring cluster definition associated with this
 	 * Configuration class. See {@link Configuration#value()} for details.
-	 * @return the specified bean name, if any
+	 * @return the specified cluster name, if any
 	 */
 	@AliasFor(annotation = Configuration.class)
 	String value() default "";

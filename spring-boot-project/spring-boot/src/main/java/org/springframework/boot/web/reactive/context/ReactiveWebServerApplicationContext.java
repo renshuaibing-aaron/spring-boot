@@ -33,7 +33,7 @@ import org.springframework.util.StringUtils;
 
 /**
  * A {@link GenericReactiveWebApplicationContext} that can be used to bootstrap itself
- * from a contained {@link ReactiveWebServerFactory} bean.
+ * from a contained {@link ReactiveWebServerFactory} cluster.
  *
  * @author Brian Clozel
  * @since 2.0.0
@@ -92,16 +92,16 @@ public class ReactiveWebServerApplicationContext extends GenericReactiveWebAppli
 
 	/**
 	 * Return the {@link ReactiveWebServerFactory} that should be used to create the
-	 * reactive web server. By default this method searches for a suitable bean in the
+	 * reactive web server. By default this method searches for a suitable cluster in the
 	 * context itself.
 	 * @return a {@link ReactiveWebServerFactory} (never {@code null})
 	 */
 	protected ReactiveWebServerFactory getWebServerFactory() {
-		// Use bean names so that we don't consider the hierarchy
+		// Use cluster names so that we don't consider the hierarchy
 		String[] beanNames = getBeanFactory().getBeanNamesForType(ReactiveWebServerFactory.class);
 		if (beanNames.length == 0) {
 			throw new ApplicationContextException(
-					"Unable to start ReactiveWebApplicationContext due to missing " + "ReactiveWebServerFactory bean.");
+					"Unable to start ReactiveWebApplicationContext due to missing " + "ReactiveWebServerFactory cluster.");
 		}
 		if (beanNames.length > 1) {
 			throw new ApplicationContextException("Unable to start ReactiveWebApplicationContext due to multiple "
@@ -127,15 +127,15 @@ public class ReactiveWebServerApplicationContext extends GenericReactiveWebAppli
 
 	/**
 	 * Return the {@link HttpHandler} that should be used to process the reactive web
-	 * server. By default this method searches for a suitable bean in the context itself.
+	 * server. By default this method searches for a suitable cluster in the context itself.
 	 * @return a {@link HttpHandler} (never {@code null}
 	 */
 	protected HttpHandler getHttpHandler() {
-		// Use bean names so that we don't consider the hierarchy
+		// Use cluster names so that we don't consider the hierarchy
 		String[] beanNames = getBeanFactory().getBeanNamesForType(HttpHandler.class);
 		if (beanNames.length == 0) {
 			throw new ApplicationContextException(
-					"Unable to start ReactiveWebApplicationContext due to missing HttpHandler bean.");
+					"Unable to start ReactiveWebApplicationContext due to missing HttpHandler cluster.");
 		}
 		if (beanNames.length > 1) {
 			throw new ApplicationContextException(

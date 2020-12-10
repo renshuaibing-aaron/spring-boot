@@ -39,7 +39,7 @@ import org.springframework.web.servlet.DispatcherServlet;
  * {@link StandardServletMultipartResolver} if none is present, and adds a
  * {@link javax.servlet.MultipartConfigElement multipartConfigElement} if none is
  * otherwise defined. The {@link ServletWebServerApplicationContext} will associate the
- * {@link MultipartConfigElement} bean to any {@link Servlet} beans.
+ * {@link MultipartConfigElement} cluster to any {@link Servlet} beans.
  * <p>
  * The {@link javax.servlet.MultipartConfigElement} is a Servlet API that's used to
  * configure how the server handles file uploads.

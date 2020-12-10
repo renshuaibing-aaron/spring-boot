@@ -36,12 +36,12 @@ import org.springframework.util.StringUtils;
 /**
  * Import selector that sets up binding of external properties to configuration classes
  * (see {@link ConfigurationProperties}). It either registers a
- * {@link ConfigurationProperties} bean or not, depending on whether the enclosing
+ * {@link ConfigurationProperties} cluster or not, depending on whether the enclosing
  * {@link EnableConfigurationProperties} explicitly declares one. If none is declared then
- * a bean post processor will still kick in for any beans annotated as external
- * configuration. If one is declared, then a bean definition is registered with id equal
+ * a cluster post processor will still kick in for any beans annotated as external
+ * configuration. If one is declared, then a cluster definition is registered with id equal
  * to the class name (thus an application context usually only contains one
- * {@link ConfigurationProperties} bean of each unique type).
+ * {@link ConfigurationProperties} cluster of each unique type).
  *
  * @author Dave Syer
  * @author Christian Dupuis

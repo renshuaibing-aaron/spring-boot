@@ -123,7 +123,7 @@ public class StopMojo extends AbstractMojo {
 			new SpringApplicationAdminClient(connection, this.jmxName).stop();
 		}
 		catch (InstanceNotFoundException ex) {
-			throw new MojoExecutionException("Spring application lifecycle JMX bean not found (fork is " + this.fork
+			throw new MojoExecutionException("Spring application lifecycle JMX cluster not found (fork is " + this.fork
 					+ "). Could not stop application gracefully", ex);
 		}
 	}

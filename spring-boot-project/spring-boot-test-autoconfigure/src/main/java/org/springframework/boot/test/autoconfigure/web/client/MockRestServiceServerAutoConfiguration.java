@@ -70,7 +70,7 @@ public class MockRestServiceServerAutoConfiguration {
 
 	/**
 	 * {@link RequestExpectationManager} with the injected {@link MockRestServiceServer}
-	 * so that the bean can be created before the
+	 * so that the cluster can be created before the
 	 * {@link MockServerRestTemplateCustomizer#customize(RestTemplate)
 	 * MockServerRestTemplateCustomizer} has been called.
 	 */

@@ -32,12 +32,12 @@ import org.springframework.core.Ordered;
 /**
  * {@link EnableAutoConfiguration Auto-configuration} for Spring Cloud Service Connectors.
  * <p>
- * Activates when there is no bean of type {@link Cloud} and the "cloud" profile is
+ * Activates when there is no cluster of type {@link Cloud} and the "cloud" profile is
  * active.
  * <p>
  * Once in effect, the auto-configuration is the equivalent of adding the
  * {@link CloudScan} annotation in one of the configuration file. Specifically, it adds a
- * bean for each service bound to the application and one for
+ * cluster for each service bound to the application and one for
  * {@link ApplicationInstanceInfo}.
  *
  * @author Ramnivas Laddad

@@ -151,9 +151,9 @@ public class RestarterTests {
 			Thread regular = new Thread();
 			ThreadFactory factory = Restarter.getInstance().getThreadFactory();
 			Thread viaFactory = factory.newThread(runnable);
-			// Regular threads will inherit the current thread
+			// Regular com.shirc.redis.delay.queue.threads will inherit the current thread
 			assertThat(regular.getContextClassLoader()).isEqualTo(contextClassLoader);
-			// Factory threads should inherit from the initial thread
+			// Factory com.shirc.redis.delay.queue.threads should inherit from the initial thread
 			assertThat(viaFactory.getContextClassLoader()).isEqualTo(parentLoader);
 		});
 		thread.setContextClassLoader(contextClassLoader);

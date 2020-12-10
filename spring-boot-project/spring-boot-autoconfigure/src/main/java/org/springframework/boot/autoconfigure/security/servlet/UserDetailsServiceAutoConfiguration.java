@@ -43,7 +43,7 @@ import org.springframework.util.StringUtils;
 /**
  * {@link EnableAutoConfiguration Auto-configuration} for a Spring Security in-memory
  * {@link AuthenticationManager}. Adds an {@link InMemoryUserDetailsManager} with a
- * default user and generated password. This can be disabled by providing a bean of type
+ * default user and generated password. This can be disabled by providing a cluster of type
  * {@link AuthenticationManager}, {@link AuthenticationProvider} or
  * {@link UserDetailsService}.
  *

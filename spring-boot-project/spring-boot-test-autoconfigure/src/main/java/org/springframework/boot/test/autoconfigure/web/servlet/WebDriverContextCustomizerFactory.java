@@ -26,7 +26,7 @@ import org.springframework.test.context.MergedContextConfiguration;
 
 /**
  * {@link ContextCustomizerFactory} to register a {@link WebDriverScope} and configure
- * appropriate bean definitions to use it. Expects the scope to be reset with a
+ * appropriate cluster definitions to use it. Expects the scope to be reset with a
  * {@link WebDriverTestExecutionListener}.
  *
  * @author Phillip Webb

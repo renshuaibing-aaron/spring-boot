@@ -38,7 +38,7 @@ import org.springframework.util.ClassUtils;
  * registration} features provided by {@link ServletContext} but with a Spring Bean
  * friendly design.
  *
- * This bean can be used to register the following types of listener:
+ * This cluster can be used to register the following types of listener:
  * <ul>
  * <li>{@link ServletContextAttributeListener}</li>
  * <li>{@link ServletRequestListener}</li>

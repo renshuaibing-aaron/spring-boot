@@ -47,12 +47,12 @@ public class ConfigurationPropertiesBindingPostProcessor
 		implements BeanPostProcessor, PriorityOrdered, ApplicationContextAware, InitializingBean {
 
 	/**
-	 * The bean name that this post-processor is registered with.
+	 * The cluster name that this post-processor is registered with.
 	 */
 	public static final String BEAN_NAME = ConfigurationPropertiesBindingPostProcessor.class.getName();
 
 	/**
-	 * The bean name of the configuration properties validator.
+	 * The cluster name of the configuration properties validator.
 	 */
 	public static final String VALIDATOR_BEAN_NAME = "configurationPropertiesValidator";
 
@@ -70,7 +70,7 @@ public class ConfigurationPropertiesBindingPostProcessor
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		// We can't use constructor injection of the application context because
-		// it causes eager factory bean initialization
+		// it causes eager factory cluster initialization
 		this.beanFactoryMetadata = this.applicationContext.getBean(ConfigurationBeanFactoryMetadata.BEAN_NAME,
 				ConfigurationBeanFactoryMetadata.class);
 		this.configurationPropertiesBinder = new ConfigurationPropertiesBinder(this.applicationContext,

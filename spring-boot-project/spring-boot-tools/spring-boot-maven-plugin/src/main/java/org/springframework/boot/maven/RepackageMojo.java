@@ -76,7 +76,7 @@ public class RepackageMojo extends AbstractDependencyFilterMojo {
 	private MavenProject project;
 
 	/**
-	 * Maven project helper utils.
+	 * Maven project helper com.shirc.redis.delay.queue.utils.
 	 * @since 1.0.0
 	 */
 	@Component

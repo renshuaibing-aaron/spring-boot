@@ -39,7 +39,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * @author Stephane Nicoll
  */
 @RunWith(ModifiedClassPathRunner.class)
-@ClassPathExclusions("lettuce-core-*.jar")
+@ClassPathExclusions("lettuce-com.shirc.redis.delay.queue.core-*.jar")
 public class RedisAutoConfigurationJedisTests {
 
 	private final ApplicationContextRunner contextRunner = new ApplicationContextRunner()

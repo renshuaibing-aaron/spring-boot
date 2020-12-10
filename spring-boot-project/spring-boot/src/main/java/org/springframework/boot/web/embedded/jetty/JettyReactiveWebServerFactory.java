@@ -57,12 +57,12 @@ public class JettyReactiveWebServerFactory extends AbstractReactiveWebServerFact
 	private static final Log logger = LogFactory.getLog(JettyReactiveWebServerFactory.class);
 
 	/**
-	 * The number of acceptor threads to use.
+	 * The number of acceptor com.shirc.redis.delay.queue.threads to use.
 	 */
 	private int acceptors = -1;
 
 	/**
-	 * The number of selector threads to use.
+	 * The number of selector com.shirc.redis.delay.queue.threads to use.
 	 */
 	private int selectors = -1;
 

@@ -51,7 +51,7 @@ import org.springframework.util.ReflectionUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * A registry of the bean types that are contained in a
+ * A registry of the cluster types that are contained in a
  * {@link DefaultListableBeanFactory}. Provides similar functionality to
  * {@link ListableBeanFactory#getBeanNamesForType(Class, boolean, boolean)} but is
  * optimized for use by {@link OnBeanCondition} based on the following assumptions:
@@ -84,9 +84,9 @@ final class BeanTypeRegistry implements SmartInitializingSingleton {
 
 	/**
 	 * Return the names of beans matching the given type (including subclasses), judging
-	 * from either bean definitions or the value of {@link FactoryBean#getObjectType()} in
+	 * from either cluster definitions or the value of {@link FactoryBean#getObjectType()} in
 	 * the case of {@link FactoryBean FactoryBeans}. Will include singletons but will not
-	 * cause early bean initialization.
+	 * cause early cluster initialization.
 	 * @param type the class or interface to match (must not be {@code null})
 	 * @param typeExtractor function used to extract the actual type
 	 * @return the names of beans (or objects created by FactoryBeans) matching the given
@@ -106,9 +106,9 @@ final class BeanTypeRegistry implements SmartInitializingSingleton {
 
 	/**
 	 * Returns the names of beans annotated with the given {@code annotation}, judging
-	 * from either bean definitions or the value of {@link FactoryBean#getObjectType()} in
+	 * from either cluster definitions or the value of {@link FactoryBean#getObjectType()} in
 	 * the case of {@link FactoryBean FactoryBeans}. Will include singletons but will not
-	 * cause early bean initialization.
+	 * cause early cluster initialization.
 	 * @param annotation the annotation to match (must not be {@code null})
 	 * @return the names of beans (or objects created by FactoryBeans) annotated with the
 	 * given annotation, or an empty set if none
@@ -176,7 +176,7 @@ final class BeanTypeRegistry implements SmartInitializingSingleton {
 			return (RootBeanDefinition) this.beanFactory.getMergedBeanDefinition(name);
 		}
 		catch (BeanDefinitionStoreException ex) {
-			logIgnoredError("unresolvable metadata in bean definition", name, ex);
+			logIgnoredError("unresolvable metadata in cluster definition", name, ex);
 			return null;
 		}
 	}
@@ -200,7 +200,7 @@ final class BeanTypeRegistry implements SmartInitializingSingleton {
 		}
 		catch (CannotLoadBeanClassException ex) {
 			// Probably contains a placeholder
-			logIgnoredError("bean class loading failure for bean", name, ex);
+			logIgnoredError("cluster class loading failure for cluster", name, ex);
 		}
 	}
 
@@ -275,8 +275,8 @@ final class BeanTypeRegistry implements SmartInitializingSingleton {
 	/**
 	 * Attempt to guess the type that a {@link FactoryBean} will return based on the
 	 * generics in its method signature.
-	 * @param beanFactory the source bean factory
-	 * @param definition the bean definition
+	 * @param beanFactory the source cluster factory
+	 * @param definition the cluster definition
 	 * @param factoryMethodReturnType the factory method return type
 	 * @return the generic type of the {@link FactoryBean} or {@code null}
 	 */
@@ -331,8 +331,8 @@ final class BeanTypeRegistry implements SmartInitializingSingleton {
 
 	/**
 	 * Factory method to get the {@link BeanTypeRegistry} for a given {@link BeanFactory}.
-	 * @param beanFactory the source bean factory
-	 * @return the {@link BeanTypeRegistry} for the given bean factory
+	 * @param beanFactory the source cluster factory
+	 * @return the {@link BeanTypeRegistry} for the given cluster factory
 	 */
 	static BeanTypeRegistry get(ListableBeanFactory beanFactory) {
 		Assert.isInstanceOf(DefaultListableBeanFactory.class, beanFactory);
@@ -347,7 +347,7 @@ final class BeanTypeRegistry implements SmartInitializingSingleton {
 	}
 
 	/**
-	 * Function used to extract the actual bean type from a source {@link ResolvableType}.
+	 * Function used to extract the actual cluster type from a source {@link ResolvableType}.
 	 * May be used to support parameterized containers for beans.
 	 */
 	@FunctionalInterface

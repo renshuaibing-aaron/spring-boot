@@ -22,7 +22,7 @@ new Verify.JarArchiveVerification(f, Verify.SAMPLE_APP) {
 	@Override
 	protected void verifyZipEntries(Verify.ArchiveVerifier verifier) throws Exception {
 		super.verifyZipEntries(verifier)
-		verifier.assertHasUnpackEntry("BOOT-INF/lib/spring-core-")
+		verifier.assertHasUnpackEntry("BOOT-INF/lib/spring-com.shirc.redis.delay.queue.core-")
 		verifier.assertHasNonUnpackEntry("BOOT-INF/lib/spring-context-")
 	}
 }.verify()

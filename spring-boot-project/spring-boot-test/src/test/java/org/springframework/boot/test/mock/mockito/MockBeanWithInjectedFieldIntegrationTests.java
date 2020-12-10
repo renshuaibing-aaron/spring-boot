@@ -28,7 +28,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
 
 /**
- * Tests for a mock bean where the class being mocked uses field injection.
+ * Tests for a mock cluster where the class being mocked uses field injection.
  *
  * @author Andy Wilkinson
  */

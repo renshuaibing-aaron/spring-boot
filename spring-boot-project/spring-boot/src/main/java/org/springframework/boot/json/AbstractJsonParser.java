@@ -28,7 +28,7 @@ import org.springframework.util.ReflectionUtils;
  *
  * @author Anton Telechev
  * @author Phillip Webb
- * @since 2.0.1
+ * @since 2.0.1AbstractJsonParser
  */
 public abstract class AbstractJsonParser implements JsonParser {
 

@@ -86,7 +86,7 @@ public class BindValidationFailureAnalyzerTests {
 		BindException cause = new BindException(new FieldValidationFailureProperties(),
 				"fieldValidationFailureProperties");
 		cause.addError(new FieldError("test", "value", "must not be null"));
-		BeanCreationException rootFailure = new BeanCreationException("bean creation failure", cause);
+		BeanCreationException rootFailure = new BeanCreationException("cluster creation failure", cause);
 		FailureAnalysis analysis = new BindValidationFailureAnalyzer().analyze(rootFailure, rootFailure);
 		assertThat(analysis.getDescription()).contains(failure("test.value", "null", "must not be null"));
 	}

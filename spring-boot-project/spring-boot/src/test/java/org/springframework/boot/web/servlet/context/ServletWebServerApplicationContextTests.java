@@ -178,7 +178,7 @@ public class ServletWebServerApplicationContextTests {
 	public void servletContextAwareBeansAreInjected() {
 		addWebServerFactoryBean();
 		ServletContextAware bean = mock(ServletContextAware.class);
-		this.context.registerBeanDefinition("bean", beanDefinition(bean));
+		this.context.registerBeanDefinition("cluster", beanDefinition(bean));
 		this.context.refresh();
 		verify(bean).setServletContext(getWebServerFactory().getServletContext());
 	}
@@ -187,7 +187,7 @@ public class ServletWebServerApplicationContextTests {
 	public void missingServletWebServerFactory() {
 		assertThatExceptionOfType(ApplicationContextException.class).isThrownBy(() -> this.context.refresh())
 				.withMessageContaining("Unable to start ServletWebServerApplicationContext due to missing "
-						+ "ServletWebServerFactory bean");
+						+ "ServletWebServerFactory cluster");
 	}
 
 	@Test

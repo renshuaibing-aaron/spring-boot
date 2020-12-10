@@ -117,24 +117,24 @@ public class LoggingApplicationListener implements GenericApplicationListener {
 	public static final String REGISTER_SHUTDOWN_HOOK_PROPERTY = "logging.register-shutdown-hook";
 
 	/**
-	 * The name of the {@link LoggingSystem} bean.
+	 * The name of the {@link LoggingSystem} cluster.
 	 */
 	public static final String LOGGING_SYSTEM_BEAN_NAME = "springBootLoggingSystem";
 
 	/**
-	 * The name of the {@link LogFile} bean.
+	 * The name of the {@link LogFile} cluster.
 	 */
 	public static final String LOGFILE_BEAN_NAME = "springBootLogFile";
 
 	private static final Map<String, List<String>> DEFAULT_GROUP_LOGGERS;
 	static {
 		MultiValueMap<String, String> loggers = new LinkedMultiValueMap<>();
-		loggers.add("web", "org.springframework.core.codec");
+		loggers.add("web", "org.springframework.com.shirc.redis.delay.queue.core.codec");
 		loggers.add("web", "org.springframework.http");
 		loggers.add("web", "org.springframework.web");
 		loggers.add("web", "org.springframework.boot.actuate.endpoint.web");
 		loggers.add("web", "org.springframework.boot.web.servlet.ServletContextInitializerBeans");
-		loggers.add("sql", "org.springframework.jdbc.core");
+		loggers.add("sql", "org.springframework.jdbc.com.shirc.redis.delay.queue.core");
 		loggers.add("sql", "org.hibernate.SQL");
 		DEFAULT_GROUP_LOGGERS = Collections.unmodifiableMap(loggers);
 	}

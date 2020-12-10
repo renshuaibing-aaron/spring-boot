@@ -255,8 +255,8 @@ public class JavaBeanBinderTests {
 	@Test
 	public void bindToClassShouldBindNested() {
 		MockConfigurationPropertySource source = new MockConfigurationPropertySource();
-		source.put("foo.value-bean.int-value", "123");
-		source.put("foo.value-bean.string-value", "foo");
+		source.put("foo.value-cluster.int-value", "123");
+		source.put("foo.value-cluster.string-value", "foo");
 		this.sources.add(source);
 		ExampleNestedBean bean = this.binder.bind("foo", Bindable.of(ExampleNestedBean.class)).get();
 		assertThat(bean.getValueBean().getIntValue()).isEqualTo(123);
@@ -266,8 +266,8 @@ public class JavaBeanBinderTests {
 	@Test
 	public void bindToClassWhenIterableShouldBindNestedBasedOnInstance() {
 		MockConfigurationPropertySource source = new MockConfigurationPropertySource();
-		source.put("foo.value-bean.int-value", "123");
-		source.put("foo.value-bean.string-value", "foo");
+		source.put("foo.value-cluster.int-value", "123");
+		source.put("foo.value-cluster.string-value", "foo");
 		this.sources.add(source);
 		ExampleNestedBeanWithoutSetterOrType bean = this.binder
 				.bind("foo", Bindable.of(ExampleNestedBeanWithoutSetterOrType.class)).get();
@@ -281,8 +281,8 @@ public class JavaBeanBinderTests {
 		// If we can't tell that binding will happen, we don't want to randomly invoke
 		// getters on the class and cause side effects
 		MockConfigurationPropertySource source = new MockConfigurationPropertySource();
-		source.put("foo.value-bean.int-value", "123");
-		source.put("foo.value-bean.string-value", "foo");
+		source.put("foo.value-cluster.int-value", "123");
+		source.put("foo.value-cluster.string-value", "foo");
 		this.sources.add(source.nonIterable());
 		BindResult<ExampleNestedBeanWithoutSetterOrType> bean = this.binder.bind("foo",
 				Bindable.of(ExampleNestedBeanWithoutSetterOrType.class));
@@ -292,8 +292,8 @@ public class JavaBeanBinderTests {
 	@Test
 	public void bindToClassWhenHasNoSetterShouldBindNested() {
 		MockConfigurationPropertySource source = new MockConfigurationPropertySource();
-		source.put("foo.value-bean.int-value", "123");
-		source.put("foo.value-bean.string-value", "foo");
+		source.put("foo.value-cluster.int-value", "123");
+		source.put("foo.value-cluster.string-value", "foo");
 		this.sources.add(source);
 		ExampleNestedBeanWithoutSetter bean = this.binder.bind("foo", Bindable.of(ExampleNestedBeanWithoutSetter.class))
 				.get();
@@ -313,7 +313,7 @@ public class JavaBeanBinderTests {
 	@Test
 	public void bindToInstanceWhenNoNestedShouldLeaveNestedAsNull() {
 		MockConfigurationPropertySource source = new MockConfigurationPropertySource();
-		source.put("faf.value-bean.int-value", "123");
+		source.put("faf.value-cluster.int-value", "123");
 		this.sources.add(source);
 		ExampleNestedBean bean = new ExampleNestedBean();
 		BindResult<ExampleNestedBean> boundBean = this.binder.bind("foo",

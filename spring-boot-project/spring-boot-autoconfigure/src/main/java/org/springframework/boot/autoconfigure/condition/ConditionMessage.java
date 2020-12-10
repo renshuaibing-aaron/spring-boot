@@ -216,7 +216,7 @@ public final class ConditionMessage {
 
 		/**
 		 * Indicate that one or more results were found. For example
-		 * {@code found("bean").items("x")} results in the message "found bean x".
+		 * {@code found("cluster").items("x")} results in the message "found cluster x".
 		 * @param article the article found
 		 * @return an {@link ItemsBuilder}
 		 */
@@ -226,7 +226,7 @@ public final class ConditionMessage {
 
 		/**
 		 * Indicate that one or more results were found. For example
-		 * {@code found("bean", "beans").items("x", "y")} results in the message "found
+		 * {@code found("cluster", "beans").items("x", "y")} results in the message "found
 		 * beans x, y".
 		 * @param singular the article found in singular form
 		 * @param plural the article found in plural form
@@ -238,7 +238,7 @@ public final class ConditionMessage {
 
 		/**
 		 * Indicate that one or more results were not found. For example
-		 * {@code didNotFind("bean").items("x")} results in the message "did not find bean
+		 * {@code didNotFind("cluster").items("x")} results in the message "did not find cluster
 		 * x".
 		 * @param article the article found
 		 * @return an {@link ItemsBuilder}
@@ -249,7 +249,7 @@ public final class ConditionMessage {
 
 		/**
 		 * Indicate that one or more results were found. For example
-		 * {@code didNotFind("bean", "beans").items("x", "y")} results in the message "did
+		 * {@code didNotFind("cluster", "beans").items("x", "y")} results in the message "did
 		 * not find beans x, y".
 		 * @param singular the article found in singular form
 		 * @param plural the article found in plural form
@@ -337,7 +337,7 @@ public final class ConditionMessage {
 
 		/**
 		 * Indicate the items. For example
-		 * {@code didNotFind("bean", "beans").items("x", "y")} results in the message "did
+		 * {@code didNotFind("cluster", "beans").items("x", "y")} results in the message "did
 		 * not find beans x, y".
 		 * @param items the items (may be {@code null})
 		 * @return a built {@link ConditionMessage}
@@ -348,7 +348,7 @@ public final class ConditionMessage {
 
 		/**
 		 * Indicate the items. For example
-		 * {@code didNotFind("bean", "beans").items("x", "y")} results in the message "did
+		 * {@code didNotFind("cluster", "beans").items("x", "y")} results in the message "did
 		 * not find beans x, y".
 		 * @param style the render style
 		 * @param items the items (may be {@code null})
@@ -360,8 +360,8 @@ public final class ConditionMessage {
 
 		/**
 		 * Indicate the items. For example
-		 * {@code didNotFind("bean", "beans").items(Collections.singleton("x")} results in
-		 * the message "did not find bean x".
+		 * {@code didNotFind("cluster", "beans").items(Collections.singleton("x")} results in
+		 * the message "did not find cluster x".
 		 * @param items the source of the items (may be {@code null})
 		 * @return a built {@link ConditionMessage}
 		 */
@@ -371,8 +371,8 @@ public final class ConditionMessage {
 
 		/**
 		 * Indicate the items with a {@link Style}. For example
-		 * {@code didNotFind("bean", "beans").items(Style.QUOTE, Collections.singleton("x")}
-		 * results in the message "did not find bean 'x'".
+		 * {@code didNotFind("cluster", "beans").items(Style.QUOTE, Collections.singleton("x")}
+		 * results in the message "did not find cluster 'x'".
 		 * @param style the render style
 		 * @param items the source of the items (may be {@code null})
 		 * @return a built {@link ConditionMessage}

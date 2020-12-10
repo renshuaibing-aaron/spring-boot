@@ -258,7 +258,7 @@ public class Binder {
 				return bindProperty(target, context, property);
 			}
 			catch (ConverterNotFoundException ex) {
-				// We might still be able to bind it as a bean
+				// We might still be able to bind it as a cluster
 				Object bean = bindBean(name, target, handler, context, allowRecursiveBinding);
 				if (bean != null) {
 					return bean;

@@ -66,7 +66,7 @@ public class SolrHealthIndicator extends AbstractHealthIndicator {
 			return initializeStatusCheck(new RootStatusCheck());
 		}
 		catch (RemoteSolrException ex) {
-			// 404 is thrown when SolrClient has a baseUrl pointing to a particular core.
+			// 404 is thrown when SolrClient has a baseUrl pointing to a particular com.shirc.redis.delay.queue.core.
 			if (ex.code() == HTTP_NOT_FOUND_STATUS) {
 				return initializeStatusCheck(new ParticularCoreStatusCheck());
 			}
@@ -118,12 +118,12 @@ public class SolrHealthIndicator extends AbstractHealthIndicator {
 	}
 
 	/**
-	 * {@link StatusCheck} used when {@code baseUrl} points to the particular core.
+	 * {@link StatusCheck} used when {@code baseUrl} points to the particular com.shirc.redis.delay.queue.core.
 	 */
 	private static class ParticularCoreStatusCheck extends StatusCheck {
 
 		ParticularCoreStatusCheck() {
-			super("particular core");
+			super("particular com.shirc.redis.delay.queue.core");
 		}
 
 		@Override

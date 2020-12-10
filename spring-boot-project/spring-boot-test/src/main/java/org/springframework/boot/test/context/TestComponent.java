@@ -28,7 +28,7 @@ import org.springframework.core.annotation.AliasFor;
 import org.springframework.stereotype.Component;
 
 /**
- * {@link Component @Component} that can be used when a bean is intended only for tests,
+ * {@link Component @Component} that can be used when a cluster is intended only for tests,
  * and should be excluded from Spring Boot's component scanning.
  * <p>
  * Note that if you directly use {@link ComponentScan @ComponentScan} rather than relying
@@ -48,8 +48,8 @@ public @interface TestComponent {
 
 	/**
 	 * The value may indicate a suggestion for a logical component name, to be turned into
-	 * a Spring bean in case of an auto-detected component.
-	 * @return the specified bean name, if any
+	 * a Spring cluster in case of an auto-detected component.
+	 * @return the specified cluster name, if any
 	 */
 	@AliasFor(annotation = Component.class)
 	String value() default "";

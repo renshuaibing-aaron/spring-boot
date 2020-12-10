@@ -39,25 +39,25 @@ public class SpringBatchCompilerAutoConfiguration extends CompilerAutoConfigurat
 
 	@Override
 	public void applyDependencies(DependencyCustomizer dependencies) {
-		dependencies.ifAnyMissingClasses("org.springframework.batch.core.Job").add("spring-boot-starter-batch");
-		dependencies.ifAnyMissingClasses("org.springframework.jdbc.core.JdbcTemplate").add("spring-jdbc");
+		dependencies.ifAnyMissingClasses("org.springframework.batch.com.shirc.redis.delay.queue.core.Job").add("spring-boot-starter-batch");
+		dependencies.ifAnyMissingClasses("org.springframework.jdbc.com.shirc.redis.delay.queue.core.JdbcTemplate").add("spring-jdbc");
 	}
 
 	@Override
 	public void applyImports(ImportCustomizer imports) {
 		imports.addImports("org.springframework.batch.repeat.RepeatStatus",
-				"org.springframework.batch.core.scope.context.ChunkContext",
-				"org.springframework.batch.core.step.tasklet.Tasklet",
-				"org.springframework.batch.core.configuration.annotation.StepScope",
-				"org.springframework.batch.core.configuration.annotation.JobBuilderFactory",
-				"org.springframework.batch.core.configuration.annotation.StepBuilderFactory",
-				"org.springframework.batch.core.configuration.annotation.EnableBatchProcessing",
-				"org.springframework.batch.core.Step", "org.springframework.batch.core.StepExecution",
-				"org.springframework.batch.core.StepContribution", "org.springframework.batch.core.Job",
-				"org.springframework.batch.core.JobExecution", "org.springframework.batch.core.JobParameter",
-				"org.springframework.batch.core.JobParameters", "org.springframework.batch.core.launch.JobLauncher",
-				"org.springframework.batch.core.converter.JobParametersConverter",
-				"org.springframework.batch.core.converter.DefaultJobParametersConverter");
+				"org.springframework.batch.com.shirc.redis.delay.queue.core.scope.context.ChunkContext",
+				"org.springframework.batch.com.shirc.redis.delay.queue.core.step.tasklet.Tasklet",
+				"org.springframework.batch.com.shirc.redis.delay.queue.core.configuration.annotation.StepScope",
+				"org.springframework.batch.com.shirc.redis.delay.queue.core.configuration.annotation.JobBuilderFactory",
+				"org.springframework.batch.com.shirc.redis.delay.queue.core.configuration.annotation.StepBuilderFactory",
+				"org.springframework.batch.com.shirc.redis.delay.queue.core.configuration.annotation.EnableBatchProcessing",
+				"org.springframework.batch.com.shirc.redis.delay.queue.core.Step", "org.springframework.batch.com.shirc.redis.delay.queue.core.StepExecution",
+				"org.springframework.batch.com.shirc.redis.delay.queue.core.StepContribution", "org.springframework.batch.com.shirc.redis.delay.queue.core.Job",
+				"org.springframework.batch.com.shirc.redis.delay.queue.core.JobExecution", "org.springframework.batch.com.shirc.redis.delay.queue.core.JobParameter",
+				"org.springframework.batch.com.shirc.redis.delay.queue.core.JobParameters", "org.springframework.batch.com.shirc.redis.delay.queue.core.launch.JobLauncher",
+				"org.springframework.batch.com.shirc.redis.delay.queue.core.converter.JobParametersConverter",
+				"org.springframework.batch.com.shirc.redis.delay.queue.core.converter.DefaultJobParametersConverter");
 	}
 
 }

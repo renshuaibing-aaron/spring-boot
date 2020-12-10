@@ -127,7 +127,7 @@ public class WebEndpointDiscovererTests {
 	public void getEndpointsWhenTwoExtensionsHaveTheSameEndpointTypeShouldThrowException() {
 		load(ClashingWebEndpointConfiguration.class,
 				(discoverer) -> assertThatIllegalStateException().isThrownBy(discoverer::getEndpoints)
-						.withMessageContaining("Found multiple extensions for the endpoint bean "
+						.withMessageContaining("Found multiple extensions for the endpoint cluster "
 								+ "testEndpoint (testExtensionOne, testExtensionTwo)"));
 	}
 
@@ -151,8 +151,8 @@ public class WebEndpointDiscovererTests {
 	public void getEndpointsWhenExtensionIsNotCompatibleWithTheEndpointTypeShouldThrowException() {
 		load(InvalidWebExtensionConfiguration.class,
 				(discoverer) -> assertThatIllegalStateException().isThrownBy(discoverer::getEndpoints)
-						.withMessageContaining("Endpoint bean 'nonWebEndpoint' cannot support the "
-								+ "extension bean 'nonWebWebEndpointExtension'"));
+						.withMessageContaining("Endpoint cluster 'nonWebEndpoint' cannot support the "
+								+ "extension cluster 'nonWebWebEndpointExtension'"));
 	}
 
 	@Test

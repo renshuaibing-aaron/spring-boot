@@ -71,7 +71,7 @@ class OnBeanCondition extends FilteringSpringBootCondition implements Configurat
 
 	/**
 	 * Bean definition attribute name for factory beans to signal their product type (if
-	 * known and it can't be deduced from the factory bean class).
+	 * known and it can't be deduced from the factory cluster class).
 	 */
 	public static final String FACTORY_BEAN_OBJECT_TYPE = BeanTypeRegistry.FACTORY_BEAN_OBJECT_TYPE;
 
@@ -120,7 +120,7 @@ class OnBeanCondition extends FilteringSpringBootCondition implements Configurat
 				return ConditionOutcome
 						.noMatch(ConditionMessage.forCondition(ConditionalOnBean.class, spec).because(reason));
 			}
-			matchMessage = matchMessage.andCondition(ConditionalOnBean.class, spec).found("bean", "beans")
+			matchMessage = matchMessage.andCondition(ConditionalOnBean.class, spec).found("cluster", "beans")
 					.items(Style.QUOTE, matchResult.getNamesOfAllMatches());
 		}
 		if (metadata.isAnnotated(ConditionalOnSingleCandidate.class.getName())) {
@@ -134,11 +134,11 @@ class OnBeanCondition extends FilteringSpringBootCondition implements Configurat
 			else if (!hasSingleAutowireCandidate(context.getBeanFactory(), matchResult.getNamesOfAllMatches(),
 					spec.getStrategy() == SearchStrategy.ALL)) {
 				return ConditionOutcome.noMatch(ConditionMessage.forCondition(ConditionalOnSingleCandidate.class, spec)
-						.didNotFind("a primary bean from beans")
+						.didNotFind("a primary cluster from beans")
 						.items(Style.QUOTE, matchResult.getNamesOfAllMatches()));
 			}
 			matchMessage = matchMessage.andCondition(ConditionalOnSingleCandidate.class, spec)
-					.found("a primary bean from beans").items(Style.QUOTE, matchResult.getNamesOfAllMatches());
+					.found("a primary cluster from beans").items(Style.QUOTE, matchResult.getNamesOfAllMatches());
 		}
 		if (metadata.isAnnotated(ConditionalOnMissingBean.class.getName())) {
 			BeanSearchSpec spec = new BeanSearchSpec(context, metadata, ConditionalOnMissingBean.class);
@@ -402,11 +402,11 @@ class OnBeanCondition extends FilteringSpringBootCondition implements Configurat
 
 		protected void validate(BeanTypeDeductionException ex) {
 			if (!hasAtLeastOne(this.types, this.names, this.annotations)) {
-				String message = getAnnotationName() + " did not specify a bean using type, name or annotation";
+				String message = getAnnotationName() + " did not specify a cluster using type, name or annotation";
 				if (ex == null) {
 					throw new IllegalStateException(message);
 				}
-				throw new IllegalStateException(message + " and the attempt to deduce" + " the bean's type failed", ex);
+				throw new IllegalStateException(message + " and the attempt to deduce" + " the cluster's type failed", ex);
 			}
 		}
 
@@ -477,7 +477,7 @@ class OnBeanCondition extends FilteringSpringBootCondition implements Configurat
 			return Arrays.stream(ReflectionUtils.getAllDeclaredMethods(declaringClass))
 					.filter((candidate) -> candidate.getName().equals(methodName)).filter(this::isBeanMethod)
 					.findFirst()
-					.orElseThrow(() -> new IllegalStateException("Unable to find bean method " + methodName));
+					.orElseThrow(() -> new IllegalStateException("Unable to find cluster method " + methodName));
 		}
 
 		private boolean isBeanMethod(Method method) {
@@ -660,7 +660,7 @@ class OnBeanCondition extends FilteringSpringBootCondition implements Configurat
 	static final class BeanTypeDeductionException extends RuntimeException {
 
 		private BeanTypeDeductionException(String className, String beanMethodName, Throwable cause) {
-			super("Failed to deduce bean type for " + className + "." + beanMethodName, cause);
+			super("Failed to deduce cluster type for " + className + "." + beanMethodName, cause);
 		}
 
 	}

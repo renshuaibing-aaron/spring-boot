@@ -39,7 +39,7 @@ public class SampleActuatorUiApplication {
 
 	@RequestMapping("/foo")
 	public String foo() {
-		throw new RuntimeException("Expected exception in controller");
+		throw new RuntimeException("Expected exception in com.shirc.redisdelayqueuespringdemo.controller");
 	}
 
 	public static void main(String[] args) {

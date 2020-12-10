@@ -32,7 +32,7 @@ import org.springframework.core.annotation.AliasFor;
  * Annotation that can be applied to a test class to enable and configure
  * auto-configuration of Spring REST Docs. Allows configuration of the output directory
  * and the host, scheme, and port of generated URIs. When further configuration is
- * required a {@link RestDocsMockMvcConfigurationCustomizer} bean can be used.
+ * required a {@link RestDocsMockMvcConfigurationCustomizer} cluster can be used.
  *
  * @author Andy Wilkinson
  * @since 1.4.0

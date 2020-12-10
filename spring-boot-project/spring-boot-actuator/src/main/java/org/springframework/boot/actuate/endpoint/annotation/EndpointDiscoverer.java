@@ -164,7 +164,7 @@ public abstract class EndpointDiscoverer<E extends ExposableEndpoint<O>, O exten
 	private void addExtensionBean(EndpointBean endpointBean, ExtensionBean extensionBean) {
 		if (isExtensionExposed(endpointBean, extensionBean)) {
 			Assert.state(isEndpointExposed(endpointBean) || isEndpointFiltered(endpointBean),
-					() -> "Endpoint bean '" + endpointBean.getBeanName() + "' cannot support the extension bean '"
+					() -> "Endpoint cluster '" + endpointBean.getBeanName() + "' cannot support the extension cluster '"
 							+ extensionBean.getBeanName() + "'");
 			endpointBean.addExtension(extensionBean);
 		}
@@ -187,7 +187,7 @@ public abstract class EndpointDiscoverer<E extends ExposableEndpoint<O>, O exten
 		if (endpointBean.getExtensions().size() > 1) {
 			String extensionBeans = endpointBean.getExtensions().stream().map(ExtensionBean::getBeanName)
 					.collect(Collectors.joining(", "));
-			throw new IllegalStateException("Found multiple extensions for the endpoint bean "
+			throw new IllegalStateException("Found multiple extensions for the endpoint cluster "
 					+ endpointBean.getBeanName() + " (" + extensionBeans + ")");
 		}
 		for (ExtensionBean extensionBean : endpointBean.getExtensions()) {
@@ -235,9 +235,9 @@ public abstract class EndpointDiscoverer<E extends ExposableEndpoint<O>, O exten
 	}
 
 	/**
-	 * Determine if an extension bean should be exposed. Subclasses can override this
+	 * Determine if an extension cluster should be exposed. Subclasses can override this
 	 * method to provide additional logic.
-	 * @param extensionBean the extension bean
+	 * @param extensionBean the extension cluster
 	 * @return {@code true} if the extension is exposed
 	 */
 	protected boolean isExtensionExposed(Object extensionBean) {
@@ -250,9 +250,9 @@ public abstract class EndpointDiscoverer<E extends ExposableEndpoint<O>, O exten
 	}
 
 	/**
-	 * Determine if an endpoint bean should be exposed. Subclasses can override this
+	 * Determine if an endpoint cluster should be exposed. Subclasses can override this
 	 * method to provide additional logic.
-	 * @param endpointBean the endpoint bean
+	 * @param endpointBean the endpoint cluster
 	 * @return {@code true} if the endpoint is exposed
 	 */
 	protected boolean isEndpointExposed(Object endpointBean) {
@@ -313,7 +313,7 @@ public abstract class EndpointDiscoverer<E extends ExposableEndpoint<O>, O exten
 
 	/**
 	 * Factory method called to create the {@link ExposableEndpoint endpoint}.
-	 * @param endpointBean the source endpoint bean
+	 * @param endpointBean the source endpoint cluster
 	 * @param id the ID of the endpoint
 	 * @param enabledByDefault if the endpoint is enabled by default
 	 * @param operations the endpoint operations
@@ -385,7 +385,7 @@ public abstract class EndpointDiscoverer<E extends ExposableEndpoint<O>, O exten
 	}
 
 	/**
-	 * Information about an {@link Endpoint @Endpoint} bean.
+	 * Information about an {@link Endpoint @Endpoint} cluster.
 	 */
 	private static class EndpointBean {
 
@@ -454,7 +454,7 @@ public abstract class EndpointDiscoverer<E extends ExposableEndpoint<O>, O exten
 	}
 
 	/**
-	 * Information about an {@link EndpointExtension EndpointExtension} bean.
+	 * Information about an {@link EndpointExtension EndpointExtension} cluster.
 	 */
 	private static class ExtensionBean {
 

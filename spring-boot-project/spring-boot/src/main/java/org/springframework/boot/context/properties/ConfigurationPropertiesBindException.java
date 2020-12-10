@@ -41,8 +41,8 @@ public class ConfigurationPropertiesBindException extends BeanCreationException 
 	}
 
 	/**
-	 * Return the bean type that was being bound.
-	 * @return the bean type
+	 * Return the cluster type that was being bound.
+	 * @return the cluster type
 	 */
 	public Class<?> getBeanType() {
 		return this.beanType;

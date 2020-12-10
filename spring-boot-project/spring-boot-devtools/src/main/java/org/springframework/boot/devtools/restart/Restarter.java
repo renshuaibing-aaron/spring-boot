@@ -223,7 +223,7 @@ public class Restarter {
 	}
 
 	/**
-	 * Return a {@link ThreadFactory} that can be used to create leak safe threads.
+	 * Return a {@link ThreadFactory} that can be used to create leak safe com.shirc.redis.delay.queue.threads.
 	 * @return a leak safe thread factory
 	 */
 	public ThreadFactory getThreadFactory() {

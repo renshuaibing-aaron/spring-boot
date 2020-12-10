@@ -41,7 +41,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Integration tests for {@link TestRestTemplateContextCustomizer} with a custom
- * {@link TestRestTemplate} bean.
+ * {@link TestRestTemplate} cluster.
  *
  * @author Phillip Webb
  */

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="processEngineConfiguration" class="org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration">
+		<property name="databaseType" value="oracle"></property>
+		<property name="jdbcUrl" value="jdbc:oracle:thin:@10.1.168.5:1521:PAUAT"></property>
+		<property name="jdbcDriver" value="oracle.jdbc.OracleDriver"></property>
+		<property name="jdbcUsername" value="pfm_test"></property>
+		<property name="jdbcPassword" value="pfm_test"></property>
+		<!--是否生成表结构-->
+		<property name="databaseSchemaUpdate" value="true"/>
+	</bean>
+</beans>

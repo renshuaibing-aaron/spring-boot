@@ -653,12 +653,12 @@ public class RabbitProperties {
 	public static class SimpleContainer extends AmqpContainer {
 
 		/**
-		 * Minimum number of listener invoker threads.
+		 * Minimum number of listener invoker com.shirc.redis.delay.queue.threads.
 		 */
 		private Integer concurrency;
 
 		/**
-		 * Maximum number of listener invoker threads.
+		 * Maximum number of listener invoker com.shirc.redis.delay.queue.threads.
 		 */
 		private Integer maxConcurrency;
 

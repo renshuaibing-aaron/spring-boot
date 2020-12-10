@@ -47,10 +47,10 @@ public class RabbitCompilerAutoConfiguration extends CompilerAutoConfiguration {
 
 	@Override
 	public void applyImports(ImportCustomizer imports) throws CompilationFailedException {
-		imports.addStarImports("org.springframework.amqp.rabbit.annotation", "org.springframework.amqp.rabbit.core",
+		imports.addStarImports("org.springframework.amqp.rabbit.annotation", "org.springframework.amqp.rabbit.com.shirc.redis.delay.queue.core",
 				"org.springframework.amqp.rabbit.config", "org.springframework.amqp.rabbit.connection",
 				"org.springframework.amqp.rabbit.listener", "org.springframework.amqp.rabbit.listener.adapter",
-				"org.springframework.amqp.core");
+				"org.springframework.amqp.com.shirc.redis.delay.queue.core");
 	}
 
 }

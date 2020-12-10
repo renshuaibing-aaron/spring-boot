@@ -54,7 +54,7 @@ public class SpringBootCompilerAutoConfiguration extends CompilerAutoConfigurati
 				"org.springframework.context.annotation.Configuration",
 				"org.springframework.context.annotation.ComponentScan", "org.springframework.context.annotation.Bean",
 				"org.springframework.context.ApplicationContext", "org.springframework.context.MessageSource",
-				"org.springframework.core.annotation.Order", "org.springframework.core.io.ResourceLoader",
+				"org.springframework.com.shirc.redis.delay.queue.core.annotation.Order", "org.springframework.com.shirc.redis.delay.queue.core.io.ResourceLoader",
 				"org.springframework.boot.ApplicationRunner", "org.springframework.boot.ApplicationArguments",
 				"org.springframework.boot.CommandLineRunner",
 				"org.springframework.boot.context.properties.ConfigurationProperties",

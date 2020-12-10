@@ -1,19 +1,3 @@
-/*
- * Copyright 2012-2019 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package org.springframework.boot.context.config;
 
 import java.io.IOException;
@@ -70,6 +54,8 @@ import org.springframework.util.ResourceUtils;
 import org.springframework.util.StringUtils;
 
 /**
+ *
+ * 配置文件加载
  * {@link EnvironmentPostProcessor} that configures the context environment by loading
  * properties from well known file locations. By default properties will be loaded from
  * 'application.properties' and/or 'application.yml' files in the following locations:
@@ -161,18 +147,27 @@ public class ConfigFileApplicationListener implements EnvironmentPostProcessor, 
 
 	@Override
 	public void onApplicationEvent(ApplicationEvent event) {
+
+		//这个事件说明spring环境准备好了  执行响应处理
 		if (event instanceof ApplicationEnvironmentPreparedEvent) {
 			onApplicationEnvironmentPreparedEvent((ApplicationEnvironmentPreparedEvent) event);
 		}
+
+		//spring 容器初始化好了 执行响应的处理
 		if (event instanceof ApplicationPreparedEvent) {
 			onApplicationPreparedEvent(event);
 		}
 	}
 
 	private void onApplicationEnvironmentPreparedEvent(ApplicationEnvironmentPreparedEvent event) {
+
+		//// <1.1> 加载指定类型 EnvironmentPostProcessor 对应的，在 `META-INF/spring.factories` 里的类名的数组
 		List<EnvironmentPostProcessor> postProcessors = loadPostProcessors();
+		// 加入自己
 		postProcessors.add(this);
+		// 排序 postProcessors 数组
 		AnnotationAwareOrderComparator.sort(postProcessors);
+		// 遍历 postProcessors 数组，逐个执行。
 		for (EnvironmentPostProcessor postProcessor : postProcessors) {
 			postProcessor.postProcessEnvironment(event.getEnvironment(), event.getSpringApplication());
 		}
@@ -188,7 +183,9 @@ public class ConfigFileApplicationListener implements EnvironmentPostProcessor, 
 	}
 
 	private void onApplicationPreparedEvent(ApplicationEvent event) {
+		// 修改 logger 文件
 		this.logger.switchTo(ConfigFileApplicationListener.class);
+		// 添加 PropertySourceOrderingPostProcessor 处理器
 		addPostProcessors(((ApplicationPreparedEvent) event).getApplicationContext());
 	}
 

@@ -76,7 +76,7 @@ public class SpringApplicationAdminMXBeanRegistrarTests {
 				assertThat(isApplicationReady(objectName)).isFalse();
 			}
 			catch (Exception ex) {
-				throw new IllegalStateException("Could not contact spring application admin bean", ex);
+				throw new IllegalStateException("Could not contact spring application admin cluster", ex);
 			}
 		});
 		this.context = application.run();

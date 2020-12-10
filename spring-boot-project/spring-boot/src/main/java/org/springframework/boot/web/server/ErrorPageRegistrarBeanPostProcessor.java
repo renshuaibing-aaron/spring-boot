@@ -30,7 +30,7 @@ import org.springframework.core.annotation.AnnotationAwareOrderComparator;
 import org.springframework.util.Assert;
 
 /**
- * {@link BeanPostProcessor} that applies all {@link ErrorPageRegistrar}s from the bean
+ * {@link BeanPostProcessor} that applies all {@link ErrorPageRegistrar}s from the cluster
  * factory to {@link ErrorPageRegistry} beans.
  *
  * @author Phillip Webb

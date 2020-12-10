@@ -1028,7 +1028,7 @@ These features are described in six enums (in Jackson) that map onto properties 
 | `spring.jackson.deserialization.<feature_name>`
 | `true`, `false`
 
-| `com.fasterxml.jackson.core.JsonGenerator.Feature`
+| `com.fasterxml.jackson.com.shirc.redis.delay.queue.core.JsonGenerator.Feature`
 | `spring.jackson.generator.<feature_name>`
 | `true`, `false`
 
@@ -1036,7 +1036,7 @@ These features are described in six enums (in Jackson) that map onto properties 
 | `spring.jackson.mapper.<feature_name>`
 | `true`, `false`
 
-| `com.fasterxml.jackson.core.JsonParser.Feature`
+| `com.fasterxml.jackson.com.shirc.redis.delay.queue.core.JsonParser.Feature`
 | `spring.jackson.parser.<feature_name>`
 | `true`, `false`
 
@@ -1094,7 +1094,7 @@ By default, Spring Boot configures Spring MVC with a maximum size of 1MB per fil
 You may override these values, the location to which intermediate data is stored (for example, to the `/tmp` directory), and the threshold past which data is flushed to disk by using the properties exposed in the `MultipartProperties` class.
 For example, if you want to specify that files be unlimited, set the `spring.servlet.multipart.max-file-size` property to `-1`.
 
-The multipart support is helpful when you want to receive multipart encoded file data as a `@RequestParam`-annotated parameter of type `MultipartFile` in a Spring MVC controller handler method.
+The multipart support is helpful when you want to receive multipart encoded file data as a `@RequestParam`-annotated parameter of type `MultipartFile` in a Spring MVC com.shirc.redisdelayqueuespringdemo.controller handler method.
 
 See the {spring-boot-autoconfigure-module-code}/web/servlet/MultipartAutoConfiguration.java[`MultipartAutoConfiguration`] source for more details.
 
@@ -1128,7 +1128,7 @@ Doing so leaves all MVC configuration in your hands.
 
 [[howto-customize-view-resolvers]]
 === Customize ViewResolvers
-A `ViewResolver` is a core component of Spring MVC, translating view names in `@Controller` to actual `View` implementations.
+A `ViewResolver` is a com.shirc.redis.delay.queue.core component of Spring MVC, translating view names in `@Controller` to actual `View` implementations.
 Note that `ViewResolvers` are mainly used in UI applications, rather than REST-style services (a `View` is not used to render a `@ResponseBody`).
 There are many implementations of `ViewResolver` to choose from, and Spring on its own is not opinionated about which ones you should use.
 Spring Boot, on the other hand, installs one or two for you, depending on what it finds on the classpath and in the application context.
@@ -1425,11 +1425,11 @@ To configure Log4j 2 to use an alternative configuration file format, add the ap
 | Format | Dependencies | File names
 
 |YAML
-| `com.fasterxml.jackson.core:jackson-databind` + `com.fasterxml.jackson.dataformat:jackson-dataformat-yaml`
+| `com.fasterxml.jackson.com.shirc.redis.delay.queue.core:jackson-databind` + `com.fasterxml.jackson.dataformat:jackson-dataformat-yaml`
 | `log4j2.yaml` + `log4j2.yml`
 
 |JSON
-| `com.fasterxml.jackson.core:jackson-databind`
+| `com.fasterxml.jackson.com.shirc.redis.delay.queue.core:jackson-databind`
 | `log4j2.json` + `log4j2.jsn`
 |===
 
@@ -1829,7 +1829,7 @@ Note that if you are using Spring Data REST, you must use the properties in the 
 Spring Data REST can expose the `Repository` implementations as REST endpoints for you,
 provided Spring MVC has been enabled for the application.
 
-Spring Boot exposes a set of useful properties (from the `spring.data.rest` namespace) that customize the {spring-data-rest-api}/core/config/RepositoryRestConfiguration.html[`RepositoryRestConfiguration`].
+Spring Boot exposes a set of useful properties (from the `spring.data.rest` namespace) that customize the {spring-data-rest-api}/com.shirc.redis.delay.queue.core/config/RepositoryRestConfiguration.html[`RepositoryRestConfiguration`].
 If you need to provide additional customization, you should use a {spring-data-rest-api}/webmvc/config/RepositoryRestConfigurer.html[`RepositoryRestConfigurer`] bean.
 
 NOTE: If you do not specify any order on your custom `RepositoryRestConfigurer`, it runs after the one Spring Boot uses internally.
@@ -1953,7 +1953,7 @@ Spring Boot supports two higher-level migration tools: https://flywaydb.org/[Fly
 
 [[howto-execute-flyway-database-migrations-on-startup]]
 ==== Execute Flyway Database Migrations on Startup
-To automatically run Flyway database migrations on startup, add the `org.flywaydb:flyway-core` to your classpath.
+To automatically run Flyway database migrations on startup, add the `org.flywaydb:flyway-com.shirc.redis.delay.queue.core` to your classpath.
 
 The migrations are scripts in the form `V<VERSION>__<NAME>.sql` (with `<VERSION>` an underscore-separated version, such as '`1`' or '`2_1`').
 By default, they are in a folder called `classpath:db/migration`, but you can modify that location by setting `spring.flyway.locations`.
@@ -2014,7 +2014,7 @@ With that setup, migrations in `dev/db/migration` run only when the `dev` profil
 
 [[howto-execute-liquibase-database-migrations-on-startup]]
 ==== Execute Liquibase Database Migrations on Startup
-To automatically run Liquibase database migrations on startup, add the `org.liquibase:liquibase-core` to your classpath.
+To automatically run Liquibase database migrations on startup, add the `org.liquibase:liquibase-com.shirc.redis.delay.queue.core` to your classpath.
 
 By default, the master change log is read from `db/changelog/db.changelog-master.yaml`, but you can change the location by setting `spring.liquibase.change-log`.
 In addition to YAML, Liquibase also supports JSON, XML, and SQL change log formats.
@@ -2070,7 +2070,7 @@ This section answers questions that arise from using Spring Batch with Spring Bo
 
 NOTE: By default, batch applications require a `DataSource` to store job details.
 If you want to deviate from that, you need to implement `BatchConfigurer`.
-See {spring-batch-api}/core/configuration/annotation/EnableBatchProcessing.html[The Javadoc of `@EnableBatchProcessing`] for more details.
+See {spring-batch-api}/com.shirc.redis.delay.queue.core/configuration/annotation/EnableBatchProcessing.html[The Javadoc of `@EnableBatchProcessing`] for more details.
 
 For more about Spring Batch, see the {spring-batch}[Spring Batch project page].
 
@@ -2092,7 +2092,7 @@ Unlike command line option arguments that <<spring-boot-features.adoc#boot-featu
 If the application context includes a `JobRegistry`, the jobs in `spring.batch.job.names` are looked up in the registry instead of being autowired from the context.
 This is a common pattern with more complex systems, where multiple jobs are defined in child contexts and registered centrally.
 
-See {spring-boot-autoconfigure-module-code}/batch/BatchAutoConfiguration.java[BatchAutoConfiguration] and https://github.com/spring-projects/spring-batch/blob/master/spring-batch-core/src/main/java/org/springframework/batch/core/configuration/annotation/EnableBatchProcessing.java[@EnableBatchProcessing] for more details.
+See {spring-boot-autoconfigure-module-code}/batch/BatchAutoConfiguration.java[BatchAutoConfiguration] and https://github.com/spring-projects/spring-batch/blob/master/spring-batch-com.shirc.redis.delay.queue.core/src/main/java/org/springframework/batch/com.shirc.redis.delay.queue.core/configuration/annotation/EnableBatchProcessing.java[@EnableBatchProcessing] for more details.
 
 
 
@@ -2819,7 +2819,7 @@ You can do so by adding a `WEB-INF/weblogic.xml` file with the following content
 
 [[howto-use-jedis-instead-of-lettuce]]
 === Use Jedis Instead of Lettuce
-By default, the Spring Boot starter (`spring-boot-starter-data-redis`) uses https://github.com/lettuce-io/lettuce-core/[Lettuce].
+By default, the Spring Boot starter (`spring-boot-starter-data-redis`) uses https://github.com/lettuce-io/lettuce-com.shirc.redis.delay.queue.core/[Lettuce].
 You need to exclude that dependency and include the https://github.com/xetorthio/jedis/[Jedis] one instead.
 Spring Boot manages these dependencies to help make this process as easy as possible.
 
@@ -2833,7 +2833,7 @@ The following example shows how to do so in Maven:
 		<exclusions>
 			<exclusion>
 				<groupId>io.lettuce</groupId>
-				<artifactId>lettuce-core</artifactId>
+				<artifactId>lettuce-com.shirc.redis.delay.queue.core</artifactId>
 			</exclusion>
 		</exclusions>
 	</dependency>

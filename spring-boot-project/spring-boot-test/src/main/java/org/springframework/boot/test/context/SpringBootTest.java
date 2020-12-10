@@ -61,7 +61,7 @@ import org.springframework.web.context.WebApplicationContext;
  * random} port.</li>
  * <li>Registers a {@link org.springframework.boot.test.web.client.TestRestTemplate
  * TestRestTemplate} and/or
- * {@link org.springframework.test.web.reactive.server.WebTestClient WebTestClient} bean
+ * {@link org.springframework.test.web.reactive.server.WebTestClient WebTestClient} cluster
  * for use in web tests that are using a fully running web server.</li>
  * </ul>
  *

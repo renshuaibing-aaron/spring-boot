@@ -72,7 +72,7 @@ public class DevToolsDataSourceAutoConfiguration {
 	/**
 	 * Additional configuration to ensure that
 	 * {@link javax.persistence.EntityManagerFactory} beans depend on the
-	 * {@code inMemoryDatabaseShutdownExecutor} bean.
+	 * {@code inMemoryDatabaseShutdownExecutor} cluster.
 	 */
 	@Configuration
 	@ConditionalOnClass(LocalContainerEntityManagerFactoryBean.class)
@@ -180,10 +180,10 @@ public class DevToolsDataSourceAutoConfiguration {
 			ConditionMessage.Builder message = ConditionMessage.forCondition("DevTools DataSource Condition");
 			String[] dataSourceBeanNames = context.getBeanFactory().getBeanNamesForType(DataSource.class);
 			if (dataSourceBeanNames.length != 1) {
-				return ConditionOutcome.noMatch(message.didNotFind("a single DataSource bean").atAll());
+				return ConditionOutcome.noMatch(message.didNotFind("a single DataSource cluster").atAll());
 			}
 			if (context.getBeanFactory().getBeanNamesForType(DataSourceProperties.class).length != 1) {
-				return ConditionOutcome.noMatch(message.didNotFind("a single DataSourceProperties bean").atAll());
+				return ConditionOutcome.noMatch(message.didNotFind("a single DataSourceProperties cluster").atAll());
 			}
 			BeanDefinition dataSourceDefinition = context.getRegistry().getBeanDefinition(dataSourceBeanNames[0]);
 			if (dataSourceDefinition instanceof AnnotatedBeanDefinition

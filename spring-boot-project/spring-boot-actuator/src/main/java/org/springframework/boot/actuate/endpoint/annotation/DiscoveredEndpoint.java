@@ -36,8 +36,8 @@ public interface DiscoveredEndpoint<O extends Operation> extends ExposableEndpoi
 	boolean wasDiscoveredBy(Class<? extends EndpointDiscoverer<?, ?>> discoverer);
 
 	/**
-	 * Return the source bean that was used to construct the {@link DiscoveredEndpoint}.
-	 * @return the source endpoint bean
+	 * Return the source cluster that was used to construct the {@link DiscoveredEndpoint}.
+	 * @return the source endpoint cluster
 	 */
 	Object getEndpointBean();
 

@@ -37,7 +37,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * @author Phillip Webb
  */
 @RunWith(ModifiedClassPathRunner.class)
-@ClassPathExclusions({ "reactor-core*.jar", "lettuce-core*.jar" })
+@ClassPathExclusions({ "reactor-com.shirc.redis.delay.queue.core*.jar", "lettuce-com.shirc.redis.delay.queue.core*.jar" })
 public class RedisHealthIndicatorAutoConfigurationTests {
 
 	private ApplicationContextRunner contextRunner = new ApplicationContextRunner()

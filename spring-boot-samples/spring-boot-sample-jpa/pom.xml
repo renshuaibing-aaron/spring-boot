@@ -30,7 +30,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
+			<artifactId>hibernate-com.shirc.redis.delay.queue.core</artifactId>
 		</dependency>
 		<!-- Runtime -->
 		<dependency>

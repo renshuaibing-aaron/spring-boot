@@ -42,7 +42,7 @@ public class ModifiedClassPathRunnerOverridesTests {
 	@Test
 	public void classesAreLoadedFromTransitiveDependencyOfOverride() {
 		assertThat(StringUtils.class.getProtectionDomain().getCodeSource().getLocation().toString())
-				.endsWith("spring-core-4.1.0.RELEASE.jar");
+				.endsWith("spring-com.shirc.redis.delay.queue.core-4.1.0.RELEASE.jar");
 	}
 
 }

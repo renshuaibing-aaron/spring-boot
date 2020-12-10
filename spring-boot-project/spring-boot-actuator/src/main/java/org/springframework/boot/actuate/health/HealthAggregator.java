@@ -28,7 +28,7 @@ import java.util.Map;
  * <p>
  * It is possible to add more complex {@link Status} types to the system. In that case
  * either the {@link OrderedHealthAggregator} needs to be properly configured or users
- * need to register a custom {@link HealthAggregator} as bean.
+ * need to register a custom {@link HealthAggregator} as cluster.
  *
  * @author Christian Dupuis
  * @since 1.1.0

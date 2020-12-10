@@ -25,7 +25,7 @@
 							<requiresUnpack>
 								<dependency>
 									<groupId>org.springframework</groupId>
-									<artifactId>spring-core</artifactId>
+									<artifactId>spring-com.shirc.redis.delay.queue.core</artifactId>
 								</dependency>
 							</requiresUnpack>
 						</configuration>

@@ -30,7 +30,7 @@ import org.springframework.context.annotation.Configuration;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * Tests for {@link ConfigurationPropertiesReportEndpoint} when used with bean methods.
+ * Tests for {@link ConfigurationPropertiesReportEndpoint} when used with cluster methods.
  *
  * @author Dave Syer
  * @author Andy Wilkinson

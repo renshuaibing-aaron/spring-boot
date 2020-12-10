@@ -133,8 +133,8 @@ public class ConditionMessageTests {
 
 	@Test
 	public void foundWhenSingleElementShouldUseSingular() {
-		ConditionMessage message = ConditionMessage.forCondition(Test.class).found("bean", "beans").items("a");
-		assertThat(message.toString()).isEqualTo("@Test found bean a");
+		ConditionMessage message = ConditionMessage.forCondition(Test.class).found("cluster", "beans").items("a");
+		assertThat(message.toString()).isEqualTo("@Test found cluster a");
 	}
 
 	@Test
@@ -145,14 +145,14 @@ public class ConditionMessageTests {
 
 	@Test
 	public void foundWhenMultipleElementsShouldUsePlural() {
-		ConditionMessage message = ConditionMessage.forCondition(Test.class).found("bean", "beans").items("a", "b",
+		ConditionMessage message = ConditionMessage.forCondition(Test.class).found("cluster", "beans").items("a", "b",
 				"c");
 		assertThat(message.toString()).isEqualTo("@Test found beans a, b, c");
 	}
 
 	@Test
 	public void foundWhenQuoteStyleShouldQuote() {
-		ConditionMessage message = ConditionMessage.forCondition(Test.class).found("bean", "beans").items(Style.QUOTE,
+		ConditionMessage message = ConditionMessage.forCondition(Test.class).found("cluster", "beans").items(Style.QUOTE,
 				"a", "b", "c");
 		assertThat(message.toString()).isEqualTo("@Test found beans 'a', 'b', 'c'");
 	}

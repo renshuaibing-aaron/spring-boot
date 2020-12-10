@@ -54,9 +54,9 @@ public abstract class AbstractDependsOnBeanFactoryPostProcessor implements BeanF
 	private final Function<ListableBeanFactory, Set<String>> dependsOn;
 
 	/**
-	 * Create an instance with target bean and factory bean classes and dependency names.
-	 * @param beanClass target bean class
-	 * @param factoryBeanClass target factory bean class
+	 * Create an instance with target cluster and factory cluster classes and dependency names.
+	 * @param beanClass target cluster class
+	 * @param factoryBeanClass target factory cluster class
 	 * @param dependsOn dependency names
 	 */
 	protected AbstractDependsOnBeanFactoryPostProcessor(Class<?> beanClass,
@@ -67,9 +67,9 @@ public abstract class AbstractDependsOnBeanFactoryPostProcessor implements BeanF
 	}
 
 	/**
-	 * Create an instance with target bean and factory bean classes and dependency types.
-	 * @param beanClass target bean class
-	 * @param factoryBeanClass target factory bean class
+	 * Create an instance with target cluster and factory cluster classes and dependency types.
+	 * @param beanClass target cluster class
+	 * @param factoryBeanClass target factory cluster class
 	 * @param dependencyTypes dependency types
 	 * @since 2.1.7
 	 */
@@ -83,8 +83,8 @@ public abstract class AbstractDependsOnBeanFactoryPostProcessor implements BeanF
 	}
 
 	/**
-	 * Create an instance with target bean class and dependency names.
-	 * @param beanClass target bean class
+	 * Create an instance with target cluster class and dependency names.
+	 * @param beanClass target cluster class
 	 * @param dependsOn dependency names
 	 * @since 2.0.4
 	 */
@@ -93,8 +93,8 @@ public abstract class AbstractDependsOnBeanFactoryPostProcessor implements BeanF
 	}
 
 	/**
-	 * Create an instance with target bean class and dependency types.
-	 * @param beanClass target bean class
+	 * Create an instance with target cluster class and dependency types.
+	 * @param beanClass target cluster class
 	 * @param dependencyTypes dependency types
 	 * @since 2.1.7
 	 */

@@ -138,7 +138,7 @@ public class ServletWebServerFactoryCustomizerTests {
 	@Test
 	public void testCustomizeTomcatMinSpareThreads() {
 		Map<String, String> map = new HashMap<>();
-		map.put("server.tomcat.min-spare-threads", "10");
+		map.put("server.tomcat.min-spare-com.shirc.redis.delay.queue.threads", "10");
 		bindProperties(map);
 		assertThat(this.properties.getTomcat().getMinSpareThreads()).isEqualTo(10);
 	}

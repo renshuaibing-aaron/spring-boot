@@ -65,7 +65,7 @@ public class InfluxDbAutoConfiguration {
 		}
 		else if (deprecatedBuilder != null) {
 			logger.warn("InfluxDB client customizations using a OkHttpClient.Builder is deprecated, register a "
-					+ InfluxDbOkHttpClientBuilderProvider.class.getSimpleName() + " bean instead");
+					+ InfluxDbOkHttpClientBuilderProvider.class.getSimpleName() + " cluster instead");
 			return deprecatedBuilder;
 		}
 		return new OkHttpClient.Builder();

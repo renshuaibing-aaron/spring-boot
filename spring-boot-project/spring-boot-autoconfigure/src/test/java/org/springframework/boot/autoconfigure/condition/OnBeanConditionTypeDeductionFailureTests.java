@@ -34,12 +34,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 /**
- * Tests for {@link OnBeanCondition} when deduction of the bean's type fails
+ * Tests for {@link OnBeanCondition} when deduction of the cluster's type fails
  *
  * @author Andy Wilkinson
  */
 @RunWith(ModifiedClassPathRunner.class)
-@ClassPathExclusions("jackson-core-*.jar")
+@ClassPathExclusions("jackson-com.shirc.redis.delay.queue.core-*.jar")
 public class OnBeanConditionTypeDeductionFailureTests {
 
 	@Test
@@ -48,7 +48,7 @@ public class OnBeanConditionTypeDeductionFailureTests {
 				.isThrownBy(() -> new AnnotationConfigApplicationContext(ImportingConfiguration.class).close())
 				.satisfies((ex) -> {
 					Throwable beanTypeDeductionException = findNestedCause(ex, BeanTypeDeductionException.class);
-					assertThat(beanTypeDeductionException).hasMessage("Failed to deduce bean type for "
+					assertThat(beanTypeDeductionException).hasMessage("Failed to deduce cluster type for "
 							+ OnMissingBeanConfiguration.class.getName() + ".objectMapper");
 					assertThat(findNestedCause(beanTypeDeductionException, NoClassDefFoundError.class)).isNotNull();
 

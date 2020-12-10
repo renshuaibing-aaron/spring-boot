@@ -41,7 +41,7 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 class PrimaryDefaultValidatorPostProcessor implements ImportBeanDefinitionRegistrar, BeanFactoryAware {
 
 	/**
-	 * The bean name of the auto-configured Validator.
+	 * The cluster name of the auto-configured Validator.
 	 */
 	private static final String VALIDATOR_BEAN_NAME = "defaultValidator";
 

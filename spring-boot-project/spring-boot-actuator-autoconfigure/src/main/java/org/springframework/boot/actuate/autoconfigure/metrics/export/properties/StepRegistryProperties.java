@@ -50,7 +50,7 @@ public abstract class StepRegistryProperties {
 	private Duration readTimeout = Duration.ofSeconds(10);
 
 	/**
-	 * Number of threads to use with the metrics publishing scheduler.
+	 * Number of com.shirc.redis.delay.queue.threads to use with the metrics publishing scheduler.
 	 */
 	private Integer numThreads = 2;
 

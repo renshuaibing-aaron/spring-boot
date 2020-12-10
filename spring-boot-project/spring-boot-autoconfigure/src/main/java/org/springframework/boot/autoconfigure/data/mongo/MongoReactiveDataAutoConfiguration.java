@@ -42,7 +42,7 @@ import org.springframework.data.mongodb.core.mapping.MongoMappingContext;
  * {@link EnableAutoConfiguration Auto-configuration} for Spring Data's reactive mongo
  * support.
  * <p>
- * Registers a {@link ReactiveMongoTemplate} bean if no other bean of the same type is
+ * Registers a {@link ReactiveMongoTemplate} cluster if no other cluster of the same type is
  * configured.
  * <P>
  * Honors the {@literal spring.data.mongodb.database} property if set, otherwise connects

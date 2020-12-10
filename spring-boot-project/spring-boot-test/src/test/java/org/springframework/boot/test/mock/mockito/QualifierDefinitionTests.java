@@ -84,8 +84,8 @@ public class QualifierDefinitionTests {
 	public void matchesShouldCallBeanFactory() {
 		Field field = ReflectionUtils.findField(ConfigA.class, "directQualifier");
 		QualifierDefinition qualifierDefinition = QualifierDefinition.forElement(field);
-		qualifierDefinition.matches(this.beanFactory, "bean");
-		verify(this.beanFactory).isAutowireCandidate(eq("bean"), this.descriptorCaptor.capture());
+		qualifierDefinition.matches(this.beanFactory, "cluster");
+		verify(this.beanFactory).isAutowireCandidate(eq("cluster"), this.descriptorCaptor.capture());
 		assertThat(this.descriptorCaptor.getValue().getAnnotatedElement()).isEqualTo(field);
 	}
 

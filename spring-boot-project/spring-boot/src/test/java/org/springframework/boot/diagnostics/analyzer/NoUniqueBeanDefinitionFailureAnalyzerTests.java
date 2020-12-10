@@ -45,7 +45,7 @@ public class NoUniqueBeanDefinitionFailureAnalyzerTests {
 	public void failureAnalysisForFieldConsumer() {
 		FailureAnalysis failureAnalysis = analyzeFailure(createFailure(FieldConsumer.class));
 		assertThat(failureAnalysis.getDescription()).startsWith(
-				"Field testBean in " + FieldConsumer.class.getName() + " required a single bean, but 6 were found:");
+				"Field testBean in " + FieldConsumer.class.getName() + " required a single cluster, but 6 were found:");
 		assertFoundBeans(failureAnalysis);
 	}
 
@@ -53,7 +53,7 @@ public class NoUniqueBeanDefinitionFailureAnalyzerTests {
 	public void failureAnalysisForMethodConsumer() {
 		FailureAnalysis failureAnalysis = analyzeFailure(createFailure(MethodConsumer.class));
 		assertThat(failureAnalysis.getDescription()).startsWith("Parameter 0 of method consumer in "
-				+ MethodConsumer.class.getName() + " required a single bean, but 6 were found:");
+				+ MethodConsumer.class.getName() + " required a single cluster, but 6 were found:");
 		assertFoundBeans(failureAnalysis);
 	}
 
@@ -61,7 +61,7 @@ public class NoUniqueBeanDefinitionFailureAnalyzerTests {
 	public void failureAnalysisForConstructorConsumer() {
 		FailureAnalysis failureAnalysis = analyzeFailure(createFailure(ConstructorConsumer.class));
 		assertThat(failureAnalysis.getDescription()).startsWith("Parameter 0 of constructor in "
-				+ ConstructorConsumer.class.getName() + " required a single bean, but 6 were found:");
+				+ ConstructorConsumer.class.getName() + " required a single cluster, but 6 were found:");
 		assertFoundBeans(failureAnalysis);
 	}
 
@@ -69,7 +69,7 @@ public class NoUniqueBeanDefinitionFailureAnalyzerTests {
 	public void failureAnalysisForObjectProviderMethodConsumer() {
 		FailureAnalysis failureAnalysis = analyzeFailure(createFailure(ObjectProviderMethodConsumer.class));
 		assertThat(failureAnalysis.getDescription()).startsWith("Method consumer in "
-				+ ObjectProviderMethodConsumer.class.getName() + " required a single bean, but 6 were found:");
+				+ ObjectProviderMethodConsumer.class.getName() + " required a single cluster, but 6 were found:");
 		assertFoundBeans(failureAnalysis);
 	}
 
@@ -77,7 +77,7 @@ public class NoUniqueBeanDefinitionFailureAnalyzerTests {
 	public void failureAnalysisForXmlConsumer() {
 		FailureAnalysis failureAnalysis = analyzeFailure(createFailure(XmlConsumer.class));
 		assertThat(failureAnalysis.getDescription()).startsWith("Parameter 0 of constructor in "
-				+ TestBeanConsumer.class.getName() + " required a single bean, but 6 were found:");
+				+ TestBeanConsumer.class.getName() + " required a single cluster, but 6 were found:");
 		assertFoundBeans(failureAnalysis);
 	}
 
@@ -85,7 +85,7 @@ public class NoUniqueBeanDefinitionFailureAnalyzerTests {
 	public void failureAnalysisForObjectProviderConstructorConsumer() {
 		FailureAnalysis failureAnalysis = analyzeFailure(createFailure(ObjectProviderConstructorConsumer.class));
 		assertThat(failureAnalysis.getDescription()).startsWith("Constructor in "
-				+ ObjectProviderConstructorConsumer.class.getName() + " required a single bean, but 6 were found:");
+				+ ObjectProviderConstructorConsumer.class.getName() + " required a single cluster, but 6 were found:");
 		assertFoundBeans(failureAnalysis);
 	}
 

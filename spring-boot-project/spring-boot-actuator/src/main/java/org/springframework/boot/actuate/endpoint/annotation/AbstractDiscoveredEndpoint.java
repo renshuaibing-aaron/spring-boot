@@ -43,7 +43,7 @@ public abstract class AbstractDiscoveredEndpoint<O extends Operation> extends Ab
 	/**
 	 * Create a new {@link AbstractDiscoveredEndpoint} instance.
 	 * @param discoverer the discoverer that discovered the endpoint
-	 * @param endpointBean the primary source bean
+	 * @param endpointBean the primary source cluster
 	 * @param id the ID of the endpoint
 	 * @param enabledByDefault if the endpoint is enabled by default
 	 * @param operations the endpoint operations

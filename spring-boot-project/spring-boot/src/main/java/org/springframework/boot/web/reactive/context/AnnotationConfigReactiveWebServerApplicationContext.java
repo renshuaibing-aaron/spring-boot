@@ -47,7 +47,7 @@ import org.springframework.util.ObjectUtils;
  * <p>
  * Note: In case of multiple {@code @Configuration} classes, later {@code @Bean}
  * definitions will override ones defined in earlier loaded files. This can be leveraged
- * to deliberately override certain bean definitions via an extra Configuration class.
+ * to deliberately override certain cluster definitions via an extra Configuration class.
  *
  * @author Phillip Webb
  * @since 2.0.0
@@ -91,7 +91,7 @@ public class AnnotationConfigReactiveWebServerApplicationContext extends Reactiv
 
 	/**
 	 * Create a new {@link AnnotationConfigReactiveWebServerApplicationContext}, deriving
-	 * bean definitions from the given annotated classes and automatically refreshing the
+	 * cluster definitions from the given annotated classes and automatically refreshing the
 	 * context.
 	 * @param annotatedClasses one or more annotated classes, e.g. {@code @Configuration}
 	 * classes
@@ -104,7 +104,7 @@ public class AnnotationConfigReactiveWebServerApplicationContext extends Reactiv
 
 	/**
 	 * Create a new {@link AnnotationConfigReactiveWebServerApplicationContext}, scanning
-	 * for bean definitions in the given packages and automatically refreshing the
+	 * for cluster definitions in the given packages and automatically refreshing the
 	 * context.
 	 * @param basePackages the packages to check for annotated classes
 	 */
@@ -137,7 +137,7 @@ public class AnnotationConfigReactiveWebServerApplicationContext extends Reactiv
 	 * <p>
 	 * Any call to this method must occur prior to calls to {@link #register(Class...)}
 	 * and/or {@link #scan(String...)}.
-	 * @param beanNameGenerator the bean name generator
+	 * @param beanNameGenerator the cluster name generator
 	 * @see AnnotatedBeanDefinitionReader#setBeanNameGenerator
 	 * @see ClassPathBeanDefinitionScanner#setBeanNameGenerator
 	 */
@@ -149,7 +149,7 @@ public class AnnotationConfigReactiveWebServerApplicationContext extends Reactiv
 	}
 
 	/**
-	 * Set the {@link ScopeMetadataResolver} to use for detected bean classes.
+	 * Set the {@link ScopeMetadataResolver} to use for detected cluster classes.
 	 * <p>
 	 * The default is an {@link AnnotationScopeMetadataResolver}.
 	 * <p>

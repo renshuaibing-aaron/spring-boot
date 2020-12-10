@@ -34,7 +34,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * @author Andy Wilkinson
  */
 @RunWith(ModifiedClassPathRunner.class)
-@ClassPathOverrides({ "org.apache.logging.log4j:log4j-core:2.9.0", "org.apache.logging.log4j:log4j-slf4j-impl:2.9.0" })
+@ClassPathOverrides({ "org.apache.logging.log4j:log4j-com.shirc.redis.delay.queue.core:2.9.0", "org.apache.logging.log4j:log4j-slf4j-impl:2.9.0" })
 public class MetricsAutoConfigurationWithLog4j2AndLogbackTests {
 
 	private final ApplicationContextRunner contextRunner = new ApplicationContextRunner()

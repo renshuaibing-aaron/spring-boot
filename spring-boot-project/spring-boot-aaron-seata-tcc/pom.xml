@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<artifactId>spring-boot-project</artifactId>
+		<groupId>org.springframework.boot</groupId>
+		<version>2.1.9.BUILD-SNAPSHOT</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>spring-boot-aaron-seata-tcc</artifactId>
+	<packaging>pom</packaging>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>6</source>
+					<target>6</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<modules>
+		<module>order-provider</module>
+	</modules>
+	<properties>
+		<seata.version>1.2.0</seata.version>
+		<curator.version>4.2.0</curator.version>
+		<dubbo.springboot.starter.version>1.0.0</dubbo.springboot.starter.version>
+		<dubbo.version>2.7.5</dubbo.version>
+		<netty4.version>4.1.24.Final</netty4.version>
+		<curator.version>4.2.0</curator.version>
+		<spring.version>5.0.8.RELEASE</spring.version>
+		<curator.version>4.2.0</curator.version>
+
+		<commons-dbcp.version>1.3</commons-dbcp.version>
+		<h2.version>1.4.181</h2.version>
+		<mybatis.version>3.4.5</mybatis.version>
+		<mybatis.spring.version>1.3.1</mybatis.spring.version>
+	</properties>
+
+
+
+</project>

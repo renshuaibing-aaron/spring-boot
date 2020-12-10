@@ -36,12 +36,12 @@ import org.springframework.test.context.junit4.SpringRunner;
  * used as a class level annotation or on fields in either {@code @Configuration} classes,
  * or test classes that are {@link RunWith @RunWith} the {@link SpringRunner}.
  * <p>
- * Mocks can be registered by type or by {@link #name() bean name}. Any existing single
- * bean of the same type defined in the context will be replaced by the mock. If no
- * existing bean is defined a new one will be added. Dependencies that are known to the
+ * Mocks can be registered by type or by {@link #name() cluster name}. Any existing single
+ * cluster of the same type defined in the context will be replaced by the mock. If no
+ * existing cluster is defined a new one will be added. Dependencies that are known to the
  * application context but are not beans (such as those
  * {@link org.springframework.beans.factory.config.ConfigurableListableBeanFactory#registerResolvableDependency(Class, Object)
- * registered directly}) will not be found and a mocked bean will be added to the context
+ * registered directly}) will not be found and a mocked cluster will be added to the context
  * alongside the existing dependency.
  * <p>
  * When {@code @MockBean} is used on a field, as well as being registered in the
@@ -70,7 +70,7 @@ import org.springframework.test.context.junit4.SpringRunner;
  *
  *
  * }
- * </pre> If there is more than one bean of the requested type, qualifier metadata must be
+ * </pre> If there is more than one cluster of the requested type, qualifier metadata must be
  * specified at field level: <pre class="code">
  * &#064;RunWith(SpringRunner.class)
  * public class ExampleTests {
@@ -97,10 +97,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 public @interface MockBean {
 
 	/**
-	 * The name of the bean to register or replace. If not specified the name will either
-	 * be generated or, if the mock replaces an existing bean, the existing name will be
+	 * The name of the cluster to register or replace. If not specified the name will either
+	 * be generated or, if the mock replaces an existing cluster, the existing name will be
 	 * used.
-	 * @return the name of the bean
+	 * @return the name of the cluster
 	 */
 	String name() default "";
 
@@ -148,7 +148,7 @@ public @interface MockBean {
 	boolean serializable() default false;
 
 	/**
-	 * The reset mode to apply to the mock bean. The default is {@link MockReset#AFTER}
+	 * The reset mode to apply to the mock cluster. The default is {@link MockReset#AFTER}
 	 * meaning that mocks are automatically reset after each test method is invoked.
 	 * @return the reset mode
 	 */

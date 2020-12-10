@@ -1,19 +1,3 @@
-/*
- * Copyright 2012-2019 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package org.springframework.boot.web.servlet;
 
 import java.util.AbstractCollection;
@@ -45,6 +29,8 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
 /**
+ * todo
+ *  ServletContextInitializerBeans 类，就是用来加载 Servlet 和 Filter 的
  * A collection {@link ServletContextInitializer}s obtained from a
  * {@link ListableBeanFactory}. Includes all {@link ServletContextInitializer} beans and
  * also adapts {@link Servlet}, {@link Filter} and certain {@link EventListener} beans.
@@ -66,7 +52,7 @@ public class ServletContextInitializerBeans extends AbstractCollection<ServletCo
 	private static final Log logger = LogFactory.getLog(ServletContextInitializerBeans.class);
 
 	/**
-	 * Seen bean instances or bean names.
+	 * Seen cluster instances or cluster names.
 	 */
 	private final Set<Object> seen = new HashSet<>();
 
@@ -82,6 +68,7 @@ public class ServletContextInitializerBeans extends AbstractCollection<ServletCo
 		this.initializers = new LinkedMultiValueMap<>();
 		this.initializerTypes = (initializerTypes.length != 0) ? Arrays.asList(initializerTypes)
 				: Collections.singletonList(ServletContextInitializer.class);
+
 		addServletContextInitializerBeans(beanFactory);
 		addAdaptableBeans(beanFactory);
 		List<ServletContextInitializer> sortedInitializers = this.initializers.values().stream()
@@ -95,6 +82,7 @@ public class ServletContextInitializerBeans extends AbstractCollection<ServletCo
 		for (Class<? extends ServletContextInitializer> initializerType : this.initializerTypes) {
 			for (Entry<String, ? extends ServletContextInitializer> initializerBean : getOrderedBeansOfType(beanFactory,
 					initializerType)) {
+				//针对各种bean进行处理
 				addServletContextInitializerBean(initializerBean.getKey(), initializerBean.getValue(), beanFactory);
 			}
 		}
@@ -128,13 +116,13 @@ public class ServletContextInitializerBeans extends AbstractCollection<ServletCo
 			ListableBeanFactory beanFactory, Object source) {
 		this.initializers.add(type, initializer);
 		if (source != null) {
-			// Mark the underlying source as seen in case it wraps an existing bean
+			// Mark the underlying source as seen in case it wraps an existing cluster
 			this.seen.add(source);
 		}
 		if (logger.isTraceEnabled()) {
 			String resourceDescription = getResourceDescription(beanName, beanFactory);
 			int order = getOrder(initializer);
-			logger.trace("Added existing " + type.getSimpleName() + " initializer bean '" + beanName + "'; order="
+			logger.trace("Added existing " + type.getSimpleName() + " initializer cluster '" + beanName + "'; order="
 					+ order + ", resource=" + resourceDescription);
 		}
 	}
@@ -182,7 +170,7 @@ public class ServletContextInitializerBeans extends AbstractCollection<ServletCo
 				registration.setOrder(order);
 				this.initializers.add(type, registration);
 				if (logger.isTraceEnabled()) {
-					logger.trace("Created " + type.getSimpleName() + " initializer for bean '" + beanName + "'; order="
+					logger.trace("Created " + type.getSimpleName() + " initializer for cluster '" + beanName + "'; order="
 							+ order + ", resource=" + getResourceDescription(beanName, beanFactory));
 				}
 			}
@@ -198,6 +186,8 @@ public class ServletContextInitializerBeans extends AbstractCollection<ServletCo
 		}.getOrder(value);
 	}
 
+	//todo 看看这个方法去容器中寻找注册过得 ServletContextInitializer ，
+	//  这时候就可以把之前那些 RegistrationBean 全部加载出来了。并且 RegistrationBean 还实现了 Ordered 接口，在这儿用于排序
 	private <T> List<Entry<String, T>> getOrderedBeansOfType(ListableBeanFactory beanFactory, Class<T> type) {
 		return getOrderedBeansOfType(beanFactory, type, Collections.emptySet());
 	}

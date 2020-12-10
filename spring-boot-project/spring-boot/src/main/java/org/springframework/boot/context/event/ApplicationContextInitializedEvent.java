@@ -23,7 +23,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 /**
  * Event published when a {@link SpringApplication} is starting up and the
  * {@link ApplicationContext} is prepared and ApplicationContextInitializers have been
- * called but before any bean definitions are loaded.
+ * called but before any cluster definitions are loaded.
  *
  * @author Artsiom Yudovin
  * @since 2.1.0

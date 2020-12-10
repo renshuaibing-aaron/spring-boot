@@ -29,9 +29,9 @@ import org.springframework.context.annotation.Conditional;
 /**
  * {@link Conditional} that only matches when no beans meeting the specified requirements
  * are already contained in the {@link BeanFactory}. None of the requirements must be met
- * for the condition to match and the requirements do not have to be met by the same bean.
+ * for the condition to match and the requirements do not have to be met by the same cluster.
  * <p>
- * When placed on a {@code @Bean} method, the bean class defaults to the return type of
+ * When placed on a {@code @Bean} method, the cluster class defaults to the return type of
  * the factory method:
  *
  * <pre class="code">
@@ -46,12 +46,12 @@ import org.springframework.context.annotation.Conditional;
  *
  * }</pre>
  * <p>
- * In the sample above the condition will match if no bean of type {@code MyService} is
+ * In the sample above the condition will match if no cluster of type {@code MyService} is
  * already contained in the {@link BeanFactory}.
  * <p>
- * The condition can only match the bean definitions that have been processed by the
+ * The condition can only match the cluster definitions that have been processed by the
  * application context so far and, as such, it is strongly recommended to use this
- * condition on auto-configuration classes only. If a candidate bean may be created by
+ * condition on auto-configuration classes only. If a candidate cluster may be created by
  * another auto-configuration, make sure that the one using this condition runs after.
  *
  * @author Phillip Webb
@@ -65,7 +65,7 @@ import org.springframework.context.annotation.Conditional;
 public @interface ConditionalOnMissingBean {
 
 	/**
-	 * The class types of beans that should be checked. The condition matches when no bean
+	 * The class types of beans that should be checked. The condition matches when no cluster
 	 * of each class specified is contained in the {@link BeanFactory}.
 	 * @return the class types of beans to check
 	 */
@@ -73,7 +73,7 @@ public @interface ConditionalOnMissingBean {
 
 	/**
 	 * The class type names of beans that should be checked. The condition matches when no
-	 * bean of each class specified is contained in the {@link BeanFactory}.
+	 * cluster of each class specified is contained in the {@link BeanFactory}.
 	 * @return the class type names of beans to check
 	 */
 	String[] type() default {};
@@ -94,7 +94,7 @@ public @interface ConditionalOnMissingBean {
 	String[] ignoredType() default {};
 
 	/**
-	 * The annotation type decorating a bean that should be checked. The condition matches
+	 * The annotation type decorating a cluster that should be checked. The condition matches
 	 * when each annotation specified is missing from all beans in the
 	 * {@link BeanFactory}.
 	 * @return the class-level annotation types to check
@@ -102,7 +102,7 @@ public @interface ConditionalOnMissingBean {
 	Class<? extends Annotation>[] annotation() default {};
 
 	/**
-	 * The names of beans to check. The condition matches when each bean name specified is
+	 * The names of beans to check. The condition matches when each cluster name specified is
 	 * missing in the {@link BeanFactory}.
 	 * @return the names of beans to check
 	 */
@@ -116,7 +116,7 @@ public @interface ConditionalOnMissingBean {
 	SearchStrategy search() default SearchStrategy.ALL;
 
 	/**
-	 * Additional classes that may contain the specified bean types within their generic
+	 * Additional classes that may contain the specified cluster types within their generic
 	 * parameters. For example, an annotation declaring {@code value=Name.class} and
 	 * {@code parameterizedContainer=NameRegistration.class} would detect both
 	 * {@code Name} and {@code NameRegistration<Name>}.

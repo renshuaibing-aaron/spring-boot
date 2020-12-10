@@ -47,7 +47,7 @@ import org.springframework.ws.transport.WebServiceMessageSender;
  * By default the built {@link WebServiceTemplate} uses the most suitable HTTP-based
  * {@link WebServiceMessageSender}, call {@link #detectHttpMessageSender(boolean)
  * detectHttpMessageSender(false)} if you prefer to keep the default. In a typical
- * auto-configured Spring Boot application this builder is available as a bean and can be
+ * auto-configured Spring Boot application this builder is available as a cluster and can be
  * injected whenever a {@link WebServiceTemplate} is needed.
  *
  * @author Dmytro Nosan

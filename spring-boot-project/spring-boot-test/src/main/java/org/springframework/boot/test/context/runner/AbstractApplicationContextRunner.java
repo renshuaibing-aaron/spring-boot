@@ -66,7 +66,7 @@ import org.springframework.util.Assert;
  * }</pre>
  * <p>
  * The test above has changed the {@code spring.foo} property to {@code biz} and is
- * asserting that the context contains a single {@code MyBean} bean. The
+ * asserting that the context contains a single {@code MyBean} cluster. The
  * {@link #run(ContextConsumer) run} method takes a {@link ContextConsumer} that can apply
  * assertions to the context. Upon completion, the context is automatically closed.
  * <p>
@@ -193,7 +193,7 @@ public abstract class AbstractApplicationContextRunner<SELF extends AbstractAppl
 
 	/**
 	 * Customize the {@link ClassLoader} that the {@link ApplicationContext} should use
-	 * for resource loading and bean class loading.
+	 * for resource loading and cluster class loading.
 	 * @param classLoader the classloader to use (can be null to use the default)
 	 * @return a new instance with the updated class loader
 	 * @see FilteredClassLoader

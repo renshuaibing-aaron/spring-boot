@@ -31,7 +31,7 @@ import org.springframework.web.reactive.function.client.WebClient;
  * {@link EnableAutoConfiguration Auto-configuration} for {@link ClientHttpConnector}.
  * <p>
  * It can produce a {@link org.springframework.http.client.reactive.ClientHttpConnector}
- * bean and possibly a companion {@code ResourceFactory} bean, depending on the chosen
+ * cluster and possibly a companion {@code ResourceFactory} cluster, depending on the chosen
  * HTTP client library.
  *
  * @author Brian Clozel

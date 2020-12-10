@@ -51,7 +51,7 @@ import org.springframework.web.util.UriTemplateHandler;
  * By default the built {@link RestTemplate} will attempt to use the most suitable
  * {@link ClientHttpRequestFactory}, call {@link #detectRequestFactory(boolean)
  * detectRequestFactory(false)} if you prefer to keep the default. In a typical
- * auto-configured Spring Boot application this builder is available as a bean and can be
+ * auto-configured Spring Boot application this builder is available as a cluster and can be
  * injected whenever a {@link RestTemplate} is needed.
  *
  * @author Stephane Nicoll

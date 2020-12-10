@@ -54,7 +54,7 @@ import org.springframework.web.client.RestTemplate;
  * {@link AutoConfigureMockRestServiceServer @AutoConfigureMockRestServiceServer}
  * annotation can be used.
  * <p>
- * If you are testing a bean that doesn't use {@link RestTemplateBuilder} but instead
+ * If you are testing a cluster that doesn't use {@link RestTemplateBuilder} but instead
  * injects a {@link RestTemplate} directly, you can add
  * {@code @AutoConfigureWebClient(registerRestTemplate=true)}.
  *

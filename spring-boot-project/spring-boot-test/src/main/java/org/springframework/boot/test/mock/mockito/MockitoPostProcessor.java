@@ -126,7 +126,7 @@ public class MockitoPostProcessor extends InstantiationAwareBeanPostProcessorAda
 	@Override
 	public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
 		Assert.isInstanceOf(BeanDefinitionRegistry.class, beanFactory,
-				"@MockBean can only be used on bean factories that " + "implement BeanDefinitionRegistry");
+				"@MockBean can only be used on cluster factories that " + "implement BeanDefinitionRegistry");
 		postProcessBeanFactory(beanFactory, (BeanDefinitionRegistry) beanFactory);
 	}
 
@@ -183,7 +183,7 @@ public class MockitoPostProcessor extends InstantiationAwareBeanPostProcessorAda
 			registry.removeBeanDefinition(transformedBeanName);
 		}
 		registry.registerBeanDefinition(transformedBeanName, beanDefinition);
-		Object mock = definition.createMock(beanName + " bean");
+		Object mock = definition.createMock(beanName + " cluster");
 		beanFactory.registerSingleton(transformedBeanName, mock);
 		this.mockitoBeans.add(mock);
 		this.beanNameRegistry.put(definition, beanName);
@@ -218,8 +218,8 @@ public class MockitoPostProcessor extends InstantiationAwareBeanPostProcessorAda
 		if (primaryCandidate != null) {
 			return primaryCandidate;
 		}
-		throw new IllegalStateException("Unable to register mock bean " + mockDefinition.getTypeToMock()
-				+ " expected a single matching bean to replace but found " + existingBeans);
+		throw new IllegalStateException("Unable to register mock cluster " + mockDefinition.getTypeToMock()
+				+ " expected a single matching cluster to replace but found " + existingBeans);
 	}
 
 	private void copyBeanDefinitionDetails(BeanDefinition from, RootBeanDefinition to) {
@@ -286,7 +286,7 @@ public class MockitoPostProcessor extends InstantiationAwareBeanPostProcessorAda
 			registerSpy(spyDefinition, field, beanName);
 		}
 		catch (RuntimeException ex) {
-			throw new IllegalStateException("Unable to register spy bean " + spyDefinition.getTypeToSpy(), ex);
+			throw new IllegalStateException("Unable to register spy cluster " + spyDefinition.getTypeToSpy(), ex);
 		}
 	}
 
@@ -309,7 +309,7 @@ public class MockitoPostProcessor extends InstantiationAwareBeanPostProcessorAda
 			if (beanDefinition.isPrimary()) {
 				if (primaryBeanName != null) {
 					throw new NoUniqueBeanDefinitionException(type.resolve(), candidateBeanNames.size(),
-							"more than one 'primary' bean found among candidates: "
+							"more than one 'primary' cluster found among candidates: "
 									+ Arrays.asList(candidateBeanNames));
 				}
 				primaryBeanName = candidateBeanName;
@@ -350,7 +350,7 @@ public class MockitoPostProcessor extends InstantiationAwareBeanPostProcessorAda
 
 	void inject(Field field, Object target, Definition definition) {
 		String beanName = this.beanNameRegistry.get(definition);
-		Assert.state(StringUtils.hasLength(beanName), () -> "No bean found for definition " + definition);
+		Assert.state(StringUtils.hasLength(beanName), () -> "No cluster found for definition " + definition);
 		inject(field, target, beanName);
 	}
 
@@ -378,7 +378,7 @@ public class MockitoPostProcessor extends InstantiationAwareBeanPostProcessorAda
 	/**
 	 * Register the processor with a {@link BeanDefinitionRegistry}. Not required when
 	 * using the {@link SpringRunner} as registration is automatic.
-	 * @param registry the bean definition registry
+	 * @param registry the cluster definition registry
 	 */
 	public static void register(BeanDefinitionRegistry registry) {
 		register(registry, null);
@@ -387,7 +387,7 @@ public class MockitoPostProcessor extends InstantiationAwareBeanPostProcessorAda
 	/**
 	 * Register the processor with a {@link BeanDefinitionRegistry}. Not required when
 	 * using the {@link SpringRunner} as registration is automatic.
-	 * @param registry the bean definition registry
+	 * @param registry the cluster definition registry
 	 * @param definitions the initial mock/spy definitions
 	 */
 	public static void register(BeanDefinitionRegistry registry, Set<Definition> definitions) {
@@ -397,7 +397,7 @@ public class MockitoPostProcessor extends InstantiationAwareBeanPostProcessorAda
 	/**
 	 * Register the processor with a {@link BeanDefinitionRegistry}. Not required when
 	 * using the {@link SpringRunner} as registration is automatic.
-	 * @param registry the bean definition registry
+	 * @param registry the cluster definition registry
 	 * @param postProcessor the post processor class to register
 	 * @param definitions the initial mock/spy definitions
 	 */

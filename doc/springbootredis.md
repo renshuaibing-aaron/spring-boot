@@ -1,0 +1,1 @@
+Spring Data Redis 暂时只支持 Jedis、Lettuce 的内部封装，而 Redisson 是由 redisson-spring-data 来提供

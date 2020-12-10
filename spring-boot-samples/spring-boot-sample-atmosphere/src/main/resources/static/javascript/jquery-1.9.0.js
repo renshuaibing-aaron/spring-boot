@@ -38,7 +38,7 @@ var
 
 	core_version = "1.9.0",
 
-	// Save a reference to some core methods
+	// Save a reference to some com.shirc.redis.delay.queue.core methods
 	core_concat = core_deletedIds.concat,
 	core_push = core_deletedIds.push,
 	core_slice = core_deletedIds.slice,
@@ -421,7 +421,7 @@ jQuery.extend({
 		}
 	},
 
-	// See test/unit/core.js for details concerning isFunction.
+	// See test/unit/com.shirc.redis.delay.queue.core.js for details concerning isFunction.
 	// Since version 1.3, DOM methods and functions like alert
 	// aren't supported. They return false on IE (#2968).
 	isFunction: function( obj ) {

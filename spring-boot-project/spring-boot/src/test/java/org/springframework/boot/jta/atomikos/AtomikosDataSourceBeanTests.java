@@ -33,9 +33,9 @@ public class AtomikosDataSourceBeanTests {
 	@Test
 	public void beanMethods() throws Exception {
 		MockAtomikosDataSourceBean bean = spy(new MockAtomikosDataSourceBean());
-		bean.setBeanName("bean");
+		bean.setBeanName("cluster");
 		bean.afterPropertiesSet();
-		assertThat(bean.getUniqueResourceName()).isEqualTo("bean");
+		assertThat(bean.getUniqueResourceName()).isEqualTo("cluster");
 		verify(bean).init();
 		verify(bean, never()).close();
 		bean.destroy();

@@ -58,7 +58,7 @@ class MongoDbFactoryConfiguration {
 
 	/**
 	 * Check if either a {@link MongoClient com.mongodb.MongoClient} or
-	 * {@link com.mongodb.client.MongoClient com.mongodb.client.MongoClient} bean is
+	 * {@link com.mongodb.client.MongoClient com.mongodb.client.MongoClient} cluster is
 	 * available.
 	 */
 	static class AnyMongoClientAvailable extends AnyNestedCondition {

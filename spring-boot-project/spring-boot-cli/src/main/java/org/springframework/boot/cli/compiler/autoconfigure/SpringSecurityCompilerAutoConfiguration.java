@@ -45,9 +45,9 @@ public class SpringSecurityCompilerAutoConfiguration extends CompilerAutoConfigu
 
 	@Override
 	public void applyImports(ImportCustomizer imports) {
-		imports.addImports("org.springframework.security.core.Authentication",
+		imports.addImports("org.springframework.security.com.shirc.redis.delay.queue.core.Authentication",
 				"org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity",
-				"org.springframework.security.core.authority.AuthorityUtils")
+				"org.springframework.security.com.shirc.redis.delay.queue.core.authority.AuthorityUtils")
 				.addStarImports("org.springframework.security.config.annotation.web.configuration",
 						"org.springframework.security.authentication",
 						"org.springframework.security.config.annotation.web",
